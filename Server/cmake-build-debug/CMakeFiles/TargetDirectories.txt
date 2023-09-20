@@ -1,0 +1,3 @@
+D:/Progg/Plotniy_Project/Server/cmake-build-debug/CMakeFiles/Server.dir
+D:/Progg/Plotniy_Project/Server/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Progg/Plotniy_Project/Server/cmake-build-debug/CMakeFiles/rebuild_cache.dir

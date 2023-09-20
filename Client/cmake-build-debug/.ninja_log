@@ -1,0 +1,18 @@
+# ninja log v5
+19	3366	7169364522178025	CMakeFiles/Client.dir/Client.cpp.obj	5449e291e68e636e
+6	3351	7169364522008049	CMakeFiles/Client.dir/main.cpp.obj	a74877c1569c7fd4
+1	211	7169365235028982	build.ninja	bef5d88091b69e3e
+1787	1912	7165064517985359	Client.exe	306a2b3522cfc9e4
+18	579	7165064504641947	CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj	1c22d090ac5246b3
+13	3360	7169364522108022	CMakeFiles/Client.dir/ServerHandler/ServerHandler.cpp.obj	3868a1da535a151c
+1	298	7169365235028982	build.ninja	bef5d88091b69e3e
+23	2526	7169365260476660	CMakeFiles/Client.dir/Client.cpp.obj	5449e291e68e636e
+17	2551	7169365260736670	CMakeFiles/Client.dir/main.cpp.obj	a74877c1569c7fd4
+25	3154	7169374397745786	CMakeFiles/Client.dir/Client.cpp.obj	5449e291e68e636e
+10	3196	7169374398165802	CMakeFiles/Client.dir/main.cpp.obj	a74877c1569c7fd4
+17	3688	7169374403047753	CMakeFiles/Client.dir/ServerHandler/ServerHandler.cpp.obj	3868a1da535a151c
+3688	3912	7169374405334331	Client.exe	306a2b3522cfc9e4
+9	2781	7169437155279189	CMakeFiles/Client.dir/ServerHandler/ServerHandler.cpp.obj	3868a1da535a151c
+2781	2997	7169437157479570	Client.exe	306a2b3522cfc9e4
+8	2821	7169437962334972	CMakeFiles/Client.dir/ServerHandler/ServerHandler.cpp.obj	3868a1da535a151c
+2822	3039	7169437964545294	Client.exe	306a2b3522cfc9e4
