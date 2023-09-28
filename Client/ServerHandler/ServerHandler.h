@@ -7,6 +7,7 @@
 
 #include <winsock2.h>
 #include <thread>
+#include <mutex>
 #include <queue>
 #include <chrono>
 #include <boost/property_tree/ptree.hpp>
@@ -18,15 +19,19 @@ class ServerHandler {
 private:
     UserInterface* m_interface = UserInterface::GetInstance();
     static ServerHandler* m_instance;
-    static std::queue<std::string> m_message_queue;
+    static std::queue<std::string> m_message_to_server_queue;
+    static std::queue<std::vector<char>> m_message_from_server_queue;
+    std::mutex m_access_to_message_to_server_queue;
+    std::mutex m_access_to_message_from_server_queue;
     explicit ServerHandler(SOCKET client_socket);
-    SOCKET m_client_socket;
+    SOCKET m_server_socket;
 
 public:
     static ServerHandler* GetInstance(SOCKET client_socket);
     ~ServerHandler(){delete m_interface;}
+    void Handle_Server_Message();
     void Read_from_Server();
-    void Write_to_Server(std::string type, const std::string& message) const;
+    void Write_to_Server(std::string type, const std::string& message);
     UserInterface* Get_User_Interface();
 
 };

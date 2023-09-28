@@ -7,15 +7,19 @@
 
 #include <iostream>
 #include <winsock2.h>
+#include <locale>
+#include <condition_variable>
 
 #include "ServerHandler/ServerHandler.h"
 
 class Client {
 private:
+    std::condition_variable m_notification_registration_data;
+    std::mutex m_registration_ans_mutex;
     static Client* m_instance;
     ServerHandler* m_server_handler{};
     sockaddr_in m_server_address{};
-    SOCKET m_client_socket{};
+    SOCKET m_server_socket{};
     Client();
 
 public:
@@ -27,6 +31,9 @@ public:
     void Disconnect() const;
     bool Is_Connected() const;
     bool Start_Communication();
+    bool Registration();
+    std::string Get_Password();
+    std::string Get_Telephone_Number();
 };
 
 
