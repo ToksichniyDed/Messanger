@@ -14,23 +14,11 @@
 # EXTERNAL cache entries
 ########################
 
-//Boost container library (debug)
-Boost_CONTAINER_LIBRARY_DEBUG:FILEPATH=Boost_CONTAINER_LIBRARY_DEBUG-NOTFOUND
-
-//Boost container library (release)
-Boost_CONTAINER_LIBRARY_RELEASE:FILEPATH=Boost_CONTAINER_LIBRARY_RELEASE-NOTFOUND
-
 //The directory containing a CMake configuration file for Boost.
 Boost_DIR:PATH=Boost_DIR-NOTFOUND
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0
-
-//Boost json library (debug)
-Boost_JSON_LIBRARY_DEBUG:FILEPATH=Boost_JSON_LIBRARY_DEBUG-NOTFOUND
-
-//Boost json library (release)
-Boost_JSON_LIBRARY_RELEASE:FILEPATH=Boost_JSON_LIBRARY_RELEASE-NOTFOUND
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/addr2line.exe
@@ -137,7 +125,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Server
 CMAKE_LINKER:FILEPATH=C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/ld.exe
 
 //make program
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -271,18 +259,10 @@ Server_SOURCE_DIR:STATIC=D:/Progg/Plotniy_Project/Server
 # INTERNAL cache entries
 ########################
 
-//ADVANCED property for variable: Boost_CONTAINER_LIBRARY_DEBUG
-Boost_CONTAINER_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_CONTAINER_LIBRARY_RELEASE
-Boost_CONTAINER_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_DIR
 Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_INCLUDE_DIR
 Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_JSON_LIBRARY_DEBUG
-Boost_JSON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_JSON_LIBRARY_RELEASE
-Boost_JSON_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR

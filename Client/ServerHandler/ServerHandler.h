@@ -6,6 +6,9 @@
 #define CLIENT_SERVERHANDLER_H
 
 #include <winsock2.h>
+#include <thread>
+#include <queue>
+#include <chrono>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 
@@ -15,6 +18,7 @@ class ServerHandler {
 private:
     UserInterface* m_interface = UserInterface::GetInstance();
     static ServerHandler* m_instance;
+    static std::queue<std::string> m_message_queue;
     explicit ServerHandler(SOCKET client_socket);
     SOCKET m_client_socket;
 
@@ -22,7 +26,7 @@ public:
     static ServerHandler* GetInstance(SOCKET client_socket);
     ~ServerHandler(){delete m_interface;}
     void Read_from_Server();
-    void Write_to_Server() const;
+    void Write_to_Server(std::string type, const std::string& message) const;
     UserInterface* Get_User_Interface();
 
 };

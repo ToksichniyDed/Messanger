@@ -31,20 +31,28 @@ void Client::Disconnect() const {
 }
 
 bool Client::Is_Connected() const {
-    char buffer[1];
-    int received_server = recv(m_client_socket,buffer,1,0);
-    if(received_server < 0 )
-        return false;
-    return true;
+    while(true) {
+        boost::property_tree::ptree client_pt;
+        client_pt.put("type", "check_connection");
+
+        std::stringstream ss;
+        boost::property_tree::write_json(ss, client_pt);
+
+        std::string buffer = ss.str();
+        int check_server = send(m_client_socket, buffer.c_str(), buffer.size(), 0);
+        if (check_server < 0)
+            return false;
+        return true;
+    }
 }
 
 bool Client::Start_Communication() {
-    while(Is_Connected()){
+    while(true){
         switch (m_server_handler->Get_User_Interface()->Menu()) {
             case 0:
                 break;
             case 1:{
-                m_server_handler->Write_to_Server();
+                Write_Message();
                 break;
             }
             case 2:{
@@ -59,13 +67,20 @@ bool Client::Start_Communication() {
             }
         }
     }
-    throw std::runtime_error ("Failed connection to server!");
 }
 
 Client*  Client::GetInstance() {
     if(m_instance == nullptr)
         m_instance = new Client();
     return m_instance;
+}
+
+void Client::Write_Message() {
+    std::string message;
+    std::cout<<"Введите сообщение: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, message);
+    m_server_handler->Write_to_Server("message",message);
 }
 
 

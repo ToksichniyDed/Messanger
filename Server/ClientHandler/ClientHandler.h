@@ -16,11 +16,9 @@ private:
     SOCKET m_client_socket;
 
 public:
-    explicit ClientHandler(SOCKET client_socket);
-    void Read_Client_Data();
+    [[maybe_unused]] explicit ClientHandler(SOCKET client_socket);
+    void Read_Client_Data(std::vector<char> client_buffer);
     void Send_Data_To_Client();
-    bool Check_Connection_With_Client() const;
-    void Start_Handle();
 };
 
 

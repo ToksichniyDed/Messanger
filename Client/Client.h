@@ -13,7 +13,7 @@
 class Client {
 private:
     static Client* m_instance;
-    ServerHandler* m_server_handler;
+    ServerHandler* m_server_handler{};
     sockaddr_in m_server_address{};
     SOCKET m_client_socket{};
     Client();
@@ -23,6 +23,7 @@ public:
     ~Client(){delete m_server_handler;
         std::cout<<"Delete client!"<<std::endl;}
     void Connect();
+    void Write_Message();
     void Disconnect() const;
     bool Is_Connected() const;
     bool Start_Communication();

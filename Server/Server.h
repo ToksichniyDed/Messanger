@@ -16,8 +16,8 @@
 class Server {
 private:
     static Server* m_server_instance;
-    SOCKET m_server_socket{};
-    sockaddr_in m_server_address{};
+    SOCKET m_server_socket;
+    sockaddr_in m_server_address;
     std::unique_ptr<ThreadPool> m_thread_pool;
     Server();
 
