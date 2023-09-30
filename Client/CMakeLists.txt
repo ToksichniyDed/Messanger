@@ -7,11 +7,15 @@ find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
 add_executable(Client main.cpp
-        ServerHandler/ServerHandler.cpp
-        ServerHandler/ServerHandler.h
+        Handlers/ServerHandler.cpp
+        Handlers/ServerHandler.h
         Interface/UserInterface.h
         Interface/UserInterface.cpp
         Client.cpp
-        Client.h)
+        Client.h
+        Handlers/MessengerHandler.cpp
+        Handlers/MessengerHandler.h
+        User/User.cpp
+        User/User.h)
 
 target_link_libraries(Client PRIVATE ws2_32.lib ${Boost_LIBRARIES})

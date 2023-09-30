@@ -22,7 +22,9 @@ int main() {
                 while(flag){flag = client->Is_Connected();
             std::this_thread::sleep_for(std::chrono::seconds(5));}
                 throw std::runtime_error("Server disconnected!");});
+            std::thread listen_server([&]{client->Get_ServerHandler()->Read_from_Server();});
             flag = client->Start_Communication();
+            check_thread.join();
         }
         catch (std::exception &Error) {
             std::cout << "Error: " << Error.what() << std::endl;
