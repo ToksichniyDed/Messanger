@@ -8,24 +8,20 @@
 #include <iostream>
 
 #include "../Handlers/MessengerHandler.h"
-#include "../Handlers/ServerHandler.h"
 #include "../Interface/UserInterface.h"
-
+#include "../Handlers/User_ServerHandler_Mediator.h"
 
 class User {
 private:
     UserInterface* m_interface = UserInterface::GetInstance();
-    ServerHandler* m_server_handler;
-    std::string m_telephone_number;
-    std::string m_username;
     MessengerHandler* m_messenger_handler{};
+    User_ServerHandler_Mediator* m_mediator;
 
 public:
-    explicit User(ServerHandler* server_handler);
     ~User(){delete m_interface;
     delete m_messenger_handler;}
-    bool User_Registration();
-    bool User_Authorization();
+    bool User_Registration_Authorization(std::string type);
+    void Set_Mediator(User_ServerHandler_Mediator* mediator);
 
 };
 

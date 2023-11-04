@@ -45,9 +45,16 @@ void ThreadPool::Listening_Connected_Clients() {
         //Проверка, что клиенты из очереди до  сих пор подключены
         for (auto it = m_client_queue.begin(); it != m_client_queue.end();) {
             const SOCKET &client_socket = *it;
-            std::string buffer("check");
 
-            if (send(client_socket, buffer.c_str(), buffer.size(), 0) == SOCKET_ERROR) {
+            boost::property_tree::ptree check_pt;
+            check_pt.put("type", "check");
+            check_pt.put("data", "1");
+
+            std::stringstream ss;
+            boost::property_tree::write_json(ss, check_pt);
+            std::string check_client = ss.str();
+
+            if (send(client_socket, check_client.c_str(), check_client.size(), 0) == SOCKET_ERROR) {
                 std::lock_guard<std::mutex> lock(m_access_to_client_queue);
                 closesocket(client_socket);
                 it = m_client_queue.erase(it);

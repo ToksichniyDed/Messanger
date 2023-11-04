@@ -17,6 +17,8 @@ void Client::Connect() {
     m_server_address.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     m_server_handler = ServerHandler::GetInstance(m_server_socket);
+    m_mediator = User_ServerHandler_Mediator::Get_Instance();
+    m_server_handler->Set_Mediator(m_mediator);
 
     if (connect(m_server_socket, (struct sockaddr *) &m_server_address, sizeof(m_server_address)) == -1){
         Disconnect();
@@ -47,11 +49,20 @@ bool Client::Is_Connected() const {
 }
 
 bool Client::Start_Communication() {
-    m_user = new User(m_server_handler);
-    if(m_user->User_Registration())
+    m_user = new User();
+    m_user->Set_Mediator(m_mediator);
+    switch(){
+        case '1'
+    }
+    if(m_user->User_Registration_Authorization( "registration_data"))
         std::cout<<"Успешная регистрация!"<<std::endl;
     else
         std::cout<<"Ошибка регистрации!"<<std::endl;
+
+    if(m_user->User_Registration_Authorization( "authorization_data"))
+        std::cout<<"Успешная авторизация!"<<std::endl;
+    else
+        std::cout<<"Ошибка авторизации!"<<std::endl;
     return true;
 }
 

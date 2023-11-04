@@ -9,8 +9,8 @@
 #include <memory>
 #include <conio.h>
 #include <locale>
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/json_parser.hpp>
+
+#include "../Tools/Json_Tools.h"
 
 
 class UserInterface {
@@ -22,8 +22,7 @@ public:
     static UserInterface* GetInstance();
 
     //Авторизация и регистрация
-    bool Authorization();
-    std::string Registration();
+    std::string Registration_Authorization();
     std::string Get_Password();
     std::string Get_Telephone_Number();
 

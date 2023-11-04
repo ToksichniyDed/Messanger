@@ -91,6 +91,20 @@ build CMakeFiles/Client.dir/User/User.cpp.obj: CXX_COMPILER__Client_unscanned_De
   OBJECT_DIR = CMakeFiles\Client.dir
   OBJECT_FILE_DIR = CMakeFiles\Client.dir\User
 
+build CMakeFiles/Client.dir/Handlers/User_ServerHandler_Mediator.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Handlers/User_ServerHandler_Mediator.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\Handlers\User_ServerHandler_Mediator.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Handlers
+
+build CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Tools/Json_Tools.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\Tools\Json_Tools.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Tools
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Client
@@ -99,7 +113,7 @@ build CMakeFiles/Client.dir/User/User.cpp.obj: CXX_COMPILER__Client_unscanned_De
 #############################################
 # Link the executable Client.exe
 
-build Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug CMakeFiles/Client.dir/main.cpp.obj CMakeFiles/Client.dir/Handlers/ServerHandler.cpp.obj CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj CMakeFiles/Client.dir/Client.cpp.obj CMakeFiles/Client.dir/Handlers/MessengerHandler.cpp.obj CMakeFiles/Client.dir/User/User.cpp.obj
+build Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug CMakeFiles/Client.dir/main.cpp.obj CMakeFiles/Client.dir/Handlers/ServerHandler.cpp.obj CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj CMakeFiles/Client.dir/Client.cpp.obj CMakeFiles/Client.dir/Handlers/MessengerHandler.cpp.obj CMakeFiles/Client.dir/User/User.cpp.obj CMakeFiles/Client.dir/Handlers/User_ServerHandler_Mediator.cpp.obj CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Client.dir

@@ -6,7 +6,6 @@ int main() {
     system("chcp 65001");
 
     try {
-
         // Инициализация Winsock
         WSADATA wsaData;
         if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {

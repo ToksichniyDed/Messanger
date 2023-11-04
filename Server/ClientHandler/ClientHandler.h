@@ -9,8 +9,8 @@
 #include <winsock2.h>
 #include <queue>
 #include <mutex>
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/json_parser.hpp>
+
+#include "../Tools/Json_Tools.h"
 
 class ClientHandler {
 
@@ -20,8 +20,8 @@ private:
 
 public:
     [[maybe_unused]] explicit ClientHandler(SOCKET client_socket);
-    void Read_Client_Data(std::vector<char> client_buffer);
-    void Send_Data_To_Client(std::string type, const std::string &message);
+    void Read_Client_Data(std::vector<char> client_buffer) const;
+    void Send_Data_To_Client(const std::string &type, const std::string &message) const;
 };
 
 

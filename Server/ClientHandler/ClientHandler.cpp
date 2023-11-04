@@ -8,28 +8,26 @@
     std::cout << "Create ClientHandler of " << client_socket << " socket!" << std::endl;
 }
 
-void ClientHandler::Read_Client_Data(std::vector<char> client_buffer) {
+void ClientHandler::Read_Client_Data(std::vector<char> client_buffer) const {
     try {
-        std::string received_json(client_buffer.data(), client_buffer.size());
-
-        boost::property_tree::ptree client_pt;
-        std::istringstream iss(received_json);
-        boost::property_tree::read_json(iss, client_pt);
-
-        auto message_type = client_pt.get<std::string>("type");
+        std::string client_str (client_buffer.begin(),client_buffer.end());
+        auto message_type = Unpack_Json("type", client_str);
 
         if (message_type == "message") {
-            auto message_data = client_pt.get<std::string>("data");
+            auto message_data = Unpack_Json("data",client_str);
             std::cout << "Client message: " << message_data << std::endl;
         } else if (message_type == "registration_data") {
-            auto registration_data = client_pt.get<std::string>("data");
-            boost::property_tree::ptree registration_data_pt;
-            std::istringstream r_iss(registration_data);
-            boost::property_tree::read_json(r_iss, registration_data_pt);
-            std::cout << "Телефон: " << registration_data_pt.get<std::string>("telephone_number")
-                      << " Номер: " << registration_data_pt.get<std::string>("password") << std::endl;
+            std::cout << "Телефон: " << Unpack_Json("telephone_number", Unpack_Json("data",client_str))
+                      << " Номер: " << Unpack_Json("password", Unpack_Json("data",client_str)) << std::endl;
+
             Send_Data_To_Client("registration_data_ans","true");
-        } else {
+        } else if(message_type == "authorization_data"){
+            std::cout << "Телефон: " << Unpack_Json("telephone_number", Unpack_Json("data",client_str))
+                      << " Номер: " << Unpack_Json("password", Unpack_Json("data",client_str)) << std::endl;
+
+            Send_Data_To_Client("authorization_data_ans","false");
+        }
+        else {
             std::cout << "No handle for this type of message!" << std::endl;
         }
     } catch (std::exception &Error) {
@@ -38,7 +36,7 @@ void ClientHandler::Read_Client_Data(std::vector<char> client_buffer) {
     }
 }
 
-void ClientHandler::Send_Data_To_Client(std::string type, const std::string &message) {
+void ClientHandler::Send_Data_To_Client(const std::string &type, const std::string &message) const {
     try {
         boost::property_tree::ptree server_pt;
         server_pt.put("type", type);

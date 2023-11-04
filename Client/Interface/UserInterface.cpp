@@ -9,7 +9,7 @@ UserInterface* UserInterface::m_instance;
 
 int UserInterface::Menu() {
     //system("cls");
-    std::cout<< "Меню\n"<<"1. Поприветствовать сервер!\n"<<"2. Что то еще\n"<<"3. Выйти\n"<<std::endl;
+    std::cout<< "Меню\n"<<"1. Регистрация \n"<<"2. Авторизация \n"<<"3. Выйти\n"<<std::endl;
     int menu_item;
     try {
         std::cin>>menu_item;
@@ -43,7 +43,7 @@ UserInterface *UserInterface::GetInstance() {
     return m_instance;
 }
 
-std::string UserInterface::Registration() {
+std::string UserInterface::Registration_Authorization() {
     std::string telephone_number = " ",password = " ";
     while(telephone_number == " "){
         telephone_number = Get_Telephone_Number();
@@ -57,8 +57,8 @@ std::string UserInterface::Registration() {
 
     std::stringstream ss;
     boost::property_tree::write_json(ss, registration_data_pt);
-    std::string registration_data = ss.str();
-    return registration_data;
+    std::string registration_authorization_data = ss.str();
+    return registration_authorization_data;
 }
 
 std::string UserInterface::Get_Password() {
@@ -100,9 +100,6 @@ std::string UserInterface::Get_Telephone_Number() {
     return telephone_number;
 }
 
-bool UserInterface::Authorization() {
-    return false;
-}
 
 
 
