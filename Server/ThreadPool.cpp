@@ -18,8 +18,6 @@ ThreadPool::ThreadPool(int count_of_pools) {
     }
 }
 
-
-
 void ThreadPool::Push_New_Client(SOCKET client_socket){
     std::lock_guard<std::mutex> lock(m_access_to_client_queue);
     std::cout<<"Client was connected!"<<std::endl;
@@ -108,7 +106,6 @@ void ThreadPool::Handlers_Threads() {
         }
         std::cout<<"Thread "<<std::this_thread::get_id() <<" is free!"<<std::endl;
     }
-
 }
 
 

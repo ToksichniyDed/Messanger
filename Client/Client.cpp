@@ -51,9 +51,6 @@ bool Client::Is_Connected() const {
 bool Client::Start_Communication() {
     m_user = new User();
     m_user->Set_Mediator(m_mediator);
-    switch(){
-        case '1'
-    }
     if(m_user->User_Registration_Authorization( "registration_data"))
         std::cout<<"Успешная регистрация!"<<std::endl;
     else

@@ -22,7 +22,6 @@ private:
     Server();
 
 public:
-
     static Server* GetInstance();
     void Start();
     void Turn_Off() const;

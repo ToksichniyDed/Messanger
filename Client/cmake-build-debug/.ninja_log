@@ -56,3 +56,6 @@
 26	3889	7211777680722715	CMakeFiles/Client.dir/Handlers/ServerHandler.cpp.obj	66aa76fc2b87a1f0
 34	4572	7211777687271745	CMakeFiles/Client.dir/Client.cpp.obj	5449e291e68e636e
 4573	5308	7211777694607343	Client.exe	fe6ee465bf2e29a5
+14	2176	7212526079061773	CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj	1c22d090ac5246b3
+32	3520	7212526092617141	CMakeFiles/Client.dir/Client.cpp.obj	5449e291e68e636e
+3520	4179	7212526098976326	Client.exe	fe6ee465bf2e29a5

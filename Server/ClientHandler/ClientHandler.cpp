@@ -38,13 +38,7 @@ void ClientHandler::Read_Client_Data(std::vector<char> client_buffer) const {
 
 void ClientHandler::Send_Data_To_Client(const std::string &type, const std::string &message) const {
     try {
-        boost::property_tree::ptree server_pt;
-        server_pt.put("type", type);
-        server_pt.put("data", message);
-
-        std::stringstream ss;
-        boost::property_tree::write_json(ss, server_pt);
-        std::string message_to_client = ss.str();
+        std::string message_to_client = Pack_Json(type, message);
 
         int sent_bytes = send(m_client_socket, message_to_client.c_str(),message_to_client.size(),0);
         if (sent_bytes < 0) {

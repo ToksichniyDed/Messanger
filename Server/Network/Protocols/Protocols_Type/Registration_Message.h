@@ -1,0 +1,24 @@
+//
+// Created by super on 23.11.2023.
+//
+
+#ifndef SERVER_REGISTRATION_MESSAGE_H
+#define SERVER_REGISTRATION_MESSAGE_H
+
+#include "../IMessage_Builder.h"
+
+class Registration_Message: public IMessage_Builder{
+private:
+    std::string m_parametrs;
+    std::string m_data;
+
+public:
+    std::string Build_Message() override;
+    IMessage_Builder& Set_Parametrs() override;
+    IMessage_Builder& Set_Content(std::string& data) override;
+    void Validate_Message() override;
+    void Clear_Message() override;
+};
+
+
+#endif //SERVER_REGISTRATION_MESSAGE_H
