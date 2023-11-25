@@ -32,6 +32,6 @@ void Registration_Task::Execute() {
     }
 }
 
-Registration_Task::Registration_Task(Client_Socket* socket, std::string &data):m_socket(socket),m_data(data) {
+Registration_Task::Registration_Task(Client_Socket* socket, std::string &data): m_socket(socket), m_data(data) {
 
 }

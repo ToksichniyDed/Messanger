@@ -91,8 +91,8 @@ build CMakeFiles/Server.dir/Network/Socket/Server_Socket/Server_Socket.cpp.obj: 
   OBJECT_DIR = CMakeFiles\Server.dir
   OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Socket\Server_Socket
 
-build CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Client_Socket\Client_Socket.cpp.obj.d
+build CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket_Manager.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket_Manager.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Client_Socket\Client_Socket_Manager.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server"
   OBJECT_DIR = CMakeFiles\Server.dir
@@ -196,8 +196,8 @@ build CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Registration_Messag
   OBJECT_DIR = CMakeFiles\Server.dir
   OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Protocols\Protocols_Type
 
-build CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket_Manager.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket_Manager.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Client_Socket\Client_Socket_Manager.cpp.obj.d
+build CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket.cpp || cmake_object_order_depends_target_Server
+  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Client_Socket\Client_Socket.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server"
   OBJECT_DIR = CMakeFiles\Server.dir
@@ -211,7 +211,7 @@ build CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket_Manager.c
 #############################################
 # Link the executable Server.exe
 
-build Server.exe: CXX_EXECUTABLE_LINKER__Server_Debug CMakeFiles/Server.dir/main.cpp.obj CMakeFiles/Server.dir/ThreadPool.cpp.obj CMakeFiles/Server.dir/ClientHandler/ClientHandler.cpp.obj CMakeFiles/Server.dir/Server.cpp.obj CMakeFiles/Server.dir/Tools/Json_Tools.cpp.obj CMakeFiles/Server.dir/Network/Socket/Server_Socket/Server_Socket.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket.cpp.obj CMakeFiles/Server.dir/Tools/Synchronized/Mutex.cpp.obj CMakeFiles/Server.dir/Tools/Synchronized/Conditional_Variable.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Manager.cpp.obj CMakeFiles/Server.dir/Thread/Pool/Thread_Pool.cpp.obj CMakeFiles/Server.dir/Thread/Pool/Task_Container.cpp.obj CMakeFiles/Server.dir/Thread/Thread.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Factory.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Registration_Task.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Authorization_Task.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Database_Connector.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Query_Executor.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Database_Manager.cpp.obj CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Authorization_Message.cpp.obj CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Registration_Message.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket_Manager.cpp.obj | C$:/Program$ Files/PostgreSQL/16rc1/lib/libpq.lib
+build Server.exe: CXX_EXECUTABLE_LINKER__Server_Debug CMakeFiles/Server.dir/main.cpp.obj CMakeFiles/Server.dir/ThreadPool.cpp.obj CMakeFiles/Server.dir/ClientHandler/ClientHandler.cpp.obj CMakeFiles/Server.dir/Server.cpp.obj CMakeFiles/Server.dir/Tools/Json_Tools.cpp.obj CMakeFiles/Server.dir/Network/Socket/Server_Socket/Server_Socket.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket_Manager.cpp.obj CMakeFiles/Server.dir/Tools/Synchronized/Mutex.cpp.obj CMakeFiles/Server.dir/Tools/Synchronized/Conditional_Variable.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Manager.cpp.obj CMakeFiles/Server.dir/Thread/Pool/Thread_Pool.cpp.obj CMakeFiles/Server.dir/Thread/Pool/Task_Container.cpp.obj CMakeFiles/Server.dir/Thread/Thread.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Factory.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Registration_Task.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Authorization_Task.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Database_Connector.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Query_Executor.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Database_Manager.cpp.obj CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Authorization_Message.cpp.obj CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Registration_Message.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket.cpp.obj | C$:/Program$ Files/PostgreSQL/16rc1/lib/libpq.lib
   FLAGS = -g
   LINK_LIBRARIES = -lws2_32  "C:/Program Files/PostgreSQL/16rc1/lib/libpq.lib"  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Server.dir

@@ -19,5 +19,5 @@ void Authorization_Task::Execute() {
     }
 }
 
-Authorization_Task::Authorization_Task(Client_Socket* socket, std::string &data):m_socket(socket),m_data(data) {
+Authorization_Task::Authorization_Task(Client_Socket* socket, std::string &data): m_socket(socket), m_data(data) {
 }

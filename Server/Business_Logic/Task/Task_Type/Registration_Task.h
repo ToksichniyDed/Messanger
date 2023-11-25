@@ -6,7 +6,7 @@
 #define SERVER_REGISTRATION_TASK_H
 
 #include "../Task.h"
-#include "../../../Network/Socket/Client_Socket/Client_Socket.h"
+#include "../../../Network/Socket/Client_Socket/Client_Socket_Manager.h"
 #include "../../Database/Database_Manager.h"
 #include "../../../Network/Protocols/Protocols_Type/Registration_Message.h"
 #include "../../../Network/Protocols/IMessage_Builder.h"

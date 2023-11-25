@@ -1,16 +1,28 @@
 //
-// Created by super on 23.11.2023.
+// Created by super on 13.11.2023.
 //
 
 #ifndef SERVER_CLIENT_SOCKET_MANAGER_H
 #define SERVER_CLIENT_SOCKET_MANAGER_H
 
-#include "Client_Socket.h"
+#include <vector>
+#include <winsock2.h>
+#include <iostream>
+#include <exception>
 
-class Client_Socket_Manager{
+#include "../ISocket.h"
+#include "../Client_Socket/Client_Socket.h"
+#include "../../../Tools/Json_Tools.h"
+
+class Client_Socket_Manager : public ISocket {
+private:
+    SOCKET* m_socket;
+
 public:
-    std::pair<Client_Socket *, std::vector<char>> Listen_Socket(Client_Socket* m_socket);
-    void Send_Message(Client_Socket* m_socket, std::string& message);
+    explicit Client_Socket_Manager(SOCKET* socket);
+    void Close_Socket() override;
+    void Set_Security_Options() override;
+    bool Check_Socket();
 };
 
 

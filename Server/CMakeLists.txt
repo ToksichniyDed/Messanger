@@ -21,8 +21,8 @@ add_executable(Server main.cpp
         Network/Socket/ISocket.h
         Network/Socket/Server_Socket/Server_Socket.h
         Network/Socket/Server_Socket/Server_Socket.cpp
-        Network/Socket/Client_Socket/Client_Socket.h
-        Network/Socket/Client_Socket/Client_Socket.cpp
+        Network/Socket/Client_Socket/Client_Socket_Manager.h
+        Network/Socket/Client_Socket/Client_Socket_Manager.cpp
         Tools/Containers/TContainer_Base.h
         Tools/Synchronized/Mutex.cpp
         Tools/Synchronized/Mutex.h
@@ -56,8 +56,8 @@ add_executable(Server main.cpp
         Network/Protocols/Protocols_Type/Authorization_Message.h
         Network/Protocols/Protocols_Type/Registration_Message.cpp
         Network/Protocols/Protocols_Type/Registration_Message.h
-        Network/Socket/Client_Socket/Client_Socket_Manager.cpp
-        Network/Socket/Client_Socket/Client_Socket_Manager.h
+        Network/Socket/Client_Socket/Client_Socket.cpp
+        Network/Socket/Client_Socket/Client_Socket.h
 )
 
 target_link_libraries(Server PRIVATE ws2_32.lib ${Boost_LIBRARIES} ${PostgreSQL_LIBRARIES})

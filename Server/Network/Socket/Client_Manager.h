@@ -6,7 +6,6 @@
 #define SERVER_CLIENT_MANAGER_H
 
 #include "Client_Socket/Client_Socket.h"
-#include "Client_Socket/Client_Socket_Manager.h"
 #include "../../Thread/Pool/Task_Container.h"
 #include "../../Tools/Containers/Container_Vector.h"
 #include "../../Tools/Containers/TContainer_Queue.h"

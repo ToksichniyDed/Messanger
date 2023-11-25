@@ -13,7 +13,7 @@
 #include "Task.h"
 #include "Task_Type/Registration_Task.h"
 #include "Task_Type/Authorization_Task.h"
-#include "../../Network/Socket/Client_Socket/Client_Socket.h"
+#include "../../Network/Socket/Client_Socket/Client_Socket_Manager.h"
 
 class Task_Factory {
 private:
@@ -23,7 +23,7 @@ private:
 public:
     Task_Factory();
     void Register_Task(const std::string& type, Task_Creator creator);
-    Task* CreateTask(const std::string& type,Client_Socket* socket , std::string& parse_data);
+    Task* CreateTask(const std::string& type, Client_Socket* socket , std::string& parse_data);
 };
 
 

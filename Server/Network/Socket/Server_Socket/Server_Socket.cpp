@@ -22,6 +22,7 @@ void Server_Socket::Open_Socket() {
 
 void Server_Socket::Close_Socket() {
     closesocket(m_server_socket);
+    m_server_socket = INVALID_SOCKET;
 }
 
 void Server_Socket::Set_Security_Options() {

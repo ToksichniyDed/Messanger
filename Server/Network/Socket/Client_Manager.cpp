@@ -2,7 +2,7 @@
 // Created by super on 15.11.2023.
 //
 
-#include "Client_Socket/Client_Socket.h"
+#include "Client_Socket/Client_Socket_Manager.h"
 #include "Client_Manager.h"
 
 void Client_Manager::Add_New_Client(Client_Socket *clientSocket) {
@@ -17,13 +17,13 @@ void Client_Manager::Listen_Clients() {
     while (true) {
         for (int i = 0; i < m_connected_clients.Size(); i++) {
             auto client_socket = m_connected_clients.At(i);
-            if (!client_socket->Check_Socket()) {
+            if (!client_socket->Get_Client_Socket_Manager().Check_Socket()) {
                 m_connected_clients.Erase(i);
-                client_socket->Close_Socket();
+                client_socket->Get_Client_Socket_Manager().Close_Socket();
                 delete client_socket;
                 continue;
             }
-            auto data = ;
+            auto data = client_socket->Listen_Socket();
             if (!data.second.empty()) {
                 std::string data_type = Unpack_Json("type", data.second.data());
                 std::string parse_data = Unpack_Json("data", data.second.data());

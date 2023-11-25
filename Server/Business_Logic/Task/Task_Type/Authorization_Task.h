@@ -6,7 +6,7 @@
 #define SERVER_AUTHORIZATION_TASK_H
 
 #include "../Task.h"
-#include "../../../Network/Socket/Client_Socket/Client_Socket.h"
+#include "../../../Network/Socket/Client_Socket/Client_Socket_Manager.h"
 #include "../../Database/Database_Manager.h"
 
 class Authorization_Task: public Task{
