@@ -8,25 +8,32 @@ void Registration_Task::Execute() {
     try {
         std::string telephone_number = Unpack_Json("telephone_number", m_data);
         std::string password = Unpack_Json("password", m_data);
-        std::cout << "Телефон: " << telephone_number
-                  << " Номер: " << password << std::endl;
         std::vector<std::map<std::string,std::string>> vector;
         std::map<std::string,std::string> insert_data;
-        insert_data.insert(std::make_pair(telephone_number,password));
+
+        std::cout << "Телефон: " << telephone_number
+                  << " Номер: " << password << std::endl;
+
+        insert_data.insert(std::make_pair("telephone_number",telephone_number));
+        std::string salt = Generate_Salt();
+        insert_data.insert(std::make_pair("password", Create_Hash_With_Salt(password,salt)));
+        insert_data.insert(std::make_pair("salt", salt));
         vector.emplace_back(insert_data);
         std::string access = "false";
         std::string user = "user";
+        IMessage_Builder* message_builder = new Registration_Message();
+
         if(m_manager.Insert(user,vector)){
-            IMessage_Builder* message_builder = new Registration_Message();
             access = "true";
             std::string message = message_builder->Set_Parametrs().Set_Content(access).Build_Message();
         }
         else
         {
-            IMessage_Builder* message_builder = new Registration_Message();
             std::string message = message_builder->Set_Parametrs().Set_Content(access).Build_Message();
+            m_socket->Send_Message(message);
         }
     }
+
     catch (std::exception& Error){
         std::cout<<"Error: "<<Error.what()<<std::endl;
     }

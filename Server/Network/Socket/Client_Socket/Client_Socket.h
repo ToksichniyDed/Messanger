@@ -10,7 +10,7 @@
 class Client_Socket{
 public:
     SOCKET m_socket = 0;
-    Client_Socket_Manager* m_socket_manager;
+    Client_Socket_Manager* m_socket_manager = nullptr;
 
 public:
     explicit Client_Socket(SOCKET socket);

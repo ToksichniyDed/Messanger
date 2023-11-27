@@ -5,9 +5,9 @@
 #include "Task_Factory.h"
 
 Task_Factory::Task_Factory() {
-    Register_Task("registration_data", [this](Client_Socket* socket, std::string& parse_data)
+    Register_Task("registration_data", [](Client_Socket* socket, std::string& parse_data)
     { return new Registration_Task(socket,parse_data);});
-    Register_Task("authorization_data", [this](Client_Socket* socket, std::string& parse_data)
+    Register_Task("authorization_data", [](Client_Socket* socket, std::string& parse_data)
     { return new Authorization_Task(socket,parse_data);});
 }
 

@@ -39,8 +39,7 @@ Client_Socket::~Client_Socket() {
 }
 
 Client_Socket_Manager *Client_Socket::Get_Client_Socket_Manager() {
-    if(m_socket_manager)
-        return m_socket_manager;
+    return m_socket_manager;
 }
 
 

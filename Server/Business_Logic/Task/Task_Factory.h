@@ -26,5 +26,4 @@ public:
     Task* CreateTask(const std::string& type, Client_Socket* socket , std::string& parse_data);
 };
 
-
 #endif //SERVER_TASK_FACTORY_H

@@ -17,9 +17,9 @@ void Client_Manager::Listen_Clients() {
     while (true) {
         for (int i = 0; i < m_connected_clients.Size(); i++) {
             auto client_socket = m_connected_clients.At(i);
-            if (!client_socket->Get_Client_Socket_Manager().Check_Socket()) {
+            if (!client_socket->Get_Client_Socket_Manager()->Check_Socket()) {
                 m_connected_clients.Erase(i);
-                client_socket->Get_Client_Socket_Manager().Close_Socket();
+                client_socket->Get_Client_Socket_Manager()->Close_Socket();
                 delete client_socket;
                 continue;
             }

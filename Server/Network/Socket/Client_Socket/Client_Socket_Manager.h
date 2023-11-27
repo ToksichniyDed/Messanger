@@ -11,7 +11,6 @@
 #include <exception>
 
 #include "../ISocket.h"
-#include "../Client_Socket/Client_Socket.h"
 #include "../../../Tools/Json_Tools.h"
 
 class Client_Socket_Manager : public ISocket {

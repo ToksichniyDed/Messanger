@@ -14,6 +14,9 @@ void Server_Socket::Open_Socket() {
             throw std::runtime_error("Invalid server socket!");
 
         m_server_socket = temp;
+
+        Bind_Socket();
+        Listening_Socket();
     }
     catch (std::exception &Error) {
         std::cout << "Open_Socket() Error: " << Error.what() << std::endl;

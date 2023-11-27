@@ -17,8 +17,6 @@ add_executable(Client main.cpp
         Handlers/MessengerHandler.h
         User/User.cpp
         User/User.h
-        Handlers/User_ServerHandler_Mediator.cpp
-        Handlers/User_ServerHandler_Mediator.h
         Tools/Json_Tools.cpp
         Tools/Json_Tools.h
 )
