@@ -7,18 +7,24 @@ find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
 add_executable(Client main.cpp
-        Handlers/ServerHandler.cpp
-        Handlers/ServerHandler.h
-        Interface/UserInterface.h
-        Interface/UserInterface.cpp
-        Client.cpp
-        Client.h
-        Handlers/MessengerHandler.cpp
-        Handlers/MessengerHandler.h
-        User/User.cpp
-        User/User.h
+        #Tools
         Tools/Json_Tools.cpp
         Tools/Json_Tools.h
+        Tools/Containers/Container_Vector.h
+        Tools/Containers/TContainer_Base.h
+        Tools/Containers/TContainer_Queue.h
+        Tools/Synchronized/Conditional_Variable.h
+        Tools/Synchronized/Conditional_Variable.cpp
+        Tools/Synchronized/Mutex.h
+        Tools/Synchronized/Mutex.cpp
+
+        #Model
+        Model/Networking/Socket/Socket_Manager.cpp
+        Model/Networking/Socket/Socket_Manager.h
+        Model/Networking/Socket/Socket.cpp
+        Model/Networking/Socket/Socket.h
+
+
 )
 
 target_link_libraries(Client PRIVATE ws2_32.lib ${Boost_LIBRARIES})

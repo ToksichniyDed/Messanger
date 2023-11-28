@@ -14,7 +14,7 @@ bool Database_Connector::Connect(const std::string &database_name, const std::st
     std::string connection_Str = "dbname=" + database_name + " user=" + user + " password=" + password +
                                 " hostaddr=" + host_address + " port=" + port;
     m_connector = PQconnectdb(connection_Str.c_str());
-    return this->IsConnected();
+    return IsConnected();
 }
 
 void Database_Connector::Disconnect() {

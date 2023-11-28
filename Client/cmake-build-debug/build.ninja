@@ -56,54 +56,40 @@ build CMakeFiles/Client.dir/main.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D
   OBJECT_DIR = CMakeFiles\Client.dir
   OBJECT_FILE_DIR = CMakeFiles\Client.dir
 
-build CMakeFiles/Client.dir/Handlers/ServerHandler.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Handlers/ServerHandler.cpp || cmake_object_order_depends_target_Client
-  DEP_FILE = CMakeFiles\Client.dir\Handlers\ServerHandler.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
-  OBJECT_DIR = CMakeFiles\Client.dir
-  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Handlers
-
-build CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Interface/UserInterface.cpp || cmake_object_order_depends_target_Client
-  DEP_FILE = CMakeFiles\Client.dir\Interface\UserInterface.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
-  OBJECT_DIR = CMakeFiles\Client.dir
-  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Interface
-
-build CMakeFiles/Client.dir/Client.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Client.cpp || cmake_object_order_depends_target_Client
-  DEP_FILE = CMakeFiles\Client.dir\Client.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
-  OBJECT_DIR = CMakeFiles\Client.dir
-  OBJECT_FILE_DIR = CMakeFiles\Client.dir
-
-build CMakeFiles/Client.dir/Handlers/MessengerHandler.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Handlers/MessengerHandler.cpp || cmake_object_order_depends_target_Client
-  DEP_FILE = CMakeFiles\Client.dir\Handlers\MessengerHandler.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
-  OBJECT_DIR = CMakeFiles\Client.dir
-  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Handlers
-
-build CMakeFiles/Client.dir/User/User.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/User/User.cpp || cmake_object_order_depends_target_Client
-  DEP_FILE = CMakeFiles\Client.dir\User\User.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
-  OBJECT_DIR = CMakeFiles\Client.dir
-  OBJECT_FILE_DIR = CMakeFiles\Client.dir\User
-
-build CMakeFiles/Client.dir/Handlers/User_ServerHandler_Mediator.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Handlers/User_ServerHandler_Mediator.cpp || cmake_object_order_depends_target_Client
-  DEP_FILE = CMakeFiles\Client.dir\Handlers\User_ServerHandler_Mediator.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
-  OBJECT_DIR = CMakeFiles\Client.dir
-  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Handlers
-
 build CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Tools/Json_Tools.cpp || cmake_object_order_depends_target_Client
   DEP_FILE = CMakeFiles\Client.dir\Tools\Json_Tools.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\Client.dir
   OBJECT_FILE_DIR = CMakeFiles\Client.dir\Tools
+
+build CMakeFiles/Client.dir/Tools/Synchronized/Conditional_Variable.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Tools/Synchronized/Conditional_Variable.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\Tools\Synchronized\Conditional_Variable.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Tools\Synchronized
+
+build CMakeFiles/Client.dir/Tools/Synchronized/Mutex.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Tools/Synchronized/Mutex.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\Tools\Synchronized\Mutex.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Tools\Synchronized
+
+build CMakeFiles/Client.dir/Model/Networking/Socket/Socket_Manager.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Model/Networking/Socket/Socket_Manager.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\Model\Networking\Socket\Socket_Manager.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Model\Networking\Socket
+
+build CMakeFiles/Client.dir/Model/Networking/Socket/Socket.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/Model/Networking/Socket/Socket.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\Model\Networking\Socket\Socket.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\Model\Networking\Socket
 
 
 # =============================================================================
@@ -113,7 +99,7 @@ build CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj: CXX_COMPILER__Client_unsca
 #############################################
 # Link the executable Client.exe
 
-build Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug CMakeFiles/Client.dir/main.cpp.obj CMakeFiles/Client.dir/Handlers/ServerHandler.cpp.obj CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj CMakeFiles/Client.dir/Client.cpp.obj CMakeFiles/Client.dir/Handlers/MessengerHandler.cpp.obj CMakeFiles/Client.dir/User/User.cpp.obj CMakeFiles/Client.dir/Handlers/User_ServerHandler_Mediator.cpp.obj CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj
+build Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug CMakeFiles/Client.dir/main.cpp.obj CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj CMakeFiles/Client.dir/Tools/Synchronized/Conditional_Variable.cpp.obj CMakeFiles/Client.dir/Tools/Synchronized/Mutex.cpp.obj CMakeFiles/Client.dir/Model/Networking/Socket/Socket_Manager.cpp.obj CMakeFiles/Client.dir/Model/Networking/Socket/Socket.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Client.dir

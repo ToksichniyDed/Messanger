@@ -4,6 +4,9 @@
 
 #ifndef SERVER_SERVER_SOCKET_H
 #define SERVER_SERVER_SOCKET_H
+#define HTONS 8080
+#define IP_ADRESS "127.0.0.1"
+#define BACKLOG 5
 
 #include "../ISocket.h"
 #include "../Client_Socket/Client_Socket.h"

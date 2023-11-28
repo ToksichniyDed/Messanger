@@ -17,17 +17,16 @@ int main() {
 
         auto server = std::make_unique<Server_Socket>();
         auto database_connector = std::make_unique<Database_Connector>();
-        server->Open_Socket();
-        database_connector->Connect("Plotniy_Messanger","localhost","","127.0.0.1","8080");
-        std::thread accept_thread([&]{server->Accept();});
+        std::thread main_thread([&]{server->Open_Socket();});
+//        if(database_connector->Connect("Plotniy_Messanger","localhost","","127.0.0.1","8080"))
+//            std::cout<<"Successful connection to database!"<<std::endl;
+//        else
+//            std::cout<<"Unsuccessful connection to database!"<<std::endl;
+        //std::thread accept_thread([&]{server->Accept();});
         WSACleanup();
     }
     catch(std::exception& Error ){
         std::cout<<"Error: "<< Error.what()<<std::endl;
     }
-
-
-
     return 0;
-
 }
