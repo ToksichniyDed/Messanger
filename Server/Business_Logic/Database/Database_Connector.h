@@ -10,7 +10,7 @@
 
 class Database_Connector {
 private:
-    PGconn *m_connector = nullptr;
+    PGconn *m_connector;
 
 public:
     ~Database_Connector();

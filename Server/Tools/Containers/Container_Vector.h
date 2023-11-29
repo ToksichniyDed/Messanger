@@ -38,7 +38,7 @@ void Container_Vector<Data_Type>::Erase(int temp) {
 template<typename Data_Type>
 void Container_Vector<Data_Type>::Emplace_Back(Data_Type &data) {
     this->m_mutex.Get_Unique_Lock();
-    this->m_container.emplace_back();
+    this->m_container.emplace_back(data);
 }
 
 #endif //SERVER_CONTAINER_VECTOR_H

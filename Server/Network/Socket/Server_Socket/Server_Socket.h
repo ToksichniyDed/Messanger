@@ -8,6 +8,8 @@
 #define IP_ADRESS "127.0.0.1"
 #define BACKLOG 5
 
+#include <thread>
+
 #include "../ISocket.h"
 #include "../Client_Socket/Client_Socket.h"
 #include "../Client_Manager.h"
@@ -24,6 +26,7 @@ public:
     void Close_Socket() override;
     void Set_Security_Options() override;
     void Accept();
+    void Listening_Clients_Socket();
 };
 
 

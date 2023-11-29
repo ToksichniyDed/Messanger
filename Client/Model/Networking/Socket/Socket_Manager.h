@@ -8,6 +8,7 @@
 #define PORT 8080
 
 #include <boost/asio.hpp>
+#include <iostream>
 
 class Socket_Manager {
 private:

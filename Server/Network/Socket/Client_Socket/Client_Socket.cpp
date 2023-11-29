@@ -8,9 +8,11 @@ std::pair<Client_Socket*, std::vector<char>> Client_Socket::Listen_Socket() {
     std::cout << "Socket " << m_socket << " have message!" << std::endl;
     try {
         std::vector<char> client_buffer(1024);
+
         int received_bytes = recv(m_socket, client_buffer.data(), 1024, 0);
         if (received_bytes <= 0)
-            throw std::runtime_error("Failed read client message!");
+            throw std::runtime_error("No message to read!");
+
         std::pair<Client_Socket* , std::vector<char>> ans = std::make_pair(this, client_buffer);
         return ans;
     } catch (std::exception &Error) {

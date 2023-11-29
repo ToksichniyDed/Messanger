@@ -4,29 +4,48 @@
 #include "Network/Socket/Server_Socket/Server_Socket.h"
 #include "Business_Logic/Database/Database_Connector.h"
 
+void Start_Server();
+void Connect_Database();
+void Manage_Server();
+void Manage_Database_Connection();
+
 int main() {
     system("chcp 65001");
 
-    try {
-        // Инициализация Winsock
-        WSADATA wsaData;
-        if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
-            std::cerr << "Failed to initialize Winsock." << std::endl;
-            return 1;
-        }
+    std::thread database_connection_thread(Connect_Database);
+    std::thread main_thread(Start_Server);
 
-        auto server = std::make_unique<Server_Socket>();
-        auto database_connector = std::make_unique<Database_Connector>();
-        std::thread main_thread([&]{server->Open_Socket();});
-//        if(database_connector->Connect("Plotniy_Messanger","localhost","","127.0.0.1","8080"))
-//            std::cout<<"Successful connection to database!"<<std::endl;
-//        else
-//            std::cout<<"Unsuccessful connection to database!"<<std::endl;
-        //std::thread accept_thread([&]{server->Accept();});
-        WSACleanup();
-    }
-    catch(std::exception& Error ){
-        std::cout<<"Error: "<< Error.what()<<std::endl;
-    }
+    main_thread.join();
+    database_connection_thread.join();
+
     return 0;
+}
+
+void Start_Server(){
+    Server_Socket server;
+    server.Open_Socket();
+    std::thread accept_thread([&]{server.Accept();});
+    std::thread listening_clients_thread([&]{server.Listening_Clients_Socket();});
+    accept_thread.join();
+    listening_clients_thread.join();
+}
+
+void Connect_Database(){
+    Database_Connector database_connector;
+    if(database_connector.Connect("Plotniy_Messanger","postgres","password","127.0.0.1","5432"))
+        std::cout<<"Successful connection to database!"<<std::endl;
+    else
+        std::cout<<"Unsuccessful connection to database!"<<std::endl;
+    while(database_connector.IsConnected())
+    {
+
+    }
+}
+
+void Manage_Server(){
+
+}
+
+void Manage_Database_Connection(){
+
 }

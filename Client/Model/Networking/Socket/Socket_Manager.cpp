@@ -14,6 +14,10 @@ void Socket_Manager::Close_Socket() {
 void Socket_Manager::Connect() {
     m_endpoint = boost::asio::ip::tcp::endpoint (boost::asio::ip::address::from_string(IP_ADRESS), PORT);
     m_socket_to_manage->connect(m_endpoint);
+    if(Is_Connected())
+        std::cout<<"Success connection!"<<std::endl;
+    else
+        std::cout<<"Unsuccess connection!"<<std::endl;
 }
 
 bool Socket_Manager::Is_Connected() {
