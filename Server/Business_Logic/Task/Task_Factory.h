@@ -15,10 +15,12 @@
 #include "Task_Type/Authorization_Task.h"
 #include "../../Network/Socket/Client_Socket/Client_Socket_Manager.h"
 
+//Паттер Factory для формирования задач.
+
 class Task_Factory {
 private:
-    using Task_Creator = std::function<Task*(Client_Socket*, std::string&)>;
-    std::unordered_map<std::string, Task_Creator> Task_Registry;
+    using Task_Creator = std::function<Task*(Client_Socket*, std::string&)>;//псевдоним для лямбда фукнции
+    std::unordered_map<std::string, Task_Creator> Task_Registry; // мапа тип задачи/ функция создания задачи
 
 public:
     Task_Factory();

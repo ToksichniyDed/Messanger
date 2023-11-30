@@ -8,6 +8,8 @@
 #include <iostream>
 #include <libpq-fe.h>
 
+//Класс для подключения к базе данных
+
 class Database_Connector {
 private:
     PGconn *m_connector;

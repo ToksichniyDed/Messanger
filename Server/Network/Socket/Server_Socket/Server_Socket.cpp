@@ -3,6 +3,7 @@
 //
 #include "Server_Socket.h"
 
+//При создании сокета сразу биндим его и ставим в режим прослушивания.
 void Server_Socket::Open_Socket() {
     try {
         // Инициализация Winsock
@@ -53,6 +54,8 @@ void Server_Socket::Bind_Socket() {
     }
 }
 
+//При новом подключении создается объект класса Client_Socket, который потом добавляется в контейнер-вектор подключенных клиентов.
+//Этот метод работает в отдельном потоке, так как является блокирующим.
 void Server_Socket::Accept() {
     SOCKET temp_client_socket;
     sockaddr_in client_address{};

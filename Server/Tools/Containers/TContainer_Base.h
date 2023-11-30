@@ -12,6 +12,8 @@
 #include "../Synchronized/Mutex.h"
 #include "../Synchronized/Conditional_Variable.h"
 
+//Шаблон для контейнеров вместе с мьютексом и условной переменной.
+//Тут реализованны основные функции, встречающиеся у каждого вида контейнеров
 
 template<typename Container_Type, typename Data_Type>
 class TContainer_Base {

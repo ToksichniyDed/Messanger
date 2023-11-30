@@ -12,6 +12,8 @@
 #include "../../../Network/Protocols/IMessage_Builder.h"
 #include "../../../Tools/OpenSSL_Tools.h"
 
+//Задача авторизации
+
 class Authorization_Task: public Task{
 private:
     Database_Manager m_manager;

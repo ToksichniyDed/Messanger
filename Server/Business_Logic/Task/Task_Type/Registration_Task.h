@@ -12,6 +12,8 @@
 #include "../../../Network/Protocols/IMessage_Builder.h"
 #include "../../../Tools/OpenSSL_Tools.h"
 
+//Задача регистрации
+
 class Registration_Task: public Task{
 private:
     Database_Manager m_manager;

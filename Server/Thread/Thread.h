@@ -13,6 +13,8 @@
 #include "../Business_Logic/Task/Task.h"
 #include "../Thread/Pool/Task_Container.h"
 
+//Класс Thread реализует поток. Поток создается для многопоточного решения клиентских задач.
+
 class Thread {
 private:
     std::thread m_thread;

@@ -91,6 +91,20 @@ build CMakeFiles/Client.dir/Model/Networking/Socket/Socket.cpp.obj: CXX_COMPILER
   OBJECT_DIR = CMakeFiles\Client.dir
   OBJECT_FILE_DIR = CMakeFiles\Client.dir\Model\Networking\Socket
 
+build CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Authentication_Data.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/View_Model/Authentication_View_Model/Authentication_Data.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\View_Model\Authentication_View_Model\Authentication_Data.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\View_Model\Authentication_View_Model
+
+build CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Registration_Data.cpp.obj: CXX_COMPILER__Client_unscanned_Debug D$:/Progg/Plotniy_Project/Client/View_Model/Authentication_View_Model/Registration_Data.cpp || cmake_object_order_depends_target_Client
+  DEP_FILE = CMakeFiles\Client.dir\View_Model\Authentication_View_Model\Registration_Data.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0"
+  OBJECT_DIR = CMakeFiles\Client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Client.dir\View_Model\Authentication_View_Model
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Client
@@ -99,7 +113,7 @@ build CMakeFiles/Client.dir/Model/Networking/Socket/Socket.cpp.obj: CXX_COMPILER
 #############################################
 # Link the executable Client.exe
 
-build Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug CMakeFiles/Client.dir/main.cpp.obj CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj CMakeFiles/Client.dir/Tools/Synchronized/Conditional_Variable.cpp.obj CMakeFiles/Client.dir/Tools/Synchronized/Mutex.cpp.obj CMakeFiles/Client.dir/Model/Networking/Socket/Socket_Manager.cpp.obj CMakeFiles/Client.dir/Model/Networking/Socket/Socket.cpp.obj
+build Client.exe: CXX_EXECUTABLE_LINKER__Client_Debug CMakeFiles/Client.dir/main.cpp.obj CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj CMakeFiles/Client.dir/Tools/Synchronized/Conditional_Variable.cpp.obj CMakeFiles/Client.dir/Tools/Synchronized/Mutex.cpp.obj CMakeFiles/Client.dir/Model/Networking/Socket/Socket_Manager.cpp.obj CMakeFiles/Client.dir/Model/Networking/Socket/Socket.cpp.obj CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Authentication_Data.cpp.obj CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Registration_Data.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Client.dir

@@ -21,6 +21,9 @@ int main() {
     return 0;
 }
 
+//Запускаю сервер. Создается серверный сокет, биндиться, включаается режим прослушивания (внутри метода Open()).
+//Создается 2 потока: поток для метода Accept() (прием новых подключений),
+//поток для метода Listening_Clients_Socket()(прослушивание подключенных клиентов на предмет сообщений или нарушения соединения).
 void Start_Server(){
     Server_Socket server;
     server.Open_Socket();
@@ -30,6 +33,8 @@ void Start_Server(){
     listening_clients_thread.join();
 }
 
+
+//Подключение к базе данных
 void Connect_Database(){
     Database_Connector database_connector;
     if(database_connector.Connect("Plotniy_Messanger","postgres","password","127.0.0.1","5432"))

@@ -9,6 +9,8 @@
 #include "../../Tools/Containers/Container_Vector.h"
 #include "../Thread.h"
 
+//Пул потоков держит открытыми заданное число потоков.
+
 class Thread_Pool {
 private:
     Container_Vector<Thread*> m_thread_pool;

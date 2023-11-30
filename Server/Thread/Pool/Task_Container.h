@@ -10,6 +10,8 @@
 #include "../../Tools/Containers/TContainer_Queue.h"
 #include "../../Business_Logic/Task/Task.h"
 
+//Реализация очереди задач с помощью шаблона-очереди
+
 class Task_Container {
 private:
     TContainer_Queue<Task*> m_task_queue;

@@ -10,6 +10,8 @@
 
 #include "../../Tools/Json_Tools.h"
 
+//Интерфейс для классов задач
+
 class Task {
 public:
     virtual ~Task() = default;

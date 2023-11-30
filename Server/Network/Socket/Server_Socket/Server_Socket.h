@@ -14,6 +14,8 @@
 #include "../Client_Socket/Client_Socket.h"
 #include "../Client_Manager.h"
 
+//Реализация серверного сокета.Открытие,закрытие, проверка, режим прослушки, прием подключений.
+
 class Server_Socket : public ISocket {
 private:
     SOCKET m_server_socket = 0;

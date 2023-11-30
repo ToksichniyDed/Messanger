@@ -4,6 +4,7 @@
 
 #include "OpenSSL_Tools.h"
 
+
 std::string Create_Hash_With_Salt(const std::string& password, const std::string& salt) {
     const int iterations = 1000;
     const int keyLength = 64;

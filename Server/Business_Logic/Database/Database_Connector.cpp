@@ -9,6 +9,7 @@ Database_Connector::~Database_Connector() {
         PQfinish(m_connector);
 }
 
+// Подключение по указанным данным
 bool Database_Connector::Connect(const std::string &database_name, const std::string &user, const std::string &password,
                                  const std::string &host_address, const std::string &port) {
     std::string connection_Str = "dbname=" + database_name + " user=" + user + " password=" + password +
@@ -24,6 +25,7 @@ void Database_Connector::Disconnect() {
     }
 }
 
+// Проверка соединения
 bool Database_Connector::IsConnected() {
     return (m_connector != nullptr && PQstatus(m_connector) == CONNECTION_OK);
 }

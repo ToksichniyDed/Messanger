@@ -7,6 +7,8 @@
 
 #include "../../Tools/Json_Tools.h"
 
+//Интерфейс билдера сообщений
+
 class IMessage_Builder {
 public:
     virtual std::string Build_Message() = 0;

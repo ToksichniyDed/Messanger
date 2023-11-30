@@ -10,6 +10,8 @@
 #include <winsock2.h>
 #include <memory>
 
+//Честно говоря, не обязательный класс интерфейс сокетов, но возможно пригодиться
+
 class ISocket {
 public:
     virtual void Open_Socket() {};

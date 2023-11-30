@@ -7,6 +7,8 @@
 
 #include "TContainer_Base.h"
 
+//Шаблон для контейнера-очереди
+
 template<typename Data_Type>
 class TContainer_Queue : public TContainer_Base<std::queue<Data_Type>, Data_Type> {
 

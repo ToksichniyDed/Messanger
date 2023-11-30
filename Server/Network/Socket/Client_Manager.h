@@ -12,6 +12,8 @@
 #include "../../Business_Logic/Task/Task_Factory.h"
 #include "../../Tools/Json_Tools.h"
 
+//Класс для управления подключенными клиентами. Тут содержиться вектор подключенных клиентов, контейнер задач, и фабрика задач.
+
 class Client_Manager {
 private:
     Container_Vector<Client_Socket*> m_connected_clients;

@@ -7,6 +7,8 @@
 
 #include "Client_Socket_Manager.h"
 
+//Реализация клиентского сокета.
+
 class Client_Socket{
 public:
     SOCKET m_socket = 0;

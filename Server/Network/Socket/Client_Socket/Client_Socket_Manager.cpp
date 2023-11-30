@@ -15,6 +15,7 @@ void Client_Socket_Manager::Set_Security_Options() {
 
 }
 
+//Проверка сокета, соединение может быть разорванно некорректно со стороны клиента
 bool Client_Socket_Manager::Check_Socket() {
     std::string check_client = Pack_Json("check", "1");
     if (send(*m_socket, check_client.c_str(), check_client.size(), 0) == SOCKET_ERROR)

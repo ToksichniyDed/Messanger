@@ -5,14 +5,22 @@
 #include "Client_Socket/Client_Socket_Manager.h"
 #include "Client_Manager.h"
 
+//Добавление нового клиента из метода Accept() в классе Server_Socket()
 void Client_Manager::Add_New_Client(Client_Socket *clientSocket) {
     m_connected_clients.Emplace_Back(clientSocket);
 }
 
+//Удаление клиента
 void Client_Manager::Remove_Client(int temp) {
     m_connected_clients.Erase(temp);
 }
 
+//Метод запускается в отдельном потоке.У него 2 задачи.
+//Он иттерируется по вектору подключенных клиентов, для начала проверяя их с помощью метода Check_Socket(),
+//существует ли еще подключение. Если нет, то сокет корректно закрывается, указатель удаляется,
+// и корректируется вектор подключенных клиентов. Если сокет актуален, то вызывается метод Listen_Socket(),
+//который возвращает пару клиентский_сокет*-строку. Если строка не пустая, то парсится с помощью Json_Tools
+// для создания задачи соответственно типу сообщения.
 void Client_Manager::Listen_Clients() {
     while (true) {
         if(!m_connected_clients.Empty())

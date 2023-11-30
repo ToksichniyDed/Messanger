@@ -4,6 +4,8 @@
 
 #include "Thread_Pool.h"
 
+
+//Создание потоков
 Thread_Pool::Thread_Pool(int count_of_threads, Task_Container* client_tasks):m_client_tasks(client_tasks) {
     for(int i = 0; i< count_of_threads; ++i)
     {
@@ -21,6 +23,8 @@ Thread_Pool::~Thread_Pool() {
     }
 }
 
+//Динамичееское расширение пула, если ранее установленное число потоков не справляется с задачами,
+//то есть количество задач в очереди задач превышает какое то число.
 void Thread_Pool::Add_Thread(int count_of_threads) {
     for(int i = 0; i < count_of_threads; ++i)
     {
@@ -30,6 +34,7 @@ void Thread_Pool::Add_Thread(int count_of_threads) {
     }
 }
 
+//Если созданно избыточное количество потоков, можно разгрузить систему, закрыв несколько потоков
 void Thread_Pool::Sub_Thread(int count_of_threads) {
     for(int i = 0; i < count_of_threads; ++i)
     {

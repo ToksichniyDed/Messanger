@@ -24,6 +24,12 @@ add_executable(Client main.cpp
         Model/Networking/Socket/Socket.cpp
         Model/Networking/Socket/Socket.h
 
+        #View
+        View/Authentication_View/Login.h
+        View_Model/Authentication_View_Model/Authentication_Data.cpp
+        View_Model/Authentication_View_Model/Authentication_Data.h
+        View_Model/Authentication_View_Model/Registration_Data.cpp
+        View_Model/Authentication_View_Model/Registration_Data.h
 
 )
 

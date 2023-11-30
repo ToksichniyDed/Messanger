@@ -7,10 +7,12 @@
 Thread::Thread(Task_Container *client_tasks):m_client_tasks(client_tasks) {
 }
 
+//Выполнение клиентской задачи
 void Thread::Take_Task(Task* task) {
     task->Execute();
 }
 
+//Поток стоит на пазуе, пока контейнер клиентских задач пустой.
 void Thread::Wait_Task() {
     while(true){
         auto conditional = [&](){return m_client_tasks->Empty();};

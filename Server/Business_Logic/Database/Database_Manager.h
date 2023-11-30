@@ -8,6 +8,8 @@
 #include "Database_Connector.h"
 #include "Query_Executor.h"
 
+// Менеджер для работы с бд. Некая прокладка между запросами и бд
+
 class Database_Manager {
 private:
     Database_Connector m_database_connector;

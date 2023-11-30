@@ -11,6 +11,8 @@
 
 #include "Database_Connector.h"
 
+// Интерфейс для запросов. Пока грубая накидка основных запросов к бд
+
 class Query_Executor {
 private:
     Database_Connector* m_database_connector;

@@ -13,6 +13,8 @@
 #include "../ISocket.h"
 #include "../../../Tools/Json_Tools.h"
 
+//Реализация менеджера сокета-открытие, закрытие, проверка на существование.
+
 class Client_Socket_Manager : public ISocket {
 private:
     SOCKET* m_socket;

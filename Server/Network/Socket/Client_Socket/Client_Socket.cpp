@@ -4,6 +4,9 @@
 
 #include "Client_Socket.h"
 
+
+//Прослушивание сокета на предмет новых сообщений. Если сообщение есть,
+//то создаеться пара Сокет*-сообщение, которая и возвращается, в дальнешем используется в Client_Manager.
 std::pair<Client_Socket*, std::vector<char>> Client_Socket::Listen_Socket() {
     std::cout << "Socket " << m_socket << " have message!" << std::endl;
     try {
@@ -21,6 +24,7 @@ std::pair<Client_Socket*, std::vector<char>> Client_Socket::Listen_Socket() {
     }
 }
 
+//Отправка сообщения по сокету
 void Client_Socket::Send_Message( std::string &message) {
     try {
         if(!send(m_socket, message.c_str(), message.size(), 0))

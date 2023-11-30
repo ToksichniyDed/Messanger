@@ -7,6 +7,8 @@
 
 #include "../IMessage_Builder.h"
 
+//Правила сбора сообщения-ответа для задачи регистрации
+
 class Registration_Message: public IMessage_Builder{
 private:
     std::string m_parametrs;

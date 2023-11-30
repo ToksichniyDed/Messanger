@@ -9,6 +9,8 @@
 
 #include "TContainer_Base.h"
 
+//Шаблон для контейнера-вектора
+
 template<typename Data_Type>
 class Container_Vector : public TContainer_Base<std::vector<Data_Type>, Data_Type> {
 public:

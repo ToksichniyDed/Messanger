@@ -10,7 +10,7 @@ Socket::Socket():m_socket(m_io_context) {
 }
 
 void Socket::Listen_Socket() {
-    boost::asio::streambuf socket_buffer; // Буфер для данных
+    boost::asio::streambuf socket_buffer;
     boost::asio::async_read(m_socket, socket_buffer, [](const boost::system::error_code& error, std::size_t bytes_transferred){
         if (!error) {
             std::cout << "Read " << bytes_transferred << " bytes\n";

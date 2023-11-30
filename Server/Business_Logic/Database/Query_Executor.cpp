@@ -7,7 +7,8 @@
 Query_Executor::Query_Executor(Database_Connector *database_connector):m_database_connector(database_connector) {
 }
 
-
+//Запрос с выборкой по указанным select и where частям. Представлена дефолтный запрос без where части.
+//Возвращается вектор мап,т.к значений по where части может быть несколько. Мапа для названия столбца - значения.
 std::vector<std::map<std::string, std::string>>
 Query_Executor::Execute_Custom_Select(std::string &table_name, const std::string &select_part,
                                       const std::string &where_part) {

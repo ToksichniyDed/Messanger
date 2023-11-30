@@ -4,7 +4,6 @@
 
 int main() {
     system("chcp 65001");
-
     try {
         auto client_socket = std::make_unique<Socket>();
         client_socket->Socket_Start();
