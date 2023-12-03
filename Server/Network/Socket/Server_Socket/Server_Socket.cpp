@@ -66,7 +66,7 @@ void Server_Socket::Accept() {
         temp_client_socket = accept(m_server_socket, (struct sockaddr *) &client_address, &client_address_length);
         auto *client_socket = new Client_Socket(temp_client_socket);
 
-        std::cout<<"New client accept!"<<std::endl;
+        std::cout<<"New client accept with socket: "<<temp_client_socket<<" !" <<std::endl;
 
         m_client_manager.Add_New_Client(client_socket);
     }

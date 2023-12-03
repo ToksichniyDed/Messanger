@@ -20,6 +20,7 @@ public:
     std::pair<Client_Socket *, std::vector<char>> Listen_Socket();
     void Send_Message( std::string& message);
     Client_Socket_Manager* Get_Client_Socket_Manager();
+    SOCKET Get_Socket() const;
 };
 
 

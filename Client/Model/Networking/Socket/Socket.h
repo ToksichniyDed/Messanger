@@ -10,9 +10,11 @@
 #include <iostream>
 
 #include "Socket_Manager.h"
+#include "../Message_Queue/Message_From_Server_Queue.h"
 
 class Socket {
 private:
+    Message_From_Server_Queue m_message_queue;
     boost::asio::io_context m_io_context;
     boost::asio::ip::tcp::socket m_socket;
     boost::movelib::unique_ptr<Socket_Manager> m_socket_manager;
@@ -22,6 +24,7 @@ private:
 public:
     Socket();
     void Socket_Start();
+    Message_From_Server_Queue& Get_Queue();
 };
 
 

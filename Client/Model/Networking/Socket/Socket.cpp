@@ -11,13 +11,16 @@ Socket::Socket():m_socket(m_io_context) {
 
 void Socket::Listen_Socket() {
     boost::asio::streambuf socket_buffer;
-    boost::asio::async_read(m_socket, socket_buffer, [](const boost::system::error_code& error, std::size_t bytes_transferred){
+    boost::asio::async_read(m_socket, socket_buffer,
+                            [](const boost::system::error_code& error, std::size_t bytes_transferred){
         if (!error) {
             std::cout << "Read " << bytes_transferred << " bytes\n";
         } else {
             std::cerr << "Read error: " << error.message() << "\n";
         }
     });
+    std::string message(boost::asio::buffers_begin(socket_buffer.data()), boost::asio::buffers_end(socket_buffer.data()));
+    m_message_queue.Add_Message(message);
 }
 
 void Socket::Send_Socket(std::string &message) {
@@ -34,6 +37,10 @@ void Socket::Socket_Start() {
     m_socket_manager->Connect();
     Listen_Socket();
     Send_Socket((std::string&)"Привет Сервер!");
+}
+
+Message_From_Server_Queue &Socket::Get_Queue() {
+    return m_message_queue;
 }
 
 

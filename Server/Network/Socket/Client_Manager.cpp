@@ -12,6 +12,7 @@ void Client_Manager::Add_New_Client(Client_Socket *clientSocket) {
 
 //Удаление клиента
 void Client_Manager::Remove_Client(int temp) {
+    std::cout<<"Client with socket: "<<m_connected_clients.At(temp)->Get_Socket()<<" disconneted!"<<std::endl;
     m_connected_clients.Erase(temp);
 }
 

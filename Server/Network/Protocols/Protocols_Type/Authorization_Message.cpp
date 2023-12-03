@@ -23,8 +23,5 @@ void Authorization_Message::Clear_Message() {
     m_parametrs.clear();
 }
 
-void Authorization_Message::Validate_Message() {
-
-}
 
 

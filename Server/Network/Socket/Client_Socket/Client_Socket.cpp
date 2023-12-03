@@ -48,5 +48,9 @@ Client_Socket_Manager *Client_Socket::Get_Client_Socket_Manager() {
     return m_socket_manager;
 }
 
+SOCKET Client_Socket::Get_Socket() const {
+    return m_socket;
+}
+
 
 

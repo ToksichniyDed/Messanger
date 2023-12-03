@@ -47,147 +47,14 @@ cmake_ninja_workdir = D$:/Progg/Plotniy_Project/Server/cmake-build-debug/
 #############################################
 # Order-only phony target for Server
 
-build cmake_object_order_depends_target_Server: phony || CMakeFiles/Server.dir
+build cmake_object_order_depends_target_Server: phony || cmake_object_order_depends_target_Database cmake_object_order_depends_target_Protocols_Type cmake_object_order_depends_target_Socket cmake_object_order_depends_target_Synchronized cmake_object_order_depends_target_Task cmake_object_order_depends_target_Task_Type cmake_object_order_depends_target_Thread cmake_object_order_depends_target_Tools cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
 build CMakeFiles/Server.dir/main.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/main.cpp || cmake_object_order_depends_target_Server
   DEP_FILE = CMakeFiles\Server.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include" -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/include -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest
   OBJECT_DIR = CMakeFiles\Server.dir
   OBJECT_FILE_DIR = CMakeFiles\Server.dir
-
-build CMakeFiles/Server.dir/Thread/Pool/Thread_Pool.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Thread/Pool/Thread_Pool.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Thread\Pool\Thread_Pool.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Thread\Pool
-
-build CMakeFiles/Server.dir/Thread/Pool/Task_Container.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Thread/Pool/Task_Container.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Thread\Pool\Task_Container.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Thread\Pool
-
-build CMakeFiles/Server.dir/Thread/Thread.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Thread/Thread.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Thread\Thread.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Thread
-
-build CMakeFiles/Server.dir/Tools/Json_Tools.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/Json_Tools.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Tools\Json_Tools.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Tools
-
-build CMakeFiles/Server.dir/Tools/OpenSSL_Tools.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/OpenSSL_Tools.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Tools\OpenSSL_Tools.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Tools
-
-build CMakeFiles/Server.dir/Tools/Synchronized/Mutex.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/Synchronized/Mutex.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Tools\Synchronized\Mutex.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Tools\Synchronized
-
-build CMakeFiles/Server.dir/Tools/Synchronized/Conditional_Variable.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/Synchronized/Conditional_Variable.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Tools\Synchronized\Conditional_Variable.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Tools\Synchronized
-
-build CMakeFiles/Server.dir/Network/Socket/Server_Socket/Server_Socket.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Server_Socket/Server_Socket.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Server_Socket\Server_Socket.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Socket\Server_Socket
-
-build CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket_Manager.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket_Manager.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Client_Socket\Client_Socket_Manager.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Socket\Client_Socket
-
-build CMakeFiles/Server.dir/Network/Socket/Client_Manager.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Manager.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Client_Manager.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Socket
-
-build CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Authorization_Message.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Protocols/Protocols_Type/Authorization_Message.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Protocols\Protocols_Type\Authorization_Message.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Protocols\Protocols_Type
-
-build CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Registration_Message.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Protocols/Protocols_Type/Registration_Message.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Protocols\Protocols_Type\Registration_Message.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Protocols\Protocols_Type
-
-build CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Network\Socket\Client_Socket\Client_Socket.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Network\Socket\Client_Socket
-
-build CMakeFiles/Server.dir/Business_Logic/Task/Task_Factory.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Factory.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Business_Logic\Task\Task_Factory.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Business_Logic\Task
-
-build CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Registration_Task.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Type/Registration_Task.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Business_Logic\Task\Task_Type\Registration_Task.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Business_Logic\Task\Task_Type
-
-build CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Authorization_Task.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Type/Authorization_Task.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Business_Logic\Task\Task_Type\Authorization_Task.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Business_Logic\Task\Task_Type
-
-build CMakeFiles/Server.dir/Business_Logic/Database/Database_Connector.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/Database_Connector.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Business_Logic\Database\Database_Connector.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Business_Logic\Database
-
-build CMakeFiles/Server.dir/Business_Logic/Database/Query_Executor.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/Query_Executor.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Business_Logic\Database\Query_Executor.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Business_Logic\Database
-
-build CMakeFiles/Server.dir/Business_Logic/Database/Database_Manager.cpp.obj: CXX_COMPILER__Server_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/Database_Manager.cpp || cmake_object_order_depends_target_Server
-  DEP_FILE = CMakeFiles\Server.dir\Business_Logic\Database\Database_Manager.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
-  OBJECT_DIR = CMakeFiles\Server.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server.dir\Business_Logic\Database
 
 
 # =============================================================================
@@ -197,9 +64,9 @@ build CMakeFiles/Server.dir/Business_Logic/Database/Database_Manager.cpp.obj: CX
 #############################################
 # Link the executable Server.exe
 
-build Server.exe: CXX_EXECUTABLE_LINKER__Server_Debug CMakeFiles/Server.dir/main.cpp.obj CMakeFiles/Server.dir/Thread/Pool/Thread_Pool.cpp.obj CMakeFiles/Server.dir/Thread/Pool/Task_Container.cpp.obj CMakeFiles/Server.dir/Thread/Thread.cpp.obj CMakeFiles/Server.dir/Tools/Json_Tools.cpp.obj CMakeFiles/Server.dir/Tools/OpenSSL_Tools.cpp.obj CMakeFiles/Server.dir/Tools/Synchronized/Mutex.cpp.obj CMakeFiles/Server.dir/Tools/Synchronized/Conditional_Variable.cpp.obj CMakeFiles/Server.dir/Network/Socket/Server_Socket/Server_Socket.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket_Manager.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Manager.cpp.obj CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Authorization_Message.cpp.obj CMakeFiles/Server.dir/Network/Protocols/Protocols_Type/Registration_Message.cpp.obj CMakeFiles/Server.dir/Network/Socket/Client_Socket/Client_Socket.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Factory.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Registration_Task.cpp.obj CMakeFiles/Server.dir/Business_Logic/Task/Task_Type/Authorization_Task.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Database_Connector.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Query_Executor.cpp.obj CMakeFiles/Server.dir/Business_Logic/Database/Database_Manager.cpp.obj | C$:/Program$ Files/PostgreSQL/16rc1/lib/libpq.lib C$:/Program$ Files/PostgreSQL/16rc1/lib/libssl.lib C$:/Program$ Files/PostgreSQL/16rc1/lib/libcrypto.lib
+build Server.exe: CXX_EXECUTABLE_LINKER__Server_Debug CMakeFiles/Server.dir/main.cpp.obj | Thread/libThread.a Tools/libTools.a Business_Logic/Task/libTask.a Business_Logic/Task/Task_Type/libTask_Type.a Network/Socket/libSocket.a Thread/libThread.a Tools/libTools.a Tools/Synchronized/libSynchronized.a C$:/Program$ Files/PostgreSQL/16rc1/lib/libssl.lib C$:/Program$ Files/PostgreSQL/16rc1/lib/libcrypto.lib Network/Protocols/Protocols_Type/libProtocols_Type.a Business_Logic/Database/libDatabase.a C$:/Program$ Files/PostgreSQL/16rc1/lib/libpq.lib lib/libgtest_main.a lib/libgtest.a || Business_Logic/Database/libDatabase.a Business_Logic/Task/Task_Type/libTask_Type.a Business_Logic/Task/libTask.a Network/Protocols/Protocols_Type/libProtocols_Type.a Network/Socket/libSocket.a Thread/libThread.a Tools/Synchronized/libSynchronized.a Tools/libTools.a lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g
-  LINK_LIBRARIES = -lws2_32  "C:/Program Files/PostgreSQL/16rc1/lib/libpq.lib"  "C:/Program Files/PostgreSQL/16rc1/lib/libssl.lib"  "C:/Program Files/PostgreSQL/16rc1/lib/libcrypto.lib"  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = Thread/libThread.a  Tools/libTools.a  Business_Logic/Task/libTask.a  Business_Logic/Task/Task_Type/libTask_Type.a  Network/Socket/libSocket.a  Thread/libThread.a  Tools/libTools.a  Tools/Synchronized/libSynchronized.a  "C:/Program Files/PostgreSQL/16rc1/lib/libssl.lib"  "C:/Program Files/PostgreSQL/16rc1/lib/libcrypto.lib"  -lws2_32  Network/Protocols/Protocols_Type/libProtocols_Type.a  Business_Logic/Database/libDatabase.a  "C:/Program Files/PostgreSQL/16rc1/lib/libpq.lib"  lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Server.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -230,10 +97,1681 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build Business_Logic/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Business_Logic/edit_cache: phony Business_Logic/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Business_Logic/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Business_Logic/rebuild_cache: phony Business_Logic/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Business_Logic/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Business_Logic/CMakeFiles/install.util: CUSTOM_COMMAND Business_Logic/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Business_Logic/install: phony Business_Logic/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Business_Logic/CMakeFiles/install/local.util: CUSTOM_COMMAND Business_Logic/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Business_Logic/install/local: phony Business_Logic/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Business_Logic/CMakeFiles/install/strip.util: CUSTOM_COMMAND Business_Logic/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Business_Logic/install/strip: phony Business_Logic/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Business_Logic/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Database
+
+
+#############################################
+# Order-only phony target for Database
+
+build cmake_object_order_depends_target_Database: phony || Business_Logic/Database/CMakeFiles/Database.dir
+
+build Business_Logic/Database/CMakeFiles/Database.dir/Database_Manager.cpp.obj: CXX_COMPILER__Database_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/Database_Manager.cpp || cmake_object_order_depends_target_Database
+  DEP_FILE = Business_Logic\Database\CMakeFiles\Database.dir\Database_Manager.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Business_Logic\Database\CMakeFiles\Database.dir
+  OBJECT_FILE_DIR = Business_Logic\Database\CMakeFiles\Database.dir
+
+build Business_Logic/Database/CMakeFiles/Database.dir/Database_Connector.cpp.obj: CXX_COMPILER__Database_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/Database_Connector.cpp || cmake_object_order_depends_target_Database
+  DEP_FILE = Business_Logic\Database\CMakeFiles\Database.dir\Database_Connector.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Business_Logic\Database\CMakeFiles\Database.dir
+  OBJECT_FILE_DIR = Business_Logic\Database\CMakeFiles\Database.dir
+
+build Business_Logic/Database/CMakeFiles/Database.dir/Query_Executor.cpp.obj: CXX_COMPILER__Database_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/Query_Executor.cpp || cmake_object_order_depends_target_Database
+  DEP_FILE = Business_Logic\Database\CMakeFiles\Database.dir\Query_Executor.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Business_Logic\Database\CMakeFiles\Database.dir
+  OBJECT_FILE_DIR = Business_Logic\Database\CMakeFiles\Database.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Database
+
+
+#############################################
+# Link the static library Business_Logic\Database\libDatabase.a
+
+build Business_Logic/Database/libDatabase.a: CXX_STATIC_LIBRARY_LINKER__Database_Debug Business_Logic/Database/CMakeFiles/Database.dir/Database_Manager.cpp.obj Business_Logic/Database/CMakeFiles/Database.dir/Database_Connector.cpp.obj Business_Logic/Database/CMakeFiles/Database.dir/Query_Executor.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Business_Logic\Database\CMakeFiles\Database.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Business_Logic\Database\libDatabase.a
+  TARGET_PDB = Database.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Business_Logic/Database/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Database && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Business_Logic/Database/edit_cache: phony Business_Logic/Database/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Business_Logic/Database/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Database && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Business_Logic/Database/rebuild_cache: phony Business_Logic/Database/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Business_Logic/Database/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Business_Logic/Database/CMakeFiles/install.util: CUSTOM_COMMAND Business_Logic/Database/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Database && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Business_Logic/Database/install: phony Business_Logic/Database/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Business_Logic/Database/CMakeFiles/install/local.util: CUSTOM_COMMAND Business_Logic/Database/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Database && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Business_Logic/Database/install/local: phony Business_Logic/Database/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Business_Logic/Database/CMakeFiles/install/strip.util: CUSTOM_COMMAND Business_Logic/Database/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Database && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Business_Logic/Database/install/strip: phony Business_Logic/Database/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Business_Logic/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Task
+
+
+#############################################
+# Order-only phony target for Task
+
+build cmake_object_order_depends_target_Task: phony || cmake_object_order_depends_target_Database cmake_object_order_depends_target_Protocols_Type cmake_object_order_depends_target_Socket cmake_object_order_depends_target_Synchronized cmake_object_order_depends_target_Task_Type cmake_object_order_depends_target_Thread cmake_object_order_depends_target_Tools
+
+build Business_Logic/Task/CMakeFiles/Task.dir/Task_Factory.cpp.obj: CXX_COMPILER__Task_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Factory.cpp || cmake_object_order_depends_target_Task
+  DEP_FILE = Business_Logic\Task\CMakeFiles\Task.dir\Task_Factory.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Business_Logic\Task\CMakeFiles\Task.dir
+  OBJECT_FILE_DIR = Business_Logic\Task\CMakeFiles\Task.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Task
+
+
+#############################################
+# Link the static library Business_Logic\Task\libTask.a
+
+build Business_Logic/Task/libTask.a: CXX_STATIC_LIBRARY_LINKER__Task_Debug Business_Logic/Task/CMakeFiles/Task.dir/Task_Factory.cpp.obj || Business_Logic/Database/libDatabase.a Business_Logic/Task/Task_Type/libTask_Type.a Network/Protocols/Protocols_Type/libProtocols_Type.a Network/Socket/libSocket.a Thread/libThread.a Tools/Synchronized/libSynchronized.a Tools/libTools.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Business_Logic\Task\CMakeFiles\Task.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Business_Logic\Task\libTask.a
+  TARGET_PDB = Task.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Business_Logic/Task/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Business_Logic/Task/edit_cache: phony Business_Logic/Task/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Business_Logic/Task/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/rebuild_cache: phony Business_Logic/Task/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Business_Logic/Task/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Business_Logic/Task/CMakeFiles/install.util: CUSTOM_COMMAND Business_Logic/Task/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/install: phony Business_Logic/Task/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Business_Logic/Task/CMakeFiles/install/local.util: CUSTOM_COMMAND Business_Logic/Task/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/install/local: phony Business_Logic/Task/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Business_Logic/Task/CMakeFiles/install/strip.util: CUSTOM_COMMAND Business_Logic/Task/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/install/strip: phony Business_Logic/Task/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Business_Logic/Task/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Task_Type
+
+
+#############################################
+# Order-only phony target for Task_Type
+
+build cmake_object_order_depends_target_Task_Type: phony || cmake_object_order_depends_target_Database cmake_object_order_depends_target_Protocols_Type cmake_object_order_depends_target_Socket cmake_object_order_depends_target_Synchronized cmake_object_order_depends_target_Thread cmake_object_order_depends_target_Tools
+
+build Business_Logic/Task/Task_Type/CMakeFiles/Task_Type.dir/Registration_Task.cpp.obj: CXX_COMPILER__Task_Type_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Type/Registration_Task.cpp || cmake_object_order_depends_target_Task_Type
+  DEP_FILE = Business_Logic\Task\Task_Type\CMakeFiles\Task_Type.dir\Registration_Task.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Business_Logic\Task\Task_Type\CMakeFiles\Task_Type.dir
+  OBJECT_FILE_DIR = Business_Logic\Task\Task_Type\CMakeFiles\Task_Type.dir
+
+build Business_Logic/Task/Task_Type/CMakeFiles/Task_Type.dir/Authorization_Task.cpp.obj: CXX_COMPILER__Task_Type_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Type/Authorization_Task.cpp || cmake_object_order_depends_target_Task_Type
+  DEP_FILE = Business_Logic\Task\Task_Type\CMakeFiles\Task_Type.dir\Authorization_Task.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Business_Logic\Task\Task_Type\CMakeFiles\Task_Type.dir
+  OBJECT_FILE_DIR = Business_Logic\Task\Task_Type\CMakeFiles\Task_Type.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Task_Type
+
+
+#############################################
+# Link the static library Business_Logic\Task\Task_Type\libTask_Type.a
+
+build Business_Logic/Task/Task_Type/libTask_Type.a: CXX_STATIC_LIBRARY_LINKER__Task_Type_Debug Business_Logic/Task/Task_Type/CMakeFiles/Task_Type.dir/Registration_Task.cpp.obj Business_Logic/Task/Task_Type/CMakeFiles/Task_Type.dir/Authorization_Task.cpp.obj || Business_Logic/Database/libDatabase.a Network/Protocols/Protocols_Type/libProtocols_Type.a Network/Socket/libSocket.a Thread/libThread.a Tools/Synchronized/libSynchronized.a Tools/libTools.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Business_Logic\Task\Task_Type\CMakeFiles\Task_Type.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Business_Logic\Task\Task_Type\libTask_Type.a
+  TARGET_PDB = Task_Type.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Business_Logic/Task/Task_Type/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task\Task_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Business_Logic/Task/Task_Type/edit_cache: phony Business_Logic/Task/Task_Type/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Business_Logic/Task/Task_Type/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task\Task_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/Task_Type/rebuild_cache: phony Business_Logic/Task/Task_Type/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Business_Logic/Task/Task_Type/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Business_Logic/Task/Task_Type/CMakeFiles/install.util: CUSTOM_COMMAND Business_Logic/Task/Task_Type/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task\Task_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/Task_Type/install: phony Business_Logic/Task/Task_Type/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Business_Logic/Task/Task_Type/CMakeFiles/install/local.util: CUSTOM_COMMAND Business_Logic/Task/Task_Type/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task\Task_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/Task_Type/install/local: phony Business_Logic/Task/Task_Type/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Business_Logic/Task/Task_Type/CMakeFiles/install/strip.util: CUSTOM_COMMAND Business_Logic/Task/Task_Type/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Business_Logic\Task\Task_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Business_Logic/Task/Task_Type/install/strip: phony Business_Logic/Task/Task_Type/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build Network/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Network/edit_cache: phony Network/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Network/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Network/rebuild_cache: phony Network/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Network/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Network/CMakeFiles/install.util: CUSTOM_COMMAND Network/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Network/install: phony Network/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Network/CMakeFiles/install/local.util: CUSTOM_COMMAND Network/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Network/install/local: phony Network/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Network/CMakeFiles/install/strip.util: CUSTOM_COMMAND Network/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Network/install/strip: phony Network/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Network/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Socket
+
+
+#############################################
+# Order-only phony target for Socket
+
+build cmake_object_order_depends_target_Socket: phony || cmake_object_order_depends_target_Synchronized cmake_object_order_depends_target_Thread cmake_object_order_depends_target_Tools
+
+build Network/Socket/CMakeFiles/Socket.dir/Client_Manager.cpp.obj: CXX_COMPILER__Socket_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Manager.cpp || cmake_object_order_depends_target_Socket
+  DEP_FILE = Network\Socket\CMakeFiles\Socket.dir\Client_Manager.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Network\Socket\CMakeFiles\Socket.dir
+  OBJECT_FILE_DIR = Network\Socket\CMakeFiles\Socket.dir
+
+build Network/Socket/CMakeFiles/Socket.dir/Client_Socket/Client_Socket_Manager.cpp.obj: CXX_COMPILER__Socket_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket_Manager.cpp || cmake_object_order_depends_target_Socket
+  DEP_FILE = Network\Socket\CMakeFiles\Socket.dir\Client_Socket\Client_Socket_Manager.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Network\Socket\CMakeFiles\Socket.dir
+  OBJECT_FILE_DIR = Network\Socket\CMakeFiles\Socket.dir\Client_Socket
+
+build Network/Socket/CMakeFiles/Socket.dir/Client_Socket/Client_Socket.cpp.obj: CXX_COMPILER__Socket_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Client_Socket/Client_Socket.cpp || cmake_object_order_depends_target_Socket
+  DEP_FILE = Network\Socket\CMakeFiles\Socket.dir\Client_Socket\Client_Socket.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Network\Socket\CMakeFiles\Socket.dir
+  OBJECT_FILE_DIR = Network\Socket\CMakeFiles\Socket.dir\Client_Socket
+
+build Network/Socket/CMakeFiles/Socket.dir/Server_Socket/Server_Socket.cpp.obj: CXX_COMPILER__Socket_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Socket/Server_Socket/Server_Socket.cpp || cmake_object_order_depends_target_Socket
+  DEP_FILE = Network\Socket\CMakeFiles\Socket.dir\Server_Socket\Server_Socket.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Network\Socket\CMakeFiles\Socket.dir
+  OBJECT_FILE_DIR = Network\Socket\CMakeFiles\Socket.dir\Server_Socket
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Socket
+
+
+#############################################
+# Link the static library Network\Socket\libSocket.a
+
+build Network/Socket/libSocket.a: CXX_STATIC_LIBRARY_LINKER__Socket_Debug Network/Socket/CMakeFiles/Socket.dir/Client_Manager.cpp.obj Network/Socket/CMakeFiles/Socket.dir/Client_Socket/Client_Socket_Manager.cpp.obj Network/Socket/CMakeFiles/Socket.dir/Client_Socket/Client_Socket.cpp.obj Network/Socket/CMakeFiles/Socket.dir/Server_Socket/Server_Socket.cpp.obj || Thread/libThread.a Tools/Synchronized/libSynchronized.a Tools/libTools.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Network\Socket\CMakeFiles\Socket.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Network\Socket\libSocket.a
+  TARGET_PDB = Socket.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Network/Socket/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Socket && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Network/Socket/edit_cache: phony Network/Socket/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Network/Socket/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Socket && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Network/Socket/rebuild_cache: phony Network/Socket/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Network/Socket/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Network/Socket/CMakeFiles/install.util: CUSTOM_COMMAND Network/Socket/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Socket && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Network/Socket/install: phony Network/Socket/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Network/Socket/CMakeFiles/install/local.util: CUSTOM_COMMAND Network/Socket/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Socket && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Network/Socket/install/local: phony Network/Socket/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Network/Socket/CMakeFiles/install/strip.util: CUSTOM_COMMAND Network/Socket/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Socket && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Network/Socket/install/strip: phony Network/Socket/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Network/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build Network/Protocols/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Network/Protocols/edit_cache: phony Network/Protocols/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Network/Protocols/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Network/Protocols/rebuild_cache: phony Network/Protocols/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Network/Protocols/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Network/Protocols/CMakeFiles/install.util: CUSTOM_COMMAND Network/Protocols/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Network/Protocols/install: phony Network/Protocols/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Network/Protocols/CMakeFiles/install/local.util: CUSTOM_COMMAND Network/Protocols/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Network/Protocols/install/local: phony Network/Protocols/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Network/Protocols/CMakeFiles/install/strip.util: CUSTOM_COMMAND Network/Protocols/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Network/Protocols/install/strip: phony Network/Protocols/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Network/Protocols/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Protocols_Type
+
+
+#############################################
+# Order-only phony target for Protocols_Type
+
+build cmake_object_order_depends_target_Protocols_Type: phony || Network/Protocols/Protocols_Type/CMakeFiles/Protocols_Type.dir
+
+build Network/Protocols/Protocols_Type/CMakeFiles/Protocols_Type.dir/Authorization_Message.cpp.obj: CXX_COMPILER__Protocols_Type_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Protocols/Protocols_Type/Authorization_Message.cpp || cmake_object_order_depends_target_Protocols_Type
+  DEP_FILE = Network\Protocols\Protocols_Type\CMakeFiles\Protocols_Type.dir\Authorization_Message.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Network\Protocols\Protocols_Type\CMakeFiles\Protocols_Type.dir
+  OBJECT_FILE_DIR = Network\Protocols\Protocols_Type\CMakeFiles\Protocols_Type.dir
+
+build Network/Protocols/Protocols_Type/CMakeFiles/Protocols_Type.dir/Registration_Message.cpp.obj: CXX_COMPILER__Protocols_Type_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Network/Protocols/Protocols_Type/Registration_Message.cpp || cmake_object_order_depends_target_Protocols_Type
+  DEP_FILE = Network\Protocols\Protocols_Type\CMakeFiles\Protocols_Type.dir\Registration_Message.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Network\Protocols\Protocols_Type\CMakeFiles\Protocols_Type.dir
+  OBJECT_FILE_DIR = Network\Protocols\Protocols_Type\CMakeFiles\Protocols_Type.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Protocols_Type
+
+
+#############################################
+# Link the static library Network\Protocols\Protocols_Type\libProtocols_Type.a
+
+build Network/Protocols/Protocols_Type/libProtocols_Type.a: CXX_STATIC_LIBRARY_LINKER__Protocols_Type_Debug Network/Protocols/Protocols_Type/CMakeFiles/Protocols_Type.dir/Authorization_Message.cpp.obj Network/Protocols/Protocols_Type/CMakeFiles/Protocols_Type.dir/Registration_Message.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Network\Protocols\Protocols_Type\CMakeFiles\Protocols_Type.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Network\Protocols\Protocols_Type\libProtocols_Type.a
+  TARGET_PDB = Protocols_Type.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Network/Protocols/Protocols_Type/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols\Protocols_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Network/Protocols/Protocols_Type/edit_cache: phony Network/Protocols/Protocols_Type/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Network/Protocols/Protocols_Type/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols\Protocols_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Network/Protocols/Protocols_Type/rebuild_cache: phony Network/Protocols/Protocols_Type/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Network/Protocols/Protocols_Type/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Network/Protocols/Protocols_Type/CMakeFiles/install.util: CUSTOM_COMMAND Network/Protocols/Protocols_Type/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols\Protocols_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Network/Protocols/Protocols_Type/install: phony Network/Protocols/Protocols_Type/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Network/Protocols/Protocols_Type/CMakeFiles/install/local.util: CUSTOM_COMMAND Network/Protocols/Protocols_Type/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols\Protocols_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Network/Protocols/Protocols_Type/install/local: phony Network/Protocols/Protocols_Type/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Network/Protocols/Protocols_Type/CMakeFiles/install/strip.util: CUSTOM_COMMAND Network/Protocols/Protocols_Type/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Network\Protocols\Protocols_Type && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Network/Protocols/Protocols_Type/install/strip: phony Network/Protocols/Protocols_Type/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Tools
+
+
+#############################################
+# Order-only phony target for Tools
+
+build cmake_object_order_depends_target_Tools: phony || cmake_object_order_depends_target_Synchronized
+
+build Tools/CMakeFiles/Tools.dir/Json_Tools.cpp.obj: CXX_COMPILER__Tools_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/Json_Tools.cpp || cmake_object_order_depends_target_Tools
+  DEP_FILE = Tools\CMakeFiles\Tools.dir\Json_Tools.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Tools\CMakeFiles\Tools.dir
+  OBJECT_FILE_DIR = Tools\CMakeFiles\Tools.dir
+
+build Tools/CMakeFiles/Tools.dir/OpenSSL_Tools.cpp.obj: CXX_COMPILER__Tools_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/OpenSSL_Tools.cpp || cmake_object_order_depends_target_Tools
+  DEP_FILE = Tools\CMakeFiles\Tools.dir\OpenSSL_Tools.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Tools\CMakeFiles\Tools.dir
+  OBJECT_FILE_DIR = Tools\CMakeFiles\Tools.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Tools
+
+
+#############################################
+# Link the static library Tools\libTools.a
+
+build Tools/libTools.a: CXX_STATIC_LIBRARY_LINKER__Tools_Debug Tools/CMakeFiles/Tools.dir/Json_Tools.cpp.obj Tools/CMakeFiles/Tools.dir/OpenSSL_Tools.cpp.obj || Tools/Synchronized/libSynchronized.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Tools\CMakeFiles\Tools.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Tools\libTools.a
+  TARGET_PDB = Tools.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tools/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tools/edit_cache: phony Tools/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tools/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tools/rebuild_cache: phony Tools/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tools/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tools/CMakeFiles/install.util: CUSTOM_COMMAND Tools/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tools/install: phony Tools/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tools/CMakeFiles/install/local.util: CUSTOM_COMMAND Tools/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tools/install/local: phony Tools/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tools/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tools/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tools/install/strip: phony Tools/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Tools/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Synchronized
+
+
+#############################################
+# Order-only phony target for Synchronized
+
+build cmake_object_order_depends_target_Synchronized: phony || Tools/Synchronized/CMakeFiles/Synchronized.dir
+
+build Tools/Synchronized/CMakeFiles/Synchronized.dir/Conditional_Variable.cpp.obj: CXX_COMPILER__Synchronized_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/Synchronized/Conditional_Variable.cpp || cmake_object_order_depends_target_Synchronized
+  DEP_FILE = Tools\Synchronized\CMakeFiles\Synchronized.dir\Conditional_Variable.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Tools\Synchronized\CMakeFiles\Synchronized.dir
+  OBJECT_FILE_DIR = Tools\Synchronized\CMakeFiles\Synchronized.dir
+
+build Tools/Synchronized/CMakeFiles/Synchronized.dir/Mutex.cpp.obj: CXX_COMPILER__Synchronized_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tools/Synchronized/Mutex.cpp || cmake_object_order_depends_target_Synchronized
+  DEP_FILE = Tools\Synchronized\CMakeFiles\Synchronized.dir\Mutex.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Tools\Synchronized\CMakeFiles\Synchronized.dir
+  OBJECT_FILE_DIR = Tools\Synchronized\CMakeFiles\Synchronized.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Synchronized
+
+
+#############################################
+# Link the static library Tools\Synchronized\libSynchronized.a
+
+build Tools/Synchronized/libSynchronized.a: CXX_STATIC_LIBRARY_LINKER__Synchronized_Debug Tools/Synchronized/CMakeFiles/Synchronized.dir/Conditional_Variable.cpp.obj Tools/Synchronized/CMakeFiles/Synchronized.dir/Mutex.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Tools\Synchronized\CMakeFiles\Synchronized.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Tools\Synchronized\libSynchronized.a
+  TARGET_PDB = Synchronized.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tools/Synchronized/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Synchronized && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tools/Synchronized/edit_cache: phony Tools/Synchronized/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tools/Synchronized/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Synchronized && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tools/Synchronized/rebuild_cache: phony Tools/Synchronized/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tools/Synchronized/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tools/Synchronized/CMakeFiles/install.util: CUSTOM_COMMAND Tools/Synchronized/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Synchronized && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tools/Synchronized/install: phony Tools/Synchronized/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tools/Synchronized/CMakeFiles/install/local.util: CUSTOM_COMMAND Tools/Synchronized/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Synchronized && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tools/Synchronized/install/local: phony Tools/Synchronized/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tools/Synchronized/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tools/Synchronized/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Synchronized && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tools/Synchronized/install/strip: phony Tools/Synchronized/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Tools/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tools/Containers/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Containers && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tools/Containers/edit_cache: phony Tools/Containers/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tools/Containers/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Containers && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tools/Containers/rebuild_cache: phony Tools/Containers/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tools/Containers/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tools/Containers/CMakeFiles/install.util: CUSTOM_COMMAND Tools/Containers/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Containers && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tools/Containers/install: phony Tools/Containers/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tools/Containers/CMakeFiles/install/local.util: CUSTOM_COMMAND Tools/Containers/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Containers && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tools/Containers/install/local: phony Tools/Containers/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tools/Containers/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tools/Containers/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tools\Containers && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tools/Containers/install/strip: phony Tools/Containers/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tests/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tests/edit_cache: phony Tests/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tests/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tests/rebuild_cache: phony Tests/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tests/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tests/CMakeFiles/install.util: CUSTOM_COMMAND Tests/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tests/install: phony Tests/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tests/CMakeFiles/install/local.util: CUSTOM_COMMAND Tests/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tests/install/local: phony Tests/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tests/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tests/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tests/install/strip: phony Tests/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Tests/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tests/googletest-1.14.0/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0 && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tests/googletest-1.14.0/edit_cache: phony Tests/googletest-1.14.0/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tests/googletest-1.14.0/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0 && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/rebuild_cache: phony Tests/googletest-1.14.0/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tests/googletest-1.14.0/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tests/googletest-1.14.0/CMakeFiles/install.util: CUSTOM_COMMAND Tests/googletest-1.14.0/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0 && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/install: phony Tests/googletest-1.14.0/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tests/googletest-1.14.0/CMakeFiles/install/local.util: CUSTOM_COMMAND Tests/googletest-1.14.0/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0 && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/install/local: phony Tests/googletest-1.14.0/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tests/googletest-1.14.0/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tests/googletest-1.14.0/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0 && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/install/strip: phony Tests/googletest-1.14.0/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build Tests/googletest-1.14.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: CXX_COMPILER__gmock_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj.d
+  FLAGS = -g -std=c++17 -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include" -ID:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/include -ID:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/include -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest
+  OBJECT_DIR = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock.dir
+  OBJECT_FILE_DIR = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib\libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug Tests/googletest-1.14.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj || lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lib\libgmock.a
+  TARGET_PDB = gmock.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build Tests/googletest-1.14.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj: CXX_COMPILER__gmock_main_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj.d
+  FLAGS = -g -std=c++17 -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include" -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/include -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/include -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest
+  OBJECT_DIR = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock_main.dir
+  OBJECT_FILE_DIR = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock_main.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib\libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug Tests/googletest-1.14.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj || lib/libgmock.a lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Tests\googletest-1.14.0\googlemock\CMakeFiles\gmock_main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lib\libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tests/googletest-1.14.0/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tests/googletest-1.14.0/googlemock/edit_cache: phony Tests/googletest-1.14.0/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tests/googletest-1.14.0/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googlemock/rebuild_cache: phony Tests/googletest-1.14.0/googlemock/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tests/googletest-1.14.0/googlemock/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tests/googletest-1.14.0/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND Tests/googletest-1.14.0/googlemock/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googlemock/install: phony Tests/googletest-1.14.0/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tests/googletest-1.14.0/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND Tests/googletest-1.14.0/googlemock/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googlemock/install/local: phony Tests/googletest-1.14.0/googlemock/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tests/googletest-1.14.0/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tests/googletest-1.14.0/googlemock/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googlemock/install/strip: phony Tests/googletest-1.14.0/googlemock/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || Tests/googletest-1.14.0/googletest/CMakeFiles/gtest.dir
+
+build Tests/googletest-1.14.0/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
+  FLAGS = -g -std=c++17 -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include" -ID:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/include -ID:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest
+  OBJECT_DIR = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest.dir
+  OBJECT_FILE_DIR = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib\libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug Tests/googletest-1.14.0/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lib\libgtest.a
+  TARGET_PDB = gtest.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build Tests/googletest-1.14.0/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
+  FLAGS = -g -std=c++17 -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include" -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/include -isystem D:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest
+  OBJECT_DIR = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest_main.dir
+  OBJECT_FILE_DIR = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest_main.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib\libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug Tests/googletest-1.14.0/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Tests\googletest-1.14.0\googletest\CMakeFiles\gtest_main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lib\libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tests/googletest-1.14.0/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googletest && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tests/googletest-1.14.0/googletest/edit_cache: phony Tests/googletest-1.14.0/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tests/googletest-1.14.0/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googletest && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googletest/rebuild_cache: phony Tests/googletest-1.14.0/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tests/googletest-1.14.0/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tests/googletest-1.14.0/googletest/CMakeFiles/install.util: CUSTOM_COMMAND Tests/googletest-1.14.0/googletest/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googletest && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googletest/install: phony Tests/googletest-1.14.0/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tests/googletest-1.14.0/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND Tests/googletest-1.14.0/googletest/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googletest && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googletest/install/local: phony Tests/googletest-1.14.0/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tests/googletest-1.14.0/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tests/googletest-1.14.0/googletest/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Tests\googletest-1.14.0\googletest && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tests/googletest-1.14.0/googletest/install/strip: phony Tests/googletest-1.14.0/googletest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Progg/Plotniy_Project/Server/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Thread
+
+
+#############################################
+# Order-only phony target for Thread
+
+build cmake_object_order_depends_target_Thread: phony || Thread/CMakeFiles/Thread.dir
+
+build Thread/CMakeFiles/Thread.dir/Thread.cpp.obj: CXX_COMPILER__Thread_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Thread/Thread.cpp || cmake_object_order_depends_target_Thread
+  DEP_FILE = Thread\CMakeFiles\Thread.dir\Thread.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Thread\CMakeFiles\Thread.dir
+  OBJECT_FILE_DIR = Thread\CMakeFiles\Thread.dir
+
+build Thread/CMakeFiles/Thread.dir/Pool/Thread_Pool.cpp.obj: CXX_COMPILER__Thread_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Thread/Pool/Thread_Pool.cpp || cmake_object_order_depends_target_Thread
+  DEP_FILE = Thread\CMakeFiles\Thread.dir\Pool\Thread_Pool.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Thread\CMakeFiles\Thread.dir
+  OBJECT_FILE_DIR = Thread\CMakeFiles\Thread.dir\Pool
+
+build Thread/CMakeFiles/Thread.dir/Pool/Task_Container.cpp.obj: CXX_COMPILER__Thread_unscanned_Debug D$:/Progg/Plotniy_Project/Server/Thread/Pool/Task_Container.cpp || cmake_object_order_depends_target_Thread
+  DEP_FILE = Thread\CMakeFiles\Thread.dir\Pool\Task_Container.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/boost_1_83_0" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include" -I"C:/Program Files/JetBrains/CLion 2023.2.1/lib/libpq-13.2.0/include/postgresql/server" -I"C:/Program Files/PostgreSQL/16rc1/include"
+  OBJECT_DIR = Thread\CMakeFiles\Thread.dir
+  OBJECT_FILE_DIR = Thread\CMakeFiles\Thread.dir\Pool
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Thread
+
+
+#############################################
+# Link the static library Thread\libThread.a
+
+build Thread/libThread.a: CXX_STATIC_LIBRARY_LINKER__Thread_Debug Thread/CMakeFiles/Thread.dir/Thread.cpp.obj Thread/CMakeFiles/Thread.dir/Pool/Thread_Pool.cpp.obj Thread/CMakeFiles/Thread.dir/Pool/Task_Container.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Thread\CMakeFiles\Thread.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Thread\libThread.a
+  TARGET_PDB = Thread.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Thread/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Thread && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Thread/edit_cache: phony Thread/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Thread/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Thread && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Progg\Plotniy_Project\Server -BD:\Progg\Plotniy_Project\Server\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Thread/rebuild_cache: phony Thread/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Thread/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Thread/CMakeFiles/install.util: CUSTOM_COMMAND Thread/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Thread && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Thread/install: phony Thread/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Thread/CMakeFiles/install/local.util: CUSTOM_COMMAND Thread/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Thread && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Thread/install/local: phony Thread/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Thread/CMakeFiles/install/strip.util: CUSTOM_COMMAND Thread/all
+  COMMAND = cmd.exe /C "cd /D D:\Progg\Plotniy_Project\Server\cmake-build-debug\Thread && "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Thread/install/strip: phony Thread/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
 
+build Database: phony Business_Logic/Database/libDatabase.a
+
+build Protocols_Type: phony Network/Protocols/Protocols_Type/libProtocols_Type.a
+
 build Server: phony Server.exe
+
+build Socket: phony Network/Socket/libSocket.a
+
+build Synchronized: phony Tools/Synchronized/libSynchronized.a
+
+build Task: phony Business_Logic/Task/libTask.a
+
+build Task_Type: phony Business_Logic/Task/Task_Type/libTask_Type.a
+
+build Thread: phony Thread/libThread.a
+
+build Tools: phony Tools/libTools.a
+
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
+build libDatabase.a: phony Business_Logic/Database/libDatabase.a
+
+build libProtocols_Type.a: phony Network/Protocols/Protocols_Type/libProtocols_Type.a
+
+build libSocket.a: phony Network/Socket/libSocket.a
+
+build libSynchronized.a: phony Tools/Synchronized/libSynchronized.a
+
+build libTask.a: phony Business_Logic/Task/libTask.a
+
+build libTask_Type.a: phony Business_Logic/Task/Task_Type/libTask_Type.a
+
+build libThread.a: phony Thread/libThread.a
+
+build libTools.a: phony Tools/libTools.a
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
 
 # =============================================================================
 # Folder targets.
@@ -243,7 +1781,119 @@ build Server: phony Server.exe
 #############################################
 # Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug
 
-build all: phony Server.exe
+build all: phony Server.exe Business_Logic/all Network/all Tools/all Tests/all Thread/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Business_Logic
+
+build Business_Logic/all: phony Business_Logic/Database/all Business_Logic/Task/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Business_Logic/Database
+
+build Business_Logic/Database/all: phony Business_Logic/Database/libDatabase.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Business_Logic/Task
+
+build Business_Logic/Task/all: phony Business_Logic/Task/libTask.a Business_Logic/Task/Task_Type/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Business_Logic/Task/Task_Type
+
+build Business_Logic/Task/Task_Type/all: phony Business_Logic/Task/Task_Type/libTask_Type.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Network
+
+build Network/all: phony Network/Socket/all Network/Protocols/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Network/Protocols
+
+build Network/Protocols/all: phony Network/Protocols/Protocols_Type/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Network/Protocols/Protocols_Type
+
+build Network/Protocols/Protocols_Type/all: phony Network/Protocols/Protocols_Type/libProtocols_Type.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Network/Socket
+
+build Network/Socket/all: phony Network/Socket/libSocket.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Tests
+
+build Tests/all: phony Tests/googletest-1.14.0/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Tests/googletest-1.14.0
+
+build Tests/googletest-1.14.0/all: phony Tests/googletest-1.14.0/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Tests/googletest-1.14.0/googlemock
+
+build Tests/googletest-1.14.0/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a Tests/googletest-1.14.0/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Tests/googletest-1.14.0/googletest
+
+build Tests/googletest-1.14.0/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Thread
+
+build Thread/all: phony Thread/libThread.a
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Tools
+
+build Tools/all: phony Tools/libTools.a Tools/Synchronized/all Tools/Containers/all
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Tools/Containers
+
+build Tools/Containers/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: D:/Progg/Plotniy_Project/Server/cmake-build-debug/Tools/Synchronized
+
+build Tools/Synchronized/all: phony Tools/Synchronized/libSynchronized.a
 
 # =============================================================================
 # Built-in targets
@@ -252,14 +1902,14 @@ build all: phony Server.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenSSL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPostgreSQL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Progg/Plotniy_Project/Server/CMakeLists.txt
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenSSL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPostgreSQL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython3.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Progg/Plotniy_Project/Server/Business_Logic/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Type/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/Protocols/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/Protocols/Protocols_Type/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/Socket/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/cmake/gmock.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/cmake/gmock_main.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/Config.cmake.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/gtest.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/gtest_main.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/internal_utils.cmake D$:/Progg/Plotniy_Project/Server/Thread/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tools/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tools/Containers/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tools/Synchronized/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenSSL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPostgreSQL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Progg/Plotniy_Project/Server/CMakeLists.txt: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenSSL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPostgreSQL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython3.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Progg/Plotniy_Project/Server/Business_Logic/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Business_Logic/Database/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Business_Logic/Task/Task_Type/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/Protocols/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/Protocols/Protocols_Type/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Network/Socket/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/cmake/gmock.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googlemock/cmake/gmock_main.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/Config.cmake.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/gtest.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/gtest_main.pc.in D$:/Progg/Plotniy_Project/Server/Tests/googletest-1.14.0/googletest/cmake/internal_utils.cmake D$:/Progg/Plotniy_Project/Server/Thread/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tools/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tools/Containers/CMakeLists.txt D$:/Progg/Plotniy_Project/Server/Tools/Synchronized/CMakeLists.txt: phony
 
 
 #############################################

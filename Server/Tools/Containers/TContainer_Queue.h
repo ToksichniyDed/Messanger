@@ -5,6 +5,8 @@
 #ifndef SERVER_TCONTAINER_QUEUE_H
 #define SERVER_TCONTAINER_QUEUE_H
 
+#include <queue>
+
 #include "TContainer_Base.h"
 
 //Шаблон для контейнера-очереди
@@ -41,6 +43,8 @@ void TContainer_Queue<Data_Type>::Emplace(Data_Type &data) {
     this->m_mutex.Get_Unique_Lock();
     this->m_container.emplace(data);
 }
+
+
 
 
 #endif //SERVER_TCONTAINER_QUEUE_H

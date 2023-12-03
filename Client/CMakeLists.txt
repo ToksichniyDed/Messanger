@@ -23,6 +23,8 @@ add_executable(Client main.cpp
         Model/Networking/Socket/Socket_Manager.h
         Model/Networking/Socket/Socket.cpp
         Model/Networking/Socket/Socket.h
+        Model/Networking/Message_Queue/Message_From_Server_Queue.cpp
+        Model/Networking/Message_Queue/Message_From_Server_Queue.h
 
         #View
         View/Authentication_View/Login.h
@@ -30,7 +32,6 @@ add_executable(Client main.cpp
         View_Model/Authentication_View_Model/Authentication_Data.h
         View_Model/Authentication_View_Model/Registration_Data.cpp
         View_Model/Authentication_View_Model/Registration_Data.h
-
 )
 
 target_link_libraries(Client PRIVATE ws2_32.lib ${Boost_LIBRARIES})

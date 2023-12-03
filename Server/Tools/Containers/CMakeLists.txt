@@ -1,0 +1,3 @@
+add_library(Containers INTERFACE)
+
+target_link_libraries(Containers INTERFACE Synchronized)

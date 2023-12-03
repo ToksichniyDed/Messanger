@@ -22,7 +22,3 @@ void Registration_Message::Clear_Message() {
     m_data.clear();
     m_parametrs.clear();
 }
-
-void Registration_Message::Validate_Message() {
-
-}

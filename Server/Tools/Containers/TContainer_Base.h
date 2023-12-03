@@ -6,8 +6,8 @@
 #define SERVER_TCONTAINER_BASE_H
 
 
-#include <queue>
 #include <functional>
+#include <string>
 
 #include "../Synchronized/Mutex.h"
 #include "../Synchronized/Conditional_Variable.h"
@@ -28,7 +28,7 @@ public:
     void Notify_One();
     void Notify_All();
     void Conditional(std::function<bool()> &function);
-    void Clear(Data_Type &data);
+    void Clear();
 };
 
 template<typename Container_Type, typename Data_Type>
@@ -61,7 +61,7 @@ bool TContainer_Base<Container_Type, Data_Type>::Empty() {
 }
 
 template<typename Container_Type, typename Data_Type>
-void TContainer_Base<Container_Type, Data_Type>::Clear(Data_Type &data) {
+void TContainer_Base<Container_Type, Data_Type>::Clear() {
     m_mutex.Get_Unique_Lock();
     m_container.clear();
 }

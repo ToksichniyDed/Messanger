@@ -1,0 +1,2 @@
+add_library(Protocols_Type Authorization_Message.cpp
+Registration_Message.cpp)

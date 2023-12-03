@@ -29,7 +29,7 @@ Data_Type &Container_Vector<Data_Type>::At(int temp) {
 }
 
 template<typename Data_Type>
-void Container_Vector<Data_Type>::Erase(int temp) {
+void Container_Vector<Data_Type>::Erase(int temp    ) {
     if (temp < this->Size()) {
         this->m_mutex.Get_Unique_Lock();
         auto it = this->m_container.begin() + temp;
