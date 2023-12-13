@@ -23,7 +23,7 @@ public:
     explicit Client_Socket_Manager(SOCKET* socket);
     void Close_Socket() override;
     void Set_Security_Options() override;
-    bool Check_Socket();
+    virtual bool Check_Socket();
 };
 
 

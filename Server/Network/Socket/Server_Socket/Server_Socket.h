@@ -20,15 +20,15 @@ class Server_Socket : public ISocket {
 private:
     SOCKET m_server_socket = 0;
     Client_Manager m_client_manager;
-    void Bind_Socket();
-    void Listening_Socket();
+    virtual void Bind_Socket();
+    virtual void Listening_Socket();
 
 public:
     void Open_Socket() override;
     void Close_Socket() override;
     void Set_Security_Options() override;
-    void Accept();
-    void Listening_Clients_Socket();
+    virtual void Accept();
+    virtual void Listening_Clients_Socket();
 };
 
 

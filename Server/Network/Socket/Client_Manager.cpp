@@ -43,7 +43,7 @@ void Client_Manager::Listen_Clients() {
                 auto task = task_factory.CreateTask(data_type,data.first,parse_data);
 
                 if(task) {
-                    m_clients_tasks .Emplace_Task(task);
+                    m_clients_tasks .Emplace_Task(std::move(task));
                 }
                 else
                     std::cout<<"Unknown task type!"<<std::endl;

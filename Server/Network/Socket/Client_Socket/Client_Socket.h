@@ -17,11 +17,10 @@ public:
 public:
     explicit Client_Socket(SOCKET socket);
     ~Client_Socket();
-    std::pair<Client_Socket *, std::vector<char>> Listen_Socket();
-    void Send_Message( std::string& message);
-    Client_Socket_Manager* Get_Client_Socket_Manager();
-    SOCKET Get_Socket() const;
+    virtual std::pair<Client_Socket *, std::vector<char>> Listen_Socket();
+    virtual void Send_Message( std::string& message);
+    virtual Client_Socket_Manager* Get_Client_Socket_Manager();
+    virtual SOCKET Get_Socket() const;
 };
-
 
 #endif //SERVER_CLIENT_SOCKET_H

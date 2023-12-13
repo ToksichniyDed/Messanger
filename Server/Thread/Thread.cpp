@@ -12,7 +12,7 @@ void Thread::Take_Task(Task* task) {
     task->Execute();
 }
 
-//Поток стоит на пазуе, пока контейнер клиентских задач пустой.
+//Поток стоит на паузе, пока контейнер клиентских задач пустой.
 void Thread::Wait_Task() {
     while(true){
         auto conditional = [&](){return m_client_tasks->Empty();};
