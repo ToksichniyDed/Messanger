@@ -18,7 +18,7 @@
 //Паттер Factory для формирования задач.
 
 class Task_Factory {
-private:
+protected:
     using Task_Creator = std::function<Task*(Client_Socket*, std::string&)>;//псевдоним для лямбда фукнции
     std::unordered_map<std::string, Task_Creator> Task_Registry; // мапа тип задачи/ функция создания задачи
 

@@ -14,9 +14,9 @@
 template<typename Data_Type>
 class Container_Vector : public TContainer_Base<std::vector<Data_Type>, Data_Type> {
 public:
-    void Emplace_Back(Data_Type &data);
+    virtual void Emplace_Back(Data_Type &data);
     void Erase(int temp);
-    Data_Type &At(int temp);
+    virtual Data_Type &At(int temp);
 };
 
 template<typename Data_Type>

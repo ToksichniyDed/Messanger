@@ -14,8 +14,8 @@ include_directories(${OPENSSL_INCLUDE_DIR})
 add_subdirectory(Business_Logic)
 add_subdirectory(Network)
 add_subdirectory(Tools)
-add_subdirectory(Tests)
 add_subdirectory(Thread)
+add_subdirectory(Tests)
 
 add_executable(Server main.cpp
 )

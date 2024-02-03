@@ -5,7 +5,6 @@
 #ifndef SERVER_TCONTAINER_BASE_H
 #define SERVER_TCONTAINER_BASE_H
 
-
 #include <functional>
 #include <string>
 
@@ -23,11 +22,11 @@ protected:
     Conditional_Variable m_cv;
 
 public:
-    int Size();
-    bool Empty();
-    void Notify_One();
-    void Notify_All();
-    void Conditional(std::function<bool()> &function);
+    virtual int Size();
+    virtual bool Empty();
+    virtual void Notify_One();
+    virtual void Notify_All();
+    virtual void Conditional(std::function<bool()> &function);
     void Clear();
 };
 

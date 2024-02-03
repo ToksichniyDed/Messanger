@@ -28,6 +28,7 @@ void Server_Socket::Open_Socket() {
 }
 
 void Server_Socket::Close_Socket() {
+    m_should_exit = true;
     closesocket(m_server_socket);
     m_server_socket = INVALID_SOCKET;
     WSACleanup();
@@ -60,15 +61,8 @@ void Server_Socket::Accept() {
     SOCKET temp_client_socket;
     sockaddr_in client_address{};
     int client_address_length = sizeof(client_address);
-
-    while (true) {
-
-        temp_client_socket = accept(m_server_socket, (struct sockaddr *) &client_address, &client_address_length);
-        auto *client_socket = new Client_Socket(temp_client_socket);
-
-        std::cout<<"New client accept with socket: "<<temp_client_socket<<" !" <<std::endl;
-
-        m_client_manager.Add_New_Client(client_socket);
+    while (!m_should_exit) {
+        Iteration(std::move(temp_client_socket),std::move(client_address),std::move(client_address_length));
     }
 }
 
@@ -84,7 +78,20 @@ void Server_Socket::Listening_Socket() {
 }
 
 void Server_Socket::Listening_Clients_Socket() {
-    m_client_manager.Listen_Clients();
+    m_client_manager->Listen_Clients();
+}
+
+void Server_Socket::Iteration(SOCKET temp_client_socket, sockaddr_in client_address, int client_address_length) {
+    temp_client_socket = accept(m_server_socket, (struct sockaddr *) &client_address, &client_address_length);
+    auto *client_socket = new Client_Socket(temp_client_socket);
+
+    std::cout<<"New client accept with socket: "<<temp_client_socket<<" !" <<std::endl;
+
+    m_client_manager->Add_New_Client(client_socket);
+}
+
+Server_Socket::Server_Socket(Client_Manager *client_manager):m_client_manager(client_manager) {
+
 }
 
 

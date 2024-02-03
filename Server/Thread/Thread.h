@@ -13,18 +13,37 @@
 #include "../Business_Logic/Task/Task.h"
 #include "../Thread/Pool/Task_Container.h"
 
-//Класс Thread реализует поток. Поток создается для многопоточного решения клиентских задач.
+//Класс интерфейс потока
+class IThread {
+public:
+    virtual void Close_Thread() = 0;
+    virtual void Take_Task(Task* task) = 0;
+    virtual void Wait_Task() = 0;
+    virtual ~IThread() = default;
+};
 
-class Thread {
-private:
+//Фабрика потоков
+class Thread_Creator {
+public:
+    Thread_Creator() = default;
+    virtual IThread* Create_Thread (Task_Container* task_container) = 0;
+    virtual ~Thread_Creator() = default;
+};
+
+//Класс Thread реализует поток. Поток создается для многопоточного решения клиентских задач.
+//m_client_tasks хранит указатель на контейнер задач, инициализируется при создании потока
+class Thread: public IThread {
+protected:
+    bool m_should_exit = false;
     std::thread m_thread;
     Task_Container* m_client_tasks;
 
 public:
-    Thread(Task_Container* client_tasks);
-    void Close_Thread();
-    void Take_Task(Task* task);
-    void Wait_Task();
+    explicit Thread(Task_Container* client_tasks);
+    ~Thread();
+    void Close_Thread() override;
+    void Take_Task(Task* task) override;
+    void Wait_Task() override;
 };
 
 

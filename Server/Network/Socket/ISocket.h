@@ -20,5 +20,4 @@ public:
     virtual ~ISocket() = default;
 };
 
-
 #endif //SERVER_ISOCKET_H

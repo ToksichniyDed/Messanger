@@ -15,15 +15,19 @@
 //Класс для управления подключенными клиентами. Тут содержиться вектор подключенных клиентов, контейнер задач, и фабрика задач.
 
 class Client_Manager {
-private:
-    Container_Vector<Client_Socket*> m_connected_clients;
-    Task_Container m_clients_tasks;
-    Task_Factory task_factory;
+protected:
+    bool m_should_exit = false;
+    Container_Vector<Client_Socket*>* m_connected_clients;
+    Task_Container* m_clients_tasks;
+    Task_Factory* m_task_factory;
 
 public:
+    Client_Manager(Container_Vector<Client_Socket*>* connected_clients , Task_Container* clients_tasks, Task_Factory* task_factory);
     void Add_New_Client(Client_Socket *clientSocket);
     void Remove_Client(int temp);
     void Listen_Clients();
+    void Iteration();
+    void Stop_Listening();
 };
 
 

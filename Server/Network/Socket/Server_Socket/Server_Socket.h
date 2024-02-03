@@ -17,18 +17,21 @@
 //Реализация серверного сокета.Открытие,закрытие, проверка, режим прослушки, прием подключений.
 
 class Server_Socket : public ISocket {
-private:
+protected:
+    bool m_should_exit = false;
     SOCKET m_server_socket = 0;
-    Client_Manager m_client_manager;
+    Client_Manager* m_client_manager;
     virtual void Bind_Socket();
     virtual void Listening_Socket();
 
 public:
+    Server_Socket(Client_Manager* m_client_manager);
     void Open_Socket() override;
     void Close_Socket() override;
     void Set_Security_Options() override;
     virtual void Accept();
     virtual void Listening_Clients_Socket();
+    void Iteration(SOCKET temp_client_socket, sockaddr_in client_address, int client_address_length);
 };
 
 
