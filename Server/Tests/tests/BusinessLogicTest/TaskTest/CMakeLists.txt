@@ -1,0 +1,3 @@
+add_library(TaskTest INTERFACE)
+add_subdirectory(TaskTypeTest)
+target_link_libraries(TaskTest INTERFACE TaskTypeTest)

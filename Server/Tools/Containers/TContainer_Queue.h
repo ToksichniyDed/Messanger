@@ -16,9 +16,16 @@ class TContainer_Queue : public TContainer_Base<std::queue<Data_Type>, Data_Type
 
 public:
     void Emplace(Data_Type &data);
+    void Emplace(Data_Type &&data);
     void Pop();
     Data_Type Front();
 };
+
+template<typename Data_Type>
+void TContainer_Queue<Data_Type>::Emplace(Data_Type &&data) {
+    this->m_mutex.Get_Unique_Lock();
+    this->m_container.emplace(std::forward<Data_Type>(data));
+}
 
 template<typename Data_Type>
 Data_Type TContainer_Queue<Data_Type>::Front() {

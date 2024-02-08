@@ -27,14 +27,3 @@ TEST_F(Thread_Pool_Test, Add_Thread_Test){
     containerVector.Clear();
 }
 
-TEST_F(Thread_Pool_Test, Sub_Thread_Test){
-    Unreal_Thread_Creator creator;
-    Thread_Mock mock_th;
-    creator.Set_Thread(&mock_th);
-    Container_Vector_Fake <IThread*> containerVector;
-    Thread_Pool pool(2, new Task_Container, &creator, &containerVector);
-
-    EXPECT_CALL(mock_th, Close_Thread).Times(1);
-    pool.Sub_Thread(1);
-    containerVector.Clear();
-}

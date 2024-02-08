@@ -1,0 +1,3 @@
+add_library(BusinessLogicTest INTERFACE)
+add_subdirectory(TaskTest)
+target_link_libraries(BusinessLogicTest INTERFACE TaskTest)

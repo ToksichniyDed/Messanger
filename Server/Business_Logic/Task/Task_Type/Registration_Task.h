@@ -16,12 +16,12 @@
 
 class Registration_Task: public Task{
 private:
-    Database_Manager m_manager;
+    Database_Manager* m_manager;
     Client_Socket* m_socket;
     std::string m_data;
 
 public:
-    explicit Registration_Task(Client_Socket* socket, std::string& data);
+    explicit Registration_Task(Client_Socket* socket, std::string& data, Database_Manager* manager);
     void Execute() override;
 };
 

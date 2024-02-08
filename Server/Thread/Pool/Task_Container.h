@@ -17,14 +17,14 @@ private:
     TContainer_Queue<Task*> m_task_queue;
 
 public:
-    void Emplace_Task(Task* task);
-    void Pop_Task();
-    Task* Front_Task();
-    void Notify_All();
-    void Notify_One();
-    bool Empty();
-    int Size();
-    void Condition(std::function<bool()> condition);
+    virtual void Emplace_Task(Task* task);
+    virtual void Pop_Task();
+    virtual Task* Front_Task();
+    virtual void Notify_All();
+    virtual void Notify_One();
+    virtual bool Empty();
+    virtual int Size();
+    virtual void Condition(std::function<bool()> condition);
 };
 
 

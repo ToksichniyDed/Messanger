@@ -12,6 +12,7 @@
 
 class IMessage_Builder {
 public:
+    virtual ~IMessage_Builder() = default;
     virtual std::string Build_Message() = 0;
     virtual  IMessage_Builder& Set_Parametrs() = 0;
     virtual  IMessage_Builder& Set_Content(std::string& data) = 0;

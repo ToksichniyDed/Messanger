@@ -23,6 +23,7 @@ void Client_Manager::Remove_Client(int temp) {
 //который возвращает пару клиентский_сокет*-строку. Если строка не пустая, то парсится с помощью Json_Tools
 // для создания задачи соответственно типу сообщения.
 void Client_Manager::Listen_Clients() {
+    m_should_exit = false;
     while (!m_should_exit) {
         Iteration();
     }
@@ -39,7 +40,7 @@ void Client_Manager::Iteration() {
             if (!client_socket->Get_Client_Socket_Manager()->Check_Socket()) {
                 Remove_Client(i);
                 client_socket->Get_Client_Socket_Manager()->Close_Socket();
-                delete client_socket;
+                client_socket->Delete_Object();
                 continue;
             }
 

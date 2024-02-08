@@ -3,17 +3,20 @@
 
 #include "Network/Socket/Server_Socket/Server_Socket.h"
 #include "Business_Logic/Database/Database_Connector.h"
+#include "Business_Logic/Task/Task_Factory.h"
+#include "Thread/Pool/Task_Container.h"
 
-void Start_Server();
-void Connect_Database();
+void Start_Server(Database_Connector* connector);
+void Connect_Database(Database_Connector* connector);
 void Manage_Server();
 void Manage_Database_Connection();
 
 int main() {
     system("chcp 65001");
 
-    std::thread database_connection_thread(Connect_Database);
-    std::thread main_thread(Start_Server);
+    Database_Connector* connector;
+    std::thread database_connection_thread(Connect_Database, connector);
+    std::thread main_thread(Start_Server, connector);
 
     main_thread.join();
     database_connection_thread.join();
@@ -24,8 +27,13 @@ int main() {
 //Запускаю сервер. Создается серверный сокет, биндиться, включаается режим прослушивания (внутри метода Open()).
 //Создается 2 потока: поток для метода Accept() (прием новых подключений),
 //поток для метода Listening_Clients_Socket()(прослушивание подключенных клиентов на предмет сообщений или нарушения соединения).
-void Start_Server(){
-    Server_Socket server;
+void Start_Server(Database_Connector* connector){
+    Container_Vector<Client_Socket*> containerVector;
+    Task_Container taskContainer;
+    Task_Factory taskFactory;
+    taskFactory.Set_DB_Connector(connector);
+    Client_Manager clientManager(&containerVector, &taskContainer, &taskFactory);
+    Server_Socket server(&clientManager);
     server.Open_Socket();
     std::thread accept_thread([&]{server.Accept();});
     std::thread listening_clients_thread([&]{server.Listening_Clients_Socket();});
@@ -35,8 +43,9 @@ void Start_Server(){
 
 
 //Подключение к базе данных
-void Connect_Database(){
+void Connect_Database(Database_Connector* connector){
     Database_Connector database_connector;
+    connector = &database_connector;
     if(database_connector.Connect("Plotniy_Messanger","postgres","password","127.0.0.1","5432"))
         std::cout<<"Successful connection to database!"<<std::endl;
     else

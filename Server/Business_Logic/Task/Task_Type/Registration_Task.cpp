@@ -27,7 +27,7 @@ void Registration_Task::Execute() {
         std::string user = "user";
         IMessage_Builder* message_builder = new Registration_Message();
 
-        if(m_manager.Insert(user,vector)){
+        if(m_manager->Insert(user,vector)){
             access = "true";
             std::string message = message_builder->Set_Parametrs().Set_Content(access).Build_Message();
         }
@@ -43,6 +43,7 @@ void Registration_Task::Execute() {
     }
 }
 
-Registration_Task::Registration_Task(Client_Socket* socket, std::string &data): m_socket(socket), m_data(data) {
+Registration_Task::Registration_Task(Client_Socket* socket, std::string &data, Database_Manager* manager):
+m_socket(socket), m_data(data), m_manager(manager) {
 
 }

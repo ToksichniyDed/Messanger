@@ -1,5 +1,8 @@
 add_subdirectory(googletest-1.14.0)
 add_subdirectory(tests/NetworkTest)
 add_subdirectory(tests/ThreadTest)
+add_subdirectory(tests/BusinessLogicTest)
+
 add_library(Tests INTERFACE)
-target_link_libraries(Tests INTERFACE ThreadTest NetworkTest)
+
+target_link_libraries(Tests INTERFACE ThreadTest NetworkTest BusinessLogicTest)

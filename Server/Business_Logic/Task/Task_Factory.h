@@ -19,13 +19,15 @@
 
 class Task_Factory {
 protected:
+    Database_Connector* m_db_connector;
     using Task_Creator = std::function<Task*(Client_Socket*, std::string&)>;//псевдоним для лямбда фукнции
     std::unordered_map<std::string, Task_Creator> Task_Registry; // мапа тип задачи/ функция создания задачи
 
 public:
     Task_Factory();
-    void Register_Task(const std::string& type, Task_Creator creator);
-    Task* CreateTask(const std::string& type, Client_Socket* socket , std::string& parse_data);
+    virtual void Register_Task(const std::string& type, Task_Creator creator);
+    virtual Task* CreateTask(const std::string& type, Client_Socket* socket , std::string& parse_data);
+    void Set_DB_Connector(Database_Connector* connector);
 };
 
 #endif //SERVER_TASK_FACTORY_H

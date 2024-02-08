@@ -1,16 +1,16 @@
 # ninja log v5
-34	4309	7230620688530083	CMakeFiles/Client.dir/main.cpp.obj	a74877c1569c7fd4
 32	3520	7212526092617141	CMakeFiles/Client.dir/Client.cpp.obj	5449e291e68e636e
-1	239	7230734969763148	build.ninja	bef5d88091b69e3e
+34	4309	7230620688530083	CMakeFiles/Client.dir/main.cpp.obj	a74877c1569c7fd4
+1	239	7290597115584025	build.ninja	bef5d88091b69e3e
 5211	6489	7230620710295546	Client.exe	c33dba74d7f66872
+14	2176	7212526079061773	CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj	1c22d090ac5246b3
 26	3889	7211777680722715	CMakeFiles/Client.dir/Handlers/ServerHandler.cpp.obj	66aa76fc2b87a1f0
 10	3307	7176627038518434	CMakeFiles/Client.dir/ServerHandler/ServerHandler.cpp.obj	3868a1da535a151c
-14	2176	7212526079061773	CMakeFiles/Client.dir/Interface/UserInterface.cpp.obj	1c22d090ac5246b3
 9	417	7175905420218446	CMakeFiles/Client.dir/Registration_Data/Registration_Data.cpp.obj	cffc8eba895752a1
 28	131	7177920997764280	CMakeFiles/Client.dir/Handlers/MessengerHandler.cpp.obj	ee398b216fe0fe56
 42	2315	7211777664853269	CMakeFiles/Client.dir/User/User.cpp.obj	aaa3d8f5a4102ded
-57	2347	7211777665020752	CMakeFiles/Client.dir/Handlers/User_ServerHandler_Mediator.cpp.obj	90799fd77b2d1793
 26	2344	7229008777525329	CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj	c2ff9abbaa77d839
+57	2347	7211777665020752	CMakeFiles/Client.dir/Handlers/User_ServerHandler_Mediator.cpp.obj	90799fd77b2d1793
 58	460	7229008758742219	CMakeFiles/Client.dir/Tools/Synchronized/Mutex.cpp.obj	4ccc16c5dcbd29fa
 18	681	7229008760922303	CMakeFiles/Client.dir/Tools/Synchronized/Conditional_Variable.cpp.obj	b5b9eb5f7fae483e
 46	5008	7229932264713192	CMakeFiles/Client.dir/Model/Networking/Socket/Socket_Manager.cpp.obj	7d1bea3ccc6dc5a3
@@ -19,3 +19,14 @@
 48	158	7230620647028313	CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Registration_Data.cpp.obj	87d947ddc6c9803e
 70	782	7230620653267074	CMakeFiles/Client.dir/Model/Networking/Message_Queue/Message_From_Server_Queue.cpp.obj	7537a5c4b7877d5e
 56	1972	7230620665145612	CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Authentication_Data.cpp.obj	fee50d967c27d3a0
+0	229	7290597115584025	build.ninja	bef5d88091b69e3e
+138	247	7290597118286862	CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Registration_Data.cpp.obj	87d947ddc6c9803e
+36	320	7290597119004327	CMakeFiles/Client.dir/Tools/Synchronized/Mutex.cpp.obj	4ccc16c5dcbd29fa
+20	532	7290597121136993	CMakeFiles/Client.dir/Tools/Synchronized/Conditional_Variable.cpp.obj	b5b9eb5f7fae483e
+62	843	7290597124199775	CMakeFiles/Client.dir/Model/Networking/Message_Queue/Message_From_Server_Queue.cpp.obj	7537a5c4b7877d5e
+82	1757	7290597133377558	CMakeFiles/Client.dir/View_Model/Authentication_View_Model/Authentication_Data.cpp.obj	fee50d967c27d3a0
+27	2473	7290597140416462	CMakeFiles/Client.dir/Tools/Json_Tools.cpp.obj	c2ff9abbaa77d839
+10	3733	7290597153115706	CMakeFiles/Client.dir/main.cpp.obj	a74877c1569c7fd4
+120	3775	7290597153516992	CMakeFiles/Client.dir/Model/Networking/Socket/Socket_Manager.cpp.obj	7d1bea3ccc6dc5a3
+94	4541	7290597161142325	CMakeFiles/Client.dir/Model/Networking/Socket/Socket.cpp.obj	f942784c6fe2a283
+4542	5704	7290597172845183	Client.exe	1017d47d0232560e

@@ -1,4 +1,4 @@
-add_executable(SocketTest
+add_library(SocketTest
         clients_manager_test.cpp
 )
 

@@ -4,8 +4,8 @@
 
 #include "Database_Manager.h"
 
-Database_Manager::Database_Manager() {
-    m_query_executor = new Query_Executor(&m_database_connector);
+Database_Manager::Database_Manager(Database_Connector* database_connector):m_database_connector(database_connector) {
+    m_query_executor = new Query_Executor(m_database_connector);
 }
 
 std::vector<std::map<std::string, std::string>> Database_Manager::ExecuteCustomSelect(std::string &table_name, const std::string &select_part,

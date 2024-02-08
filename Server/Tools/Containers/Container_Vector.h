@@ -15,9 +15,16 @@ template<typename Data_Type>
 class Container_Vector : public TContainer_Base<std::vector<Data_Type>, Data_Type> {
 public:
     virtual void Emplace_Back(Data_Type &data);
+    virtual void Emplace_Back(Data_Type &&data);
     void Erase(int temp);
     virtual Data_Type &At(int temp);
 };
+
+template<typename Data_Type>
+void Container_Vector<Data_Type>::Emplace_Back(Data_Type &&data) {
+    this->m_mutex.Get_Unique_Lock();
+    this->m_container.emplace_back(std::forward<Data_Type>(data));
+}
 
 template<typename Data_Type>
 Data_Type &Container_Vector<Data_Type>::At(int temp) {
