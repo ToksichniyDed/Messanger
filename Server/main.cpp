@@ -1,10 +1,10 @@
 #include <iostream>
 #include <thread>
 
-#include "Network/Socket/Server_Socket/Server_Socket.h"
-#include "Business_Logic/Database/Database_Connector.h"
-#include "Business_Logic/Task/Task_Factory.h"
-#include "Thread/Pool/Task_Container.h"
+#include "Modules/Network/Socket/Server_Socket/Server_Socket.h"
+#include "Modules/Business_Logic/Database/Database_Connector.h"
+#include "Modules/Business_Logic/Task/Task_Factory.h"
+#include "Modules/Thread/Pool/Task_Container.h"
 
 void Start_Server(Database_Connector* connector);
 void Connect_Database(Database_Connector* connector);

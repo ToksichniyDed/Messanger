@@ -8,8 +8,8 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include "../../../Network/Protocols/Protocols_Type/Authorization_Message.h"
-#include "../../../Network/Protocols/Protocols_Type/Registration_Message.h"
+#include "../../../Modules/Network/Protocols/Protocols_Type/Authorization_Message.h"
+#include "../../../Modules/Network/Protocols/Protocols_Type/Registration_Message.h"
 
 class Protocols_Test : public ::testing::Test {
 };

@@ -11,7 +11,7 @@
 #include "../Tools/Synchronized/Mutex.h"
 #include "../Tools/Synchronized/Conditional_Variable.h"
 #include "../Business_Logic/Task/Task.h"
-#include "../Thread/Pool/Task_Container.h"
+#include "Pool/Task_Container.h"
 
 //Класс интерфейс потока
 class IThread {

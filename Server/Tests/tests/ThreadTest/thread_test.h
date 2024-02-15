@@ -8,9 +8,9 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include "../../../Thread/Thread.h"
-#include "../../../Thread/Pool/Thread_Pool.h"
-#include "../../../Thread/Pool/Task_Container.h"
+#include "../../../Modules/Thread/Thread.h"
+#include "../../../Modules/Thread/Pool/Thread_Pool.h"
+#include "../../../Modules/Thread/Pool/Task_Container.h"
 
 class Thread_Mock : public IThread {
 public:
