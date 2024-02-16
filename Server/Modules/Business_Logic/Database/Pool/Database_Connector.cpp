@@ -5,8 +5,7 @@
 #include "Database_Connector.h"
 
 Database_Connector::~Database_Connector() {
-    if(m_connector)
-        PQfinish(m_connector);
+    delete m_connection;
 }
 
 // Подключение по указанным данным
@@ -14,22 +13,20 @@ bool Database_Connector::Connect(const std::string &database_name, const std::st
                                  const std::string &host_address, const std::string &port) {
     std::string connection_Str = "dbname=" + database_name + " user=" + user + " password=" + password +
                                 " hostaddr=" + host_address + " port=" + port;
-    m_connector = PQconnectdb(connection_Str.c_str());
+    m_connection = new pqxx::connection(connection_Str);
     return IsConnected();
 }
 
 void Database_Connector::Disconnect() {
-    if(m_connector) {
-        PQfinish(m_connector);
-        m_connector = nullptr;
-    }
+   m_connection->close();
 }
 
 // Проверка соединения
 bool Database_Connector::IsConnected() {
-    return (m_connector != nullptr && PQstatus(m_connector) == CONNECTION_OK);
+    return m_connection->is_open();
 }
 
-PGconn *Database_Connector::Get_PGcon() {
-    return m_connector;
+pqxx::connection *Database_Connector::Connector() {
+    return m_connection;
 }
+

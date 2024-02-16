@@ -3,6 +3,7 @@ project(Server)
 
 set(CMAKE_CXX_STANDARD 17)
 
+find_package(libpqxx REQUIRED)
 find_package(OpenSSL REQUIRED)
 find_package(Boost REQUIRED)
 find_package(PostgreSQL REQUIRED)

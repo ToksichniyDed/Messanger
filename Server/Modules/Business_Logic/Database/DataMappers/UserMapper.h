@@ -6,14 +6,14 @@
 #define SERVER_USERMAPPER_H
 
 #include "../Tables/User.h"
-#include "../Database_Connector.h"
+#include "../Pool/Database_Connector.h"
 
 class UserMapper {
 private:
-    Database_Connector* m_database_connector;
+    IDatabase_Connector* m_database_connector;
 
 public:
-    UserMapper(Database_Connector* database_connector);
+    UserMapper(IDatabase_Connector* database_connector);
     User Find_By_Id(int user_id);
     void Save (User& user);
     void Update (User& user);

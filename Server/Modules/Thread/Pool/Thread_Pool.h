@@ -25,15 +25,9 @@ public:
 };
 
 class Real_Thread_Creator : public Thread_Creator {
-private:
-    Thread* thread;
 public:
     IThread* Create_Thread(Task_Container* task_container) override{
-        thread = new Thread(task_container);
-        return thread;
-    }
-    ~Real_Thread_Creator() override{
-        delete thread;
+        return new Thread(task_container);;
     }
 };
 

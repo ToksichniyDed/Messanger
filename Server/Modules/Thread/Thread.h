@@ -23,7 +23,7 @@ public:
 };
 
 //Фабрика потоков
-class Thread_Creator {
+class Thread_Creator{
 public:
     Thread_Creator() = default;
     virtual IThread* Create_Thread (Task_Container* task_container) = 0;
