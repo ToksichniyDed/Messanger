@@ -16,7 +16,7 @@ protected:
 
 public:
     void Set_UserID(int userid);
-    int Get_UserID(int userid) const;
+    int Get_UserID() const;
 
     void Set_UserName(std::string username);
     std::string Get_UserName() const;

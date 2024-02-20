@@ -6,18 +6,21 @@
 #define SERVER_USERMAPPER_H
 
 #include "../Tables/User.h"
-#include "../Pool/Database_Connector.h"
+#include <pqxx/pqxx>
 
 class UserMapper {
-private:
-    IDatabase_Connector* m_database_connector;
-
 public:
-    UserMapper(IDatabase_Connector* database_connector);
-    User Find_By_Id(int user_id);
-    void Save (User& user);
-    void Update (User& user);
-    void Delete (User& user);
+    User Mapping(pqxx::result& query_result){
+        User user;
+
+        if(!query_result.empty()){
+            user.Set_UserID(query_result[0][0].as<int>());
+            user.Set_UserName(query_result[0][1].as<std::string>());
+            user.Set_Telephone_Number(query_result[0][2].as<std::string>());
+        }
+
+        return std::move(user);
+    };
 };
 
 

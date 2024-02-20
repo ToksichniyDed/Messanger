@@ -10,12 +10,15 @@
 
 class Pool_Connection {
 protected:
-    Container_Vector<IDatabase_Connector*>* m_pool_connections;
-    IDatabase_Connector_Factory* m_connector_factory;
+    Container_Vector<IDatabase_Connector *> *m_pool_connections;
+    IDatabase_Connector_Factory *m_connector_factory;
 
 public:
-    Pool_Connection(int count_of_connections, Container_Vector<IDatabase_Connector*>* pool, IDatabase_Connector_Factory* factory);
+    Pool_Connection(int count_of_connections, Container_Vector<IDatabase_Connector *> *pool,
+                    IDatabase_Connector_Factory *factory);
+
     void Add_Connection(int count_of_connections);
+
     void Sub_Connection(int count_of_connections);
 };
 

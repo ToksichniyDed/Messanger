@@ -7,7 +7,7 @@
 #include <utility>
 
 void Password::Set_PasswordID(int password_id) {
- m_password_id = password_id;
+    m_password_id = password_id;
 }
 
 int Password::Get_PasswordID() const {
@@ -15,7 +15,7 @@ int Password::Get_PasswordID() const {
 }
 
 void Password::Set_Hash(std::string hash) {
-m_hash = std::move(hash);
+    m_hash = std::move(hash);
 }
 
 std::string Password::Get_Hash() const {
@@ -23,9 +23,17 @@ std::string Password::Get_Hash() const {
 }
 
 void Password::Set_Salt(std::string salt) {
-m_salt = std::move(salt);
+    m_salt = std::move(salt);
 }
 
 std::string Password::Get_Salt() const {
     return m_salt;
+}
+
+void Password::Set_UserID(int user_id) {
+    m_user_id = user_id;
+}
+
+int Password::Get_UserID() const {
+    return m_user_id;
 }

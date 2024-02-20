@@ -10,7 +10,7 @@ void User::Set_UserID(int userid) {
     m_user_id = userid;
 }
 
-int User::Get_UserID(int userid) const {
+int User::Get_UserID() const {
     return m_user_id;
 }
 

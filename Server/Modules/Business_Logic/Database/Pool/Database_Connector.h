@@ -11,37 +11,47 @@
 
 //Класс для подключения к базе данных
 
-class IDatabase_Connector{
+class IDatabase_Connector {
 public:
     virtual ~IDatabase_Connector() = default;
+
     virtual bool Connect(const std::string &database_name, const std::string &user, const std::string &password,
-                 const std::string &host_address, const std::string &port) = 0;
+                         const std::string &host_address, const std::string &port) = 0;
+
     virtual bool IsConnected() = 0;
+
     virtual void Disconnect() = 0;
+
+    virtual pqxx::connection* Connector() = 0;
 };
 
-class Database_Connector: public IDatabase_Connector {
+class Database_Connector : public IDatabase_Connector {
 private:
-    pqxx::connection* m_connection;
+    pqxx::connection *m_connection;
 
 public:
-    ~Database_Connector()override;
+    ~Database_Connector() override;
+
     bool Connect(const std::string &database_name, const std::string &user, const std::string &password,
                  const std::string &host_address, const std::string &port) override;
-    bool IsConnected()override;
-    void Disconnect()override;
-    pqxx::connection* Connector();
+
+    bool IsConnected() override;
+
+    void Disconnect() override;
+
+    pqxx::connection *Connector() override;
 };
 
-class IDatabase_Connector_Factory{
+class IDatabase_Connector_Factory {
 public:
-    virtual IDatabase_Connector* Create_Connector() = 0;
+    virtual IDatabase_Connector *Create_Connector() = 0;
+
     virtual ~IDatabase_Connector_Factory() = default;
 };
 
-class POSGRES_Database_Connector_Factory:public IDatabase_Connector_Factory{
+class POSGRES_Database_Connector_Factory : public IDatabase_Connector_Factory {
 public:
-    IDatabase_Connector* Create_Connector() override{
+    IDatabase_Connector *Create_Connector() override {
         return new Database_Connector();
     }
 };

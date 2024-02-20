@@ -1,3 +1,3 @@
-add_library(DataMappers UserMapper.cpp PasswordMapper.cpp)
+add_library(DataMappers INTERFACE)
 
-target_link_libraries(DataMappers Tables Database)
+target_link_libraries(DataMappers INTERFACE Tables Database)

@@ -10,18 +10,22 @@
 class Password {
 protected:
     int m_password_id;
+    int m_user_id;
     std::string m_hash;
     std::string m_salt;
 
 public:
     void Set_PasswordID(int password_id);
-    [[nodiscard]] int Get_PasswordID()const;
+    int Get_PasswordID() const;
+
+    void Set_UserID(int user_id);
+    int Get_UserID() const;
 
     void Set_Hash(std::string hash);
-    [[nodiscard]] std::string Get_Hash() const;
+    std::string Get_Hash() const;
 
     void Set_Salt(std::string salt);
-    [[nodiscard]] std::string Get_Salt() const;
+    std::string Get_Salt() const;
 };
 
 
