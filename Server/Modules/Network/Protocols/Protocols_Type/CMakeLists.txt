@@ -1,4 +1,3 @@
-add_library(Protocols_Type Authorization_Message.cpp
-        Registration_Message.cpp)
+add_library(Protocols_Type Authorization_Protocol.cpp Registration_Protocol.cpp)
 
 target_link_libraries(Protocols_Type Tools)

@@ -50,10 +50,12 @@ void Client_Manager::Iteration() {
                 std::string data_type = Unpack_Json("type", data.second.data());
                 std::string parse_data = Unpack_Json("data", data.second.data());
 
-                auto task = m_task_factory->CreateTask(data_type, data.first, parse_data);
+                IMessage* message = m_message_factory->Create_Message(data_type,std::move(parse_data));
+
+                auto task = m_task_factory->CreateTask(data_type, data.first, message);
 
                 if (task) {
-                    m_clients_tasks->Emplace_Task(std::move(task));
+                    m_clients_tasks->Emplace_Task(task);
                 } else
                     std::cout << "Unknown task type!" << std::endl;
 
@@ -64,7 +66,8 @@ void Client_Manager::Iteration() {
 }
 
 Client_Manager::Client_Manager(Container_Vector<Client_Socket *> *connected_clients, Task_Container *clients_tasks,
-                               Task_Factory *task_factory):m_connected_clients(connected_clients),m_clients_tasks(clients_tasks), m_task_factory(task_factory) {
+                               Task_Factory *task_factory,Message_Factory* messageFactory):
+                               m_connected_clients(connected_clients),m_clients_tasks(clients_tasks), m_task_factory(task_factory), m_message_factory(messageFactory) {
 
 }
 

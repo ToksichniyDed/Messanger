@@ -12,14 +12,14 @@
 #include "../../Tools/Synchronized/Mutex.h"
 
 
-class Authentication_Data {
+class Authorization_Data {
 private:
     Conditional_Variable m_cv;
     Mutex m_mutex;
 
 public:
-    std::string Handle_Authentication_Data(std::string &data);
-    void Authentication_Data_Answer();
+    std::string Handle_Authorization_Data(std::string &data);
+    void Authorization_Data_Answer();
 };
 
 

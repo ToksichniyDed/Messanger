@@ -49,3 +49,32 @@ std::string Unpack_Json(const std::string& type_of_variable, const std::string& 
     }
 }
 
+std::map<std::string, std::any> Unpack_Json(const std::string& data) {
+    boost::property_tree::ptree incoming_data_pt;
+    std::istringstream iss(data);
+    boost::property_tree::read_json(iss, incoming_data_pt);
+
+    std::map<std::string, std::any> resultMap;
+
+    for (const auto& pair : incoming_data_pt) {
+        const std::string& key = pair.first;
+        const boost::property_tree::ptree& value_pt = pair.second;
+
+        if (value_pt.empty() && value_pt.data().empty()) {
+            // Если узел пустой, добавляем пустую std::any
+            resultMap[key] = std::any();
+        } else if (value_pt.empty()) {
+            // Если узел не пустой, но содержит только данные, добавляем std::string
+            resultMap[key] = value_pt.data();
+        } else {
+            // Если узел содержит подузлы, обрабатываем их
+            std::vector<std::string> stringVector;
+            for (const auto& subnode : value_pt) {
+                stringVector.push_back(subnode.second.data());
+            }
+            resultMap[key] = stringVector;
+        }
+    }
+
+    return resultMap;
+}

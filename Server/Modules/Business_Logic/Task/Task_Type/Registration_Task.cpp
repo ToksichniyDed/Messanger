@@ -2,7 +2,7 @@
 // Created by super on 18.11.2023.
 //
 
-#include "Registration_Task.h"
+#include "include/Registration_Task.h"
 
 //Распаковка оправленных данных. С помощью OpenSSL_Tools пароль+соль хэшируется, после чего создается запрос
 // (с помощью класса Query_Executor) в базу данных на добавление нового пользователя.
@@ -16,7 +16,8 @@ void Registration_Task::Execute() {
     }
 }
 
-Registration_Task::Registration_Task(Client_Socket* socket, std::string &data):
-m_socket(socket), m_data(data) {
+Registration_Task::Registration_Task(Client_Socket *socket, Registration_Protocol *message):
+m_socket(socket), m_message(message) {
 
 }
+
