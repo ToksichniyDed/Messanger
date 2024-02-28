@@ -16,8 +16,8 @@ void Registration_Task::Execute() {
     }
 }
 
-Registration_Task::Registration_Task(Client_Socket *socket, Registration_Protocol *message):
-m_socket(socket), m_message(message) {
+Registration_Task::Registration_Task(Client_Socket *socket, Registration_Message *message, Database_Connector* connector):
+Task(socket, dynamic_cast<IMessage*> (message), connector) {
 
 }
 

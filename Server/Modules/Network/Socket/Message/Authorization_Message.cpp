@@ -23,3 +23,12 @@ User* Authorization_Message::Get_User() {
 Password* Authorization_Message::Get_Password() {
     return m_password;
 }
+
+std::string &Authorization_Message::Get_Data() {
+    return m_data;
+}
+
+Authorization_Message::~Authorization_Message() {
+    delete m_user;
+    delete m_password;
+}

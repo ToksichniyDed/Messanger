@@ -6,7 +6,6 @@
 #define SERVER_IMESSAGE_BUILDER_H
 
 #include "../../Tools/Json_Tools.h"
-#
 
 //Интерфейс билдера сообщений
 

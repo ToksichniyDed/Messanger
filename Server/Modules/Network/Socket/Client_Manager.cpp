@@ -52,13 +52,18 @@ void Client_Manager::Iteration() {
 
                 IMessage* message = m_message_factory->Create_Message(data_type,std::move(parse_data));
 
-                auto task = m_task_factory->CreateTask(data_type, data.first, message);
+                if(!message) {
+                    std::cout << "Unknown message type!" << std::endl;
+                    continue;
+                }
+                auto task = m_task_factory->Create_Task(data_type, data.first, message);
 
-                if (task) {
-                    m_clients_tasks->Emplace_Task(task);
-                } else
+                if (!task) {
                     std::cout << "Unknown task type!" << std::endl;
+                    continue;
+                }
 
+                m_clients_tasks->Emplace_Task(task);
                 m_clients_tasks->Notify_All();
             }
         }

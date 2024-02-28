@@ -10,7 +10,7 @@
 
 #include "../Tools/Synchronized/Mutex.h"
 #include "../Tools/Synchronized/Conditional_Variable.h"
-#include "../Business_Logic/Task/Task.h"
+#include "../Business_Logic/Task/include/Task.h"
 #include "Pool/Task_Container.h"
 
 //Класс интерфейс потока

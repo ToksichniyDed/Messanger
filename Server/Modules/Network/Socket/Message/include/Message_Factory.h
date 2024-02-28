@@ -11,25 +11,33 @@
 #include <functional>
 
 #include "Message_Headers.h"
+#include "IMessage_Creator.h"
 
 class Message_Factory{
+public:
+    using Message_Map = std::unordered_map<std::string, IMessage_Creator*>;
+
 protected:
-    using Message_Creator = std::function<IMessage*(std::string)>;
-    std::unordered_map<std::string, Message_Creator> Message_Registry;
+    Message_Map m_message_map;
 
 public:
-    virtual void Registry_Message(std::string type_message, Message_Creator creator);
+
+    virtual void Register_Message(std::string type_message, IMessage_Creator* creator);
     virtual IMessage* Create_Message(std::string& data_type, std::string data);
 };
 
-void Message_Factory::Registry_Message(/*std::move()*/std::string type_message, Message_Factory::Message_Creator creator) {
-    Message_Registry[type_message] = std::move(creator);
+void Message_Factory::Register_Message(/*std::move()*/std::string type_message, IMessage_Creator* creator) {
+    auto it = m_message_map.find(type_message);
+    if(it == m_message_map.end())
+        m_message_map.insert(std::make_pair(std::move(type_message), creator));
+    else
+        it->second = creator;
 }
 
 IMessage* Message_Factory::Create_Message(std::string& data_type, std::string data) {
-    auto it = Message_Registry.find(data_type);
-    if(it != Message_Registry.end()){
-        return it->second(std::move(data));
+    auto it = m_message_map.find(data_type);
+    if(it != m_message_map.end()){
+        return it->second->Create_Message(data);
     }
     return nullptr;
 }

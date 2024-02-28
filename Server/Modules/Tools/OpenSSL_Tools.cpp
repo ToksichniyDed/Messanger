@@ -22,7 +22,7 @@ std::string Create_Hash_With_Salt(const std::string& password, const std::string
         snprintf(hex, sizeof(hex), "%02x", i);
         hash += hex;
     }
-    return hash;
+    return std::move(hash);
 }
 
 std::string Generate_Salt() {
@@ -37,5 +37,5 @@ std::string Generate_Salt() {
         snprintf(hex, sizeof(hex), "%02x", i);
         saltStr += hex;
     }
-    return saltStr;
+    return std::move(saltStr);
 }

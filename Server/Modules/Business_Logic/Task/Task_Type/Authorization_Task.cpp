@@ -4,12 +4,12 @@
 
 #include "include/Authorization_Task.h"
 
-//Распаковка отправленных данных. Для проверки авторизации сначала создается запрос в бд по номеру телефона клиента.
-//Если номер существует, то вытаскивается соль и хэш пароля. Далее с помощью OpenSSl_Tools хэшируется распакованный пароль + соль,
-//и сравнивается с полученным из бд хэш-паролем.
-//В зависимости от результата сравнения создается ответное сообщение с помощью билдера сообщений.
+//Задача авторизации. Сначала данные подготавливаются в виде сущностей, далее вызов метода авторизации из репозитория, возвращает
+// true/false(успешная авторизация/неуспешная), и отправляется соответсвующее сообщение
 void Authorization_Task::Execute() {
     try {
+        m_message->Prepare_Data();
+
     }
     catch (std::exception &Error) {
         std::cout << "Error: " << Error.what() << std::endl;
@@ -21,6 +21,6 @@ void Authorization_Task::Execute() {
     }
 }
 
-Authorization_Task::Authorization_Task(Client_Socket *socket, Authorization_Protocol* message) :
-        m_socket(socket), m_message(message){
+Authorization_Task::Authorization_Task(Client_Socket *socket, Authorization_Message* message, Database_Connector* connector):
+        Task(socket,dynamic_cast<IMessage*>(message),connector){
 }

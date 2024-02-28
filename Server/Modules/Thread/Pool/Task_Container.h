@@ -8,7 +8,7 @@
 #include <winsock2.h>
 
 #include "../../Tools/Containers/TContainer_Queue.h"
-#include "../../Business_Logic/Task/Task.h"
+#include "../../Business_Logic/Task/include/Task.h"
 
 //Реализация очереди задач с помощью шаблона-очереди
 

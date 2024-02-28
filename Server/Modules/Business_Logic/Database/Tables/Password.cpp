@@ -37,3 +37,11 @@ void Password::Set_UserID(int user_id) {
 int Password::Get_UserID() const {
     return m_user_id;
 }
+
+void Password::Set_Password(std::string pass) {
+    m_password = pass;
+}
+
+std::string Password::Get_Password() const {
+    return m_password;
+}

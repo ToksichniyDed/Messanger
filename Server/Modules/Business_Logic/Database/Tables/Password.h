@@ -13,6 +13,7 @@ protected:
     int m_user_id;
     std::string m_hash;
     std::string m_salt;
+    std::string m_password;
 
 public:
     void Set_PasswordID(int password_id);
@@ -26,6 +27,9 @@ public:
 
     void Set_Salt(std::string salt);
     std::string Get_Salt() const;
+
+    void Set_Password(std::string pass);
+    std::string Get_Password()const;
 };
 
 

@@ -16,6 +16,8 @@ add_subdirectory(Modules)
 add_subdirectory(Tests)
 
 add_executable(Server main.cpp
+        Task_Factory_Config.h
 )
 
 target_link_libraries(Server PRIVATE Modules)
+target_include_directories(Server PRIVATE ${CMAKE_INCLUDE_CURRENT_DIR})

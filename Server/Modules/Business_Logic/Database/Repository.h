@@ -5,17 +5,19 @@
 #ifndef SERVER_REPOSITORY_H
 #define SERVER_REPOSITORY_H
 
-#include "Database_Handlers/User_Handler.h"
-#include "Database_Handlers/Password_Handller.h"
+#include "Database_Handlers/include/Handlers_Headers.h"
+#include "Pool/Database_Connector.h"
+#include "../../Tools/OpenSSL_Tools.h"
 
 class Repository {
 protected:
     User_Handler* m_user_handler;
-    Password_Handller* m_password_handler;
+    Password_Handler* m_password_handler;
 
 public:
-    bool User_Registration();
-    bool User_Authorization();
+    Repository(User_Handler* u_handler, Password_Handler* p_handler);
+    bool User_Registration (Database_Connector* connector, User* user,  Password* password);
+    bool User_Authorization(Database_Connector* connector, User* user, Password* password);
 
 };
 

@@ -4,10 +4,51 @@
 
 #include "Repository.h"
 
-bool Repository::User_Registration() {
+bool Repository::User_Registration(Database_Connector* connector, User* user,  Password* password) {
+    m_user_handler->Set_Connector(connector);
+
+    if(!m_user_handler->Create_User(*user))
+        return false;
+
+    password->Set_Salt(Generate_Salt());
+    password->Set_Hash(Create_Hash_With_Salt(password->Get_Password(),password->Get_Salt()));
+
+    User db_user = m_user_handler->Read_User_By_UserName(*user);
+    password->Set_UserID(db_user.Get_UserID());
+
+    if(!m_password_handler->Create(*password)){
+        m_user_handler->Delete_User(db_user);
+        return false;
+    }
+
+    m_user_handler->Disconnect_Connector();
+
+    return true;
+}
+
+bool Repository::User_Authorization(Database_Connector* connector, User* user, Password* password) {
+    m_user_handler->Set_Connector(connector);
+
+    User db_user;
+    if(!user->Get_Telephone_Number().empty())
+        db_user = std::move(m_user_handler->Read_User_By_Telephone_Number(*user));
+
+    if(!user->Get_UserName().empty())
+        db_user = std::move(m_user_handler->Read_User_By_UserName(*user));
+
+    m_user_handler->Disconnect_Connector();
+    m_password_handler->Set_Connector(connector);
+
+    Password db_password = m_password_handler->Read_By_UserID(*password);
+
+    m_password_handler->Disconnect_Connector();
+
+    if(db_password.Get_Hash() == Create_Hash_With_Salt(password->Get_Password(), db_password.Get_Hash()))
+        return true;
     return false;
 }
 
-bool Repository::User_Authorization() {
-    return false;
+Repository::Repository(User_Handler *u_handler, Password_Handler *p_handler):
+m_user_handler(u_handler), m_password_handler(p_handler) {
+
 }

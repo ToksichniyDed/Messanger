@@ -2,7 +2,7 @@
 // Created by Toksichniy_Ded on 20.02.2024.
 //
 
-#include "User_Handler.h"
+#include "include/User_Handler.h"
 
 bool User_Handler::Create_User(User& new_user) {
     try {
@@ -29,12 +29,12 @@ bool User_Handler::Create_User(User& new_user) {
     }
 }
 
-User User_Handler::Read_User_By_Telephone_Number(int telephone_number) {
+User User_Handler::Read_User_By_Telephone_Number(User& user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
         pqxx::result query_result = transaction.exec_params("SELECT * FROM User WHERE telephonenumber = '$1';",
-                                                            std::to_string(telephone_number));
+                                                            (user.Get_Telephone_Number()));
 
         transaction.commit();
 
@@ -102,12 +102,12 @@ bool User_Handler::Delete_User(User &user) {
     }
 }
 
-User User_Handler::Read_User_By_UserName(int username) {
+User User_Handler::Read_User_By_UserName(User& user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
         pqxx::result query_result = transaction.exec_params("SELECT * FROM User WHERE username = '$1';",
-                                                            std::to_string(username));
+                                                            (user.Get_UserName()));
 
         transaction.commit();
 
@@ -125,4 +125,16 @@ User User_Handler::Read_User_By_UserName(int username) {
         std::cerr << "Error: " << e.what() << std::endl;
         return std::move(*new User());
     }
+}
+
+User_Handler::User_Handler(Database_Connector *connector, UserMapper *mapper):
+m_connector(connector), m_mapper(mapper){
+}
+
+void User_Handler::Set_Connector(Database_Connector *connector) {
+    m_connector = connector;
+}
+
+void User_Handler::Disconnect_Connector() {
+    m_connector = nullptr;
 }
