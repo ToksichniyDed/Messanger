@@ -26,6 +26,8 @@ void Pool_Connection::Sub_Connection(int count_of_connections) {
 }
 
 IDatabase_Connector *Pool_Connection::Take_Connector_From_Queue() {
+    std::function<bool()> func = [&](){return !m_pool_connections->Empty();};
+    m_pool_connections->Conditional(func);
     IDatabase_Connector* connector = m_pool_connections->Front();
     m_pool_connections->Pop();
     return connector;

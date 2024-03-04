@@ -4,7 +4,7 @@
 
 #include "Conditional_Variable.h"
 
-//Второй аргумент модет быть заменнен дефолтным значением, потому что иногда мы ждем только уведомление
+//Второй аргумент может быть заменнен дефолтным значением, потому что иногда мы ждем только уведомление
 Conditional_Variable &Conditional_Variable::Wait(std::unique_lock<std::mutex> lock, std::function<bool()> condition = [] { return true; }) {
     m_cv.wait(lock, std::move(condition));
     return *this;

@@ -15,7 +15,7 @@ protected:
     Password_Handler* m_password_handler;
 
 public:
-    Repository(User_Handler* u_handler, Password_Handler* p_handler);
+    explicit Repository(User_Handler* u_handler = new User_Handler, Password_Handler* p_handler = new Password_Handler);
     bool User_Registration (Database_Connector* connector, User* user,  Password* password);
     bool User_Authorization(Database_Connector* connector, User* user, Password* password);
 

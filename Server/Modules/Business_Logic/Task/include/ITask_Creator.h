@@ -8,6 +8,7 @@
 #include "Task.h"
 #include "../../Database/Pool/Pool_Connection.h"
 #include "../../../Network/Socket/Client_Socket/Client_Socket.h"
+#include "../../../Network/Socket/Message/include/IMessage.h"
 
 
 class ITask_Creator {

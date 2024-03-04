@@ -7,7 +7,8 @@
 
 #include "../../../Tools/Json_Tools.h"
 #include "../../Database/Pool/Database_Connector.h"
-#include "../../../Network/Socket/Message/include/IMessage.h"
+#include "../../../Network/Socket/Client_Socket/Client_Socket.h"
+#include "../../Database/Repository.h"
 
 
 //Интерфейс для классов задач
@@ -15,13 +16,13 @@
 class Task {
 protected:
     Client_Socket* m_socket;
-    IMessage* m_message;
     Database_Connector* m_connector;
+    Repository* m_repository;
 
 public:
-    Task(Client_Socket* socket = nullptr, IMessage* message = nullptr, Database_Connector* connector = nullptr)
-    :m_socket(socket),m_message(message),m_connector(connector){};
-    Task() = default;
+    explicit Task(Client_Socket* socket, Database_Connector* connector, Repository* repository)
+    :m_socket(socket),m_connector(connector), m_repository(repository){}
+    Task()=default;
     virtual ~Task() = default;
     virtual void Execute() = 0;
 };

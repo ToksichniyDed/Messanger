@@ -6,18 +6,15 @@
 #define SERVER_IMESSAGE_BUILDER_H
 
 #include "../../Tools/Json_Tools.h"
-
 //Интерфейс билдера сообщений
 
 class IMessage_Builder {
 public:
+    IMessage_Builder() = default;
     virtual ~IMessage_Builder() = default;
     virtual std::string Build_Message() = 0;
     virtual  IMessage_Builder& Set_Parametrs() = 0;
-    virtual  IMessage_Builder& Set_Content(std::string& data) = 0;
-    virtual void Add_Message_To_Queue(){
-
-    };
+    virtual  IMessage_Builder& Set_Content(std::string data) = 0;
     virtual void Clear_Message() = 0;
 };
 

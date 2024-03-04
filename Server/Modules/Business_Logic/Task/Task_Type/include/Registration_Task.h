@@ -12,11 +12,12 @@
 #include "../../../../Network/Protocols/IMessage_Builder.h"
 #include "../../../../Network/Socket/Message/include/Registration_Message.h"
 
-
 //Задача регистрации
 class Registration_Task: public Task{
+protected:
+    Registration_Message* m_message;
 public:
-    explicit Registration_Task(Client_Socket* socket, Registration_Message* message, Database_Connector* connector);
+    explicit Registration_Task(Client_Socket* socket, Registration_Message* message, Database_Connector* connector, Repository* repository);
     void Execute() override;
 };
 

@@ -28,17 +28,7 @@ int main() {
 //Создается 2 потока: поток для метода Accept() (прием новых подключений),
 //поток для метода Listening_Clients_Socket()(прослушивание подключенных клиентов на предмет сообщений или нарушения соединения).
 void Start_Server(Database_Connector* connector){
-    Container_Vector<Client_Socket*> containerVector;
-    Task_Container taskContainer;
-    Task_Factory taskFactory;
-    taskFactory.Set_DB_Connector(connector);
-    Client_Manager clientManager(&containerVector, &taskContainer, &taskFactory);
-    Server_Socket server(&clientManager);
-    server.Open_Socket();
-    std::thread accept_thread([&]{server.Accept();});
-    std::thread listening_clients_thread([&]{server.Listening_Clients_Socket();});
-    accept_thread.join();
-    listening_clients_thread.join();
+
 }
 
 

@@ -8,6 +8,7 @@ find_package(OpenSSL REQUIRED)
 find_package(Boost REQUIRED)
 find_package(PostgreSQL REQUIRED)
 
+include_directories(${LIBPQXX_INCLUDE_DIR})
 include_directories(${PostgreSQL_INCLUDE_DIRS})
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${OPENSSL_INCLUDE_DIR})
@@ -16,7 +17,6 @@ add_subdirectory(Modules)
 add_subdirectory(Tests)
 
 add_executable(Server main.cpp
-        Task_Factory_Config.h
 )
 
 target_link_libraries(Server PRIVATE Modules)

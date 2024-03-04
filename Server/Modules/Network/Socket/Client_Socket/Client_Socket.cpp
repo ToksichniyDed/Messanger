@@ -25,9 +25,9 @@ std::pair<Client_Socket*, std::vector<char>> Client_Socket::Listen_Socket() {
 }
 
 //Отправка сообщения по сокету
-void Client_Socket::Send_Message( std::string &message) {
+void Client_Socket::Send_Message(/*std::move()*/ std::string message) {
     try {
-        if(!send(m_socket, message.c_str(), message.size(), 0))
+        if(!send(m_socket, message.c_str(), message.length(), 0))
             throw std::runtime_error("Failed send message!");
     }
     catch (std::exception& Error)

@@ -17,7 +17,7 @@ private:
 public:
     std::string Build_Message() override;
     IMessage_Builder& Set_Parametrs() override;
-    IMessage_Builder& Set_Content(std::string& data) override;
+    IMessage_Builder& Set_Content(std::string data) override;
     void Clear_Message() override;
 };
 

@@ -9,7 +9,7 @@ IMessage_Builder& Registration_Protocol::Set_Parametrs() {
     return *this;
 }
 
-IMessage_Builder &Registration_Protocol::Set_Content(std::string& data) {
+IMessage_Builder &Registration_Protocol::Set_Content(std::string data) {
     m_data = data;
     return *this;
 }

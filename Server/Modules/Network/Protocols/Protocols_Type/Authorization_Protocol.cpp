@@ -9,8 +9,8 @@ IMessage_Builder& Authorization_Protocol::Set_Parametrs() {
     return *this;
 }
 
-IMessage_Builder &Authorization_Protocol::Set_Content(std::string& data) {
-    m_data = data;
+IMessage_Builder &Authorization_Protocol::Set_Content(/*std::move*/std::string data) {
+    m_data = std::move(data);
     return *this;
 }
 
