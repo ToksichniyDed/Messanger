@@ -4,11 +4,15 @@
 
 #include "Thread.h"
 
-Thread::Thread(Task_Container *client_tasks):m_client_tasks(client_tasks) {
+Thread::Thread(std::shared_ptr<Task_Container> client_tasks) {
+    if(client_tasks)
+        m_client_tasks = std::move(client_tasks);
+    else
+        m_client_tasks = std::make_shared<Task_Container>();
 }
 
 //Выполнение клиентской задачи
-void Thread::Take_Task(Task* task) {
+void Thread::Take_Task(std::unique_ptr<Task> task) {
     task->Execute();
 }
 

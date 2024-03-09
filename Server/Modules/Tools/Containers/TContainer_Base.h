@@ -47,21 +47,21 @@ void TContainer_Base<Container_Type, Data_Type>::Notify_One() {
 
 template<typename Container_Type, typename Data_Type>
 int TContainer_Base<Container_Type, Data_Type>::Size() {
-    m_mutex.Get_Unique_Lock();
+    auto mutex = m_mutex.Get_Unique_Lock();
     int size = m_container.size();
     return size;
 }
 
 template<typename Container_Type, typename Data_Type>
 bool TContainer_Base<Container_Type, Data_Type>::Empty() {
-    m_mutex.Get_Unique_Lock();
+    auto mutex = m_mutex.Get_Unique_Lock();
     bool status = m_container.empty();
     return status;
 }
 
 template<typename Container_Type, typename Data_Type>
 void TContainer_Base<Container_Type, Data_Type>::Clear() {
-    m_mutex.Get_Unique_Lock();
+    auto mutex = m_mutex.Get_Unique_Lock();
     m_container.clear();
 }
 

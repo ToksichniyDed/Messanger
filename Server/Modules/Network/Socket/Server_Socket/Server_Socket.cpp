@@ -62,7 +62,7 @@ void Server_Socket::Accept() {
     sockaddr_in client_address{};
     int client_address_length = sizeof(client_address);
     while (!m_should_exit) {
-        Iteration(std::move(temp_client_socket),std::move(client_address),std::move(client_address_length));
+        Iteration(temp_client_socket,client_address,client_address_length);
     }
 }
 
@@ -83,15 +83,18 @@ void Server_Socket::Listening_Clients_Socket() {
 
 void Server_Socket::Iteration(SOCKET temp_client_socket, sockaddr_in client_address, int client_address_length) {
     temp_client_socket = accept(m_server_socket, (struct sockaddr *) &client_address, &client_address_length);
-    auto *client_socket = new Client_Socket(temp_client_socket);
+    auto client_socket = std::make_shared<Client_Socket>(nullptr, temp_client_socket);
 
     std::cout<<"New client accept with socket: "<<temp_client_socket<<" !" <<std::endl;
 
     m_client_manager->Add_New_Client(client_socket);
 }
 
-Server_Socket::Server_Socket(Client_Manager *client_manager):m_client_manager(client_manager) {
-
+Server_Socket::Server_Socket(std::unique_ptr<Client_Manager> client_manager) {
+    if(client_manager)
+        m_client_manager = std::move(client_manager);
+    else
+        m_client_manager = std::make_unique<Client_Manager>();
 }
 
 

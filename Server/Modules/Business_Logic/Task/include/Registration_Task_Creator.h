@@ -11,9 +11,8 @@
 
 class Registration_Task_Creator: public ITask_Creator {
 public:
-    Task* Create_Task(Client_Socket* socket, IMessage* message, Database_Connector* connector) override{
-        return dynamic_cast<Task*>(new Registration_Task(socket,dynamic_cast<Registration_Message*>(message),connector));
-
+    std::unique_ptr<Task> Create_Task(std::shared_ptr<Client_Socket> socket, std::shared_ptr<IMessage> message, std::shared_ptr<IDatabase_Connector> connector)override{
+        return std::move(std::make_unique<Registration_Task>(socket,message,connector));
     }
 };
 

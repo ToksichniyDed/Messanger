@@ -6,8 +6,8 @@
 #include "Client_Manager.h"
 
 //Добавление нового клиента из метода Accept() в классе Server_Socket()
-void Client_Manager::Add_New_Client(Client_Socket *clientSocket) {
-    m_connected_clients->Emplace_Back(clientSocket);
+void Client_Manager::Add_New_Client(std::shared_ptr<Client_Socket> clientSocket) {
+    m_connected_clients->Emplace_Back(std::move(clientSocket));
 }
 
 //Удаление клиента
@@ -50,30 +50,50 @@ void Client_Manager::Iteration() {
                 std::string data_type = Unpack_Json("type", data.second.data());
                 std::string parse_data = Unpack_Json("data", data.second.data());
 
-                IMessage* message = m_message_factory->Create_Message(data_type,std::move(parse_data));
+                auto message = m_message_factory->Create_Message(data_type,std::move(parse_data));
 
                 if(!message) {
                     std::cout << "Unknown message type!" << std::endl;
                     continue;
                 }
-                auto task = m_task_factory->Create_Task(data_type, data.first, message);
+                auto task = m_task_factory->Create_Task(data_type, std::make_shared<Client_Socket>(*data.first), std::move(message));
 
                 if (!task) {
                     std::cout << "Unknown task type!" << std::endl;
                     continue;
                 }
 
-                m_clients_tasks->Emplace_Task(task);
+                m_clients_tasks->Emplace_Task(std::move(task));
                 m_clients_tasks->Notify_All();
             }
         }
     }
 }
 
-Client_Manager::Client_Manager(Container_Vector<Client_Socket *> *connected_clients, Task_Container *clients_tasks,
-                               Task_Factory *task_factory,Message_Factory* messageFactory):
-                               m_connected_clients(connected_clients),m_clients_tasks(clients_tasks), m_task_factory(task_factory), m_message_factory(messageFactory) {
+Client_Manager::Client_Manager(std::unique_ptr<Container_Vector<std::shared_ptr<Client_Socket>>> connected_clients,
+                               std::unique_ptr<Task_Container> clients_tasks,
+                               std::unique_ptr<Task_Factory> task_factory,
+                               std::unique_ptr<Message_Factory> messageFactory){
 
+    if(connected_clients)
+        m_connected_clients = std::move(connected_clients);
+    else
+        m_connected_clients = std::make_unique<Container_Vector<std::shared_ptr<Client_Socket>>>();
+
+    if(clients_tasks)
+        m_clients_tasks = std::move(clients_tasks);
+    else
+        m_clients_tasks = std::make_unique<Task_Container>();
+
+    if(task_factory)
+        m_task_factory = std::move(task_factory);
+    else
+        m_task_factory = std::make_unique<Task_Factory>();
+
+    if(messageFactory)
+        m_message_factory = std::move(messageFactory);
+    else
+        m_message_factory = std::make_unique<Message_Factory>();
 }
 
 

@@ -127,8 +127,8 @@ bool Password_Handler::Update_Hash(Password &password) {
     }
 }
 
-void Password_Handler::Set_Connector(Database_Connector *connector) {
-    m_connector = connector;
+void Password_Handler::Set_Connector(std::shared_ptr<IDatabase_Connector> connector) {
+    m_connector = std::move(connector);
 }
 
 void Password_Handler::Disconnect_Connector() {

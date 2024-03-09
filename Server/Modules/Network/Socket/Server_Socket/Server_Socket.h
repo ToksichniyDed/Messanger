@@ -9,6 +9,7 @@
 #define BACKLOG 5
 
 #include <thread>
+#include <memory>
 
 #include "../ISocket.h"
 #include "../Client_Socket/Client_Socket.h"
@@ -20,12 +21,12 @@ class Server_Socket : public ISocket {
 protected:
     bool m_should_exit = false;
     SOCKET m_server_socket = 0;
-    Client_Manager* m_client_manager;
+    std::unique_ptr<Client_Manager> m_client_manager;
     virtual void Bind_Socket();
     virtual void Listening_Socket();
 
 public:
-    Server_Socket(Client_Manager* m_client_manager);
+    explicit Server_Socket(std::unique_ptr<Client_Manager> m_client_manager = nullptr);
     void Open_Socket() override;
     void Close_Socket() override;
     void Set_Security_Options() override;

@@ -4,37 +4,49 @@
 
 #include "Pool_Connection.h"
 
-Pool_Connection::Pool_Connection(int count_of_connections, TContainer_Queue<IDatabase_Connector *>* pool, IDatabase_Connector_Factory *factory)
-:m_connector_factory(factory), m_pool_connections(pool) {
+template <class Connector_Type>
+Pool_Connection::Pool_Connection(int count_of_connections,
+                                 std::unique_ptr<my_multimap> pool,
+                                 std::unique_ptr<IDatabase_Connector_Factory> factory){
+    if(pool)
+        m_pool_connections = std::move(pool);
+    else
+        m_pool_connections = std::make_unique<my_multimap>();
+
+    if(factory)
+        m_connector_factory = std::move(factory);
+    else
+        m_connector_factory = std::make_unique<Connector_Type>();
+
     Add_Connection(count_of_connections);
 }
 
 void Pool_Connection::Add_Connection(int count_of_connections) {
     for(int i = 0;i<count_of_connections; i++){
-        IDatabase_Connector* connector = m_connector_factory->Create_Connector();
-        m_pool_connections->Emplace(connector);
+        std::shared_ptr<IDatabase_Connector> connector = m_connector_factory->Create_Connector();
+        m_pool_connections->Push(Custom_Connector_Object(std::move(connector)));
     }
 }
 
+//По ощущению, здесь может быть баг, что пока будет проверка shared_ptr, место пустогго указателя займет другой, указаетль на объект
+// и либо Pop() удалит не пустой указатель, либо в else вернет обратно temp_connector не на место nullptr указателя, а на место заполненого указаетля
 void Pool_Connection::Sub_Connection(int count_of_connections) {
     for(int i = 0; i < count_of_connections && i>m_pool_connections->Size(); i++){
-        int size = m_pool_connections->Size();
-        m_pool_connections->Front()->Disconnect();
-        delete m_pool_connections->Front();
         m_pool_connections->Pop();
+        count_of_connections--;
     }
 }
 
-IDatabase_Connector *Pool_Connection::Take_Connector_From_Queue() {
-    std::function<bool()> func = [&](){return !m_pool_connections->Empty();};
-    m_pool_connections->Conditional(func);
-    IDatabase_Connector* connector = m_pool_connections->Front();
-    m_pool_connections->Pop();
-    return connector;
-}
-
-void Pool_Connection::Emplace_Back_Connector_To_Queue(IDatabase_Connector *connector) {
-    m_pool_connections->Emplace(connector);
+std::shared_ptr<IDatabase_Connector> Pool_Connection::Take_Connector_From_Pool() {
+    while(true)
+    for(int i = 0; i < m_pool_connections->Size(); i++){
+        auto temp = std::move(m_pool_connections->Top());
+        if(temp.Get_Count() == 1){
+            m_pool_connections->Pop();
+            m_pool_connections->Push(temp);
+            return temp.Get_Ptr();
+        }
+    }
 }
 
 

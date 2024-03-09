@@ -10,12 +10,12 @@
 
 class User_Handler {
 protected:
-    Database_Connector* m_connector;
-    UserMapper* m_mapper;
+    std::shared_ptr<IDatabase_Connector> m_connector;
+    std::unique_ptr<UserMapper> m_mapper;
 
 public:
-    explicit User_Handler(Database_Connector* connector = nullptr, UserMapper* mapper = nullptr);
-    void Set_Connector(Database_Connector* connector);
+    explicit User_Handler(std::shared_ptr<IDatabase_Connector> connector = nullptr, std::unique_ptr<UserMapper> mapper = nullptr);
+    void Set_Connector(std::shared_ptr<IDatabase_Connector> connector);
     void Disconnect_Connector();
     bool Create_User(User& new_user);
     User Read_User_By_Telephone_Number(User& user);

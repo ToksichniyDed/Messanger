@@ -7,6 +7,7 @@
 
 #include <thread>
 #include <functional>
+#include <memory>
 
 #include "../Tools/Synchronized/Mutex.h"
 #include "../Tools/Synchronized/Conditional_Variable.h"
@@ -17,7 +18,7 @@
 class IThread {
 public:
     virtual void Close_Thread() = 0;
-    virtual void Take_Task(Task* task) = 0;
+    virtual void Take_Task(std::unique_ptr<Task> task) = 0;
     virtual void Wait_Task() = 0;
     virtual ~IThread() = default;
 };
@@ -26,7 +27,7 @@ public:
 class Thread_Creator{
 public:
     Thread_Creator() = default;
-    virtual IThread* Create_Thread (Task_Container* task_container) = 0;
+    virtual std::unique_ptr<IThread> Create_Thread (Task_Container* task_container) = 0;
     virtual ~Thread_Creator() = default;
 };
 
@@ -36,13 +37,13 @@ class Thread: public IThread {
 protected:
     bool m_should_exit = false;
     std::thread m_thread;
-    Task_Container* m_client_tasks;
+    std::shared_ptr<Task_Container> m_client_tasks;
 
 public:
-    explicit Thread(Task_Container* client_tasks);
-    ~Thread();
+    explicit Thread(std::shared_ptr<Task_Container> client_tasks = nullptr);
+    ~Thread() override;
     void Close_Thread() override;
-    void Take_Task(Task* task) override;
+    void Take_Task(std::unique_ptr<Task> task) override;
     void Wait_Task() override;
 };
 

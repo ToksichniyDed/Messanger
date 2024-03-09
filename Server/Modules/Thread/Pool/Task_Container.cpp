@@ -4,16 +4,16 @@
 
 #include "Task_Container.h"
 
-void Task_Container::Emplace_Task(Task* task) {
-    m_task_queue.Emplace(task);
+void Task_Container::Emplace_Task(std::unique_ptr<Task> task) {
+    m_task_queue.Emplace(std::move(task));
 }
 
 void Task_Container::Pop_Task() {
     m_task_queue.Pop();
 }
 
-Task* Task_Container::Front_Task() {
-    auto ans = m_task_queue.Front();
+std::unique_ptr<Task> Task_Container::Front_Task() {
+    auto ans = std::make_unique<Task>(m_task_queue.Front());
     this->Pop_Task();
     return ans;
 }

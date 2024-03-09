@@ -5,6 +5,8 @@
 #ifndef SERVER_REGISTRATION_TASK_H
 #define SERVER_REGISTRATION_TASK_H
 
+#include <memory>
+
 #include "../../include/Task.h"
 #include "../../../../Network/Socket/Client_Socket/Client_Socket.h"
 #include "../../../Database/Pool/Database_Connector.h"
@@ -15,9 +17,13 @@
 //Задача регистрации
 class Registration_Task: public Task{
 protected:
-    Registration_Message* m_message;
+    std::unique_ptr<Registration_Message> m_message;
+
 public:
-    explicit Registration_Task(Client_Socket* socket, Registration_Message* message, Database_Connector* connector, Repository* repository);
+    explicit Registration_Task(std::shared_ptr<Client_Socket> socket,
+                               std::unique_ptr<IMessage> message,
+                               std::shared_ptr<IDatabase_Connector> connector,
+                               std::shared_ptr<Repository> repository);
     void Execute() override;
 };
 

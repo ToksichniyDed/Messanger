@@ -1,3 +1,3 @@
-add_library(Protocols_Type Authorization_Protocol.cpp Registration_Protocol.cpp)
+add_library(Protocols_Type Authorization_Protocol.cpp Registration_Protocol.cpp Server_Error_Protocol.cpp)
 
 target_link_libraries(Protocols_Type Tools)

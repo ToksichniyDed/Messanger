@@ -36,15 +36,14 @@ void Client_Socket::Send_Message(/*std::move()*/ std::string message) {
     }
 }
 
-Client_Socket::Client_Socket(SOCKET socket):m_socket(socket) {
-    m_socket_manager = new Client_Socket_Manager(&m_socket);
+Client_Socket::Client_Socket(std::shared_ptr<Client_Socket_Manager> manager, SOCKET socket):m_socket(socket) {
+    if(manager)
+        m_socket_manager = std::move(manager);
+    else
+        m_socket_manager = std::make_shared<Client_Socket_Manager>(&socket);
 }
 
-Client_Socket::~Client_Socket() {
-    delete m_socket_manager;
-}
-
-Client_Socket_Manager *Client_Socket::Get_Client_Socket_Manager() {
+std::shared_ptr<Client_Socket_Manager> Client_Socket::Get_Client_Socket_Manager() {
     return m_socket_manager;
 }
 

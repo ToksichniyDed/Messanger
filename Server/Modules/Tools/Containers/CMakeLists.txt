@@ -1,3 +1,7 @@
-add_library(Containers INTERFACE)
+add_library(Containers Container_Vector.h
+TContainer_Multimap.h
+TContainer_Base.h
+TPriority_Queue.h
+TContainer_Queue.h)
 
-target_link_libraries(Containers INTERFACE Synchronized)
+target_link_libraries(Containers Synchronized)

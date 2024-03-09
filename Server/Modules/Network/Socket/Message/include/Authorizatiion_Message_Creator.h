@@ -10,8 +10,8 @@
 
 class Authorization_Message_Creator: public IMessage_Creator {
 public:
-    IMessage* Create_Message(std::string& data) override{
-        return dynamic_cast<IMessage*>(new Authorization_Message(data));
+    std::unique_ptr<IMessage> Create_Message(std::string& data) override{
+        return std::make_unique<Authorization_Message>(data);
     }
 };
 

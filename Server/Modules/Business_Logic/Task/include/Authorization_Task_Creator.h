@@ -11,8 +11,8 @@
 
 class Authorization_Task_Creator: public ITask_Creator{
 public:
-    Task* Create_Task(Client_Socket* socket, IMessage* message, Database_Connector* connector)override{
-        return dynamic_cast<Task*>(new Authorization_Task(socket,dynamic_cast<Authorization_Message*>(message),connector));
+    std::unique_ptr<Task> Create_Task(std::shared_ptr<Client_Socket> socket, std::unique_ptr<IMessage> message, std::shared_ptr<IDatabase_Connector> connector)override{
+        return std::move(std::make_unique<Authorization_Task>(socket,std::move(message),connector, nullptr));
     }
 };
 

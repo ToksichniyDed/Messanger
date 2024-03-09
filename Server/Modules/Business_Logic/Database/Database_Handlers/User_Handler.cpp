@@ -2,6 +2,8 @@
 // Created by Toksichniy_Ded on 20.02.2024.
 //
 
+#include <utility>
+
 #include "include/User_Handler.h"
 
 bool User_Handler::Create_User(User& new_user) {
@@ -127,12 +129,12 @@ User User_Handler::Read_User_By_UserName(User& user) {
     }
 }
 
-User_Handler::User_Handler(Database_Connector *connector, UserMapper *mapper):
-m_connector(connector), m_mapper(mapper){
+User_Handler::User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper):
+m_connector(std::move(connector)), m_mapper(std::move(mapper)){
 }
 
-void User_Handler::Set_Connector(Database_Connector *connector) {
-    m_connector = connector;
+void User_Handler::Set_Connector(std::shared_ptr<IDatabase_Connector> connector) {
+    m_connector = std::move(connector);
 }
 
 void User_Handler::Disconnect_Connector() {

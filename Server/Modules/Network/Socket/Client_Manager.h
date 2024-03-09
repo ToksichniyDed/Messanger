@@ -5,6 +5,8 @@
 #ifndef SERVER_CLIENT_MANAGER_H
 #define SERVER_CLIENT_MANAGER_H
 
+#include <memory>
+
 #include "Client_Socket/Client_Socket.h"
 #include "../../Thread/Pool/Task_Container.h"
 #include "../../Tools/Containers/Container_Vector.h"
@@ -18,14 +20,16 @@
 class Client_Manager {
 protected:
     bool m_should_exit = false;
-    Container_Vector<Client_Socket*>* m_connected_clients;
-    Task_Container* m_clients_tasks;
-    Task_Factory* m_task_factory;
-    Message_Factory* m_message_factory;
+    std::unique_ptr<Container_Vector<std::shared_ptr<Client_Socket>>> m_connected_clients;
+    std::unique_ptr<Task_Container> m_clients_tasks;
+    std::unique_ptr<Task_Factory> m_task_factory;
+    std::unique_ptr<Message_Factory> m_message_factory;
 
 public:
-    Client_Manager(Container_Vector<Client_Socket*>* connected_clients , Task_Container* clients_tasks, Task_Factory* task_factory, Message_Factory* messageFactory);
-    void Add_New_Client(Client_Socket *clientSocket);
+    explicit Client_Manager(std::unique_ptr<Container_Vector<std::shared_ptr<Client_Socket>>> connected_clients = nullptr,
+                   std::unique_ptr<Task_Container> clients_tasks = nullptr,
+                   std::unique_ptr<Task_Factory> task_factory = nullptr , std::unique_ptr<Message_Factory> messageFactory = nullptr);
+    void Add_New_Client(std::shared_ptr<Client_Socket> clientSocket);
     void Remove_Client(int temp);
     void Listen_Clients();
     void Iteration();

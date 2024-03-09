@@ -18,18 +18,25 @@ public:
     virtual void Emplace_Back(Data_Type &&data);
     void Erase(int temp);
     virtual Data_Type &At(int temp);
+    Data_Type operator[](int index);
 };
 
 template<typename Data_Type>
+Data_Type Container_Vector<Data_Type>::operator[](int index) {
+    auto mutex = this->m_mutex.Get_Unique_Lock();
+    return this->m_container[index];
+}
+
+template<typename Data_Type>
 void Container_Vector<Data_Type>::Emplace_Back(Data_Type &&data) {
-    this->m_mutex.Get_Unique_Lock();
+    auto mutex = this->m_mutex.Get_Unique_Lock();
     this->m_container.emplace_back(std::forward<Data_Type>(data));
 }
 
 template<typename Data_Type>
 Data_Type &Container_Vector<Data_Type>::At(int temp) {
     if (temp < this->Size()) {
-        this->m_mutex.Get_Unique_Lock();
+        auto mutex = this->m_mutex.Get_Unique_Lock();
         Data_Type &ans = this->m_container.at(temp);
         return ans;
     }
@@ -38,7 +45,7 @@ Data_Type &Container_Vector<Data_Type>::At(int temp) {
 template<typename Data_Type>
 void Container_Vector<Data_Type>::Erase(int temp    ) {
     if (temp < this->Size()) {
-        this->m_mutex.Get_Unique_Lock();
+        auto mutex = this->m_mutex.Get_Unique_Lock();
         auto it = this->m_container.begin() + temp;
         this->m_container.erase(it);
     }
@@ -46,7 +53,7 @@ void Container_Vector<Data_Type>::Erase(int temp    ) {
 
 template<typename Data_Type>
 void Container_Vector<Data_Type>::Emplace_Back(Data_Type &data) {
-    this->m_mutex.Get_Unique_Lock();
+    auto mutex = this->m_mutex.Get_Unique_Lock();
     this->m_container.emplace_back(data);
 }
 

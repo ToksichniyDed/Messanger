@@ -11,13 +11,13 @@
 
 class Repository {
 protected:
-    User_Handler* m_user_handler;
-    Password_Handler* m_password_handler;
+    std::unique_ptr<User_Handler> m_user_handler;
+    std::unique_ptr<Password_Handler> m_password_handler;
 
 public:
-    explicit Repository(User_Handler* u_handler = new User_Handler, Password_Handler* p_handler = new Password_Handler);
-    bool User_Registration (Database_Connector* connector, User* user,  Password* password);
-    bool User_Authorization(Database_Connector* connector, User* user, Password* password);
+    explicit Repository(std::unique_ptr<User_Handler> u_handler = std::make_unique<User_Handler>(), std::unique_ptr<Password_Handler> p_handler = std::make_unique<Password_Handler>());
+    bool User_Registration (std::shared_ptr<IDatabase_Connector> connector, std::shared_ptr<User> user,  std::shared_ptr<Password> password);
+    bool User_Authorization(std::shared_ptr<IDatabase_Connector> connector, std::shared_ptr<User> user,  std::shared_ptr<Password> password);
 
 };
 

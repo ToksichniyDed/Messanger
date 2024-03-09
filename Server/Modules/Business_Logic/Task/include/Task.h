@@ -5,6 +5,9 @@
 #ifndef SERVER_TASK_H
 #define SERVER_TASK_H
 
+#include <memory>
+#include <utility>
+
 #include "../../../Tools/Json_Tools.h"
 #include "../../Database/Pool/Database_Connector.h"
 #include "../../../Network/Socket/Client_Socket/Client_Socket.h"
@@ -15,13 +18,15 @@
 
 class Task {
 protected:
-    Client_Socket* m_socket;
-    Database_Connector* m_connector;
-    Repository* m_repository;
+    std::shared_ptr<Client_Socket> m_socket;
+    std::shared_ptr<IDatabase_Connector> m_connector;
+    std::shared_ptr<Repository> m_repository;
 
 public:
-    explicit Task(Client_Socket* socket, Database_Connector* connector, Repository* repository)
-    :m_socket(socket),m_connector(connector), m_repository(repository){}
+    explicit Task(std::shared_ptr<Client_Socket> socket,
+                  std::shared_ptr<IDatabase_Connector> connector,
+                  std::shared_ptr<Repository> repository)
+    :m_socket(std::move(socket)),m_connector(std::move(connector)), m_repository(std::move(repository)){}
     Task()=default;
     virtual ~Task() = default;
     virtual void Execute() = 0;

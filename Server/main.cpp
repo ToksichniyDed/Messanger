@@ -14,13 +14,6 @@ void Manage_Database_Connection();
 int main() {
     system("chcp 65001");
 
-    Database_Connector* connector;
-    std::thread database_connection_thread(Connect_Database, connector);
-    std::thread main_thread(Start_Server, connector);
-
-    main_thread.join();
-    database_connection_thread.join();
-
     return 0;
 }
 

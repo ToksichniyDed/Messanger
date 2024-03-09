@@ -5,19 +5,21 @@
 #ifndef SERVER_PASSWORD_HANDLER_H
 #define SERVER_PASSWORD_HANDLER_H
 
+#include <utility>
+
 #include "../../DataMappers/PasswordMapper.h"
 #include "../../Tables/User.h"
 #include "../../Pool/Database_Connector.h"
 
 class Password_Handler {
 protected:
-    Database_Connector* m_connector;
-    PasswordMapper* m_mapper;
+    std::shared_ptr<IDatabase_Connector> m_connector;
+    std::unique_ptr<PasswordMapper> m_mapper;
 
 public:
-    explicit Password_Handler(Database_Connector* connector = nullptr, PasswordMapper* mapper = nullptr):
-    m_connector(connector), m_mapper(mapper){}
-    void Set_Connector(Database_Connector* connector);
+    explicit Password_Handler(std::shared_ptr<IDatabase_Connector> connector = nullptr, std::unique_ptr<PasswordMapper> mapper = nullptr):
+    m_connector(std::move(connector)), m_mapper(std::move(mapper)){}
+    void Set_Connector(std::shared_ptr<IDatabase_Connector> connector);
     void Disconnect_Connector();
     bool Create(Password& password);
     Password Read_By_UserID(Password& password);

@@ -4,7 +4,7 @@
 
 #include "Repository.h"
 
-bool Repository::User_Registration(Database_Connector* connector, User* user,  Password* password) {
+bool Repository::User_Registration(std::shared_ptr<IDatabase_Connector> connector, std::shared_ptr<User> user,  std::shared_ptr<Password> password) {
     m_user_handler->Set_Connector(connector);
 
     if(!m_user_handler->Create_User(*user))
@@ -26,7 +26,7 @@ bool Repository::User_Registration(Database_Connector* connector, User* user,  P
     return true;
 }
 
-bool Repository::User_Authorization(Database_Connector* connector, User* user, Password* password) {
+bool Repository::User_Authorization(std::shared_ptr<IDatabase_Connector> connector, std::shared_ptr<User> user,  std::shared_ptr<Password> password) {
     m_user_handler->Set_Connector(connector);
 
     User db_user;
@@ -48,7 +48,7 @@ bool Repository::User_Authorization(Database_Connector* connector, User* user, P
     return false;
 }
 
-Repository::Repository(User_Handler *u_handler, Password_Handler *p_handler):
-m_user_handler(u_handler), m_password_handler(p_handler) {
+Repository::Repository(std::unique_ptr<User_Handler> u_handler, std::unique_ptr<Password_Handler> p_handler):
+m_user_handler(std::move(u_handler)), m_password_handler(std::move(p_handler)) {
 
 }
