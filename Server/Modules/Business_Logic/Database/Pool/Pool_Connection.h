@@ -38,7 +38,6 @@ protected:
 
 
 public:
-    template <class Connector_Type = POSGRES_Database_Connector_Factory>
     explicit Pool_Connection(int count_of_connections = 5,
                              std::unique_ptr<my_multimap> pool = nullptr,
                              std::unique_ptr<IDatabase_Connector_Factory> factory = nullptr);

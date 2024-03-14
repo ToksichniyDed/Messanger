@@ -21,6 +21,7 @@ public:
     virtual std::unique_ptr<Task> Create_Task(std::shared_ptr<Client_Socket> socket,
                                               std::unique_ptr<IMessage> message,
                                               std::shared_ptr<IDatabase_Connector> connector) = 0;
+    virtual ~ITask_Creator() = default;
 };
 
 

@@ -51,9 +51,6 @@ SOCKET Client_Socket::Get_Socket() const {
     return m_socket;
 }
 
-void Client_Socket::Delete_Object() {
-    delete this;
-}
 
 
 

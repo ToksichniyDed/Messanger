@@ -5,9 +5,10 @@
 #ifndef SERVER_REPOSITORY_H
 #define SERVER_REPOSITORY_H
 
-#include "Database_Handlers/include/Handlers_Headers.h"
 #include "Pool/Database_Connector.h"
 #include "../../Tools/OpenSSL_Tools.h"
+#include "Database_Handlers/include/User_Handler.h"
+#include "Database_Handlers/include/Password_Handler.h"
 
 class Repository {
 protected:

@@ -33,9 +33,9 @@ Data_Type TContainer_Queue<Data_Type>::Front() {
     Data_Type temp;
     if (!this->Empty()) {
         auto mutex = this->m_mutex.Get_Unique_Lock();
-        temp = this->m_container.front();
+        temp = std::move(this->m_container.front());
     }
-    return temp;
+    return std::move(temp);
 }
 
 template<typename Data_Type>

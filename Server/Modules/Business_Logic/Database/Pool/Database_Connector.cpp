@@ -10,6 +10,11 @@ bool Database_Connector::Connect(const std::string &database_name, const std::st
     std::string connection_Str = "dbname=" + database_name + " user=" + user + " password=" + password +
                                 " hostaddr=" + host_address + " port=" + port;
     m_connection =  std::make_shared<pqxx::connection>(connection_Str);
+    if(m_connection->is_open())
+        std::cout<<"Successful connection to database!"<<std::endl;
+    else
+        std::cout<<"Unsuccessful connection to database!"<<std::endl;
+
     return IsConnected();
 }
 

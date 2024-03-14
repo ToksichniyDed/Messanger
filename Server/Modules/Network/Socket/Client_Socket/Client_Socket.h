@@ -22,7 +22,6 @@ public:
     virtual void Send_Message( std::string message);
     virtual std::shared_ptr<Client_Socket_Manager> Get_Client_Socket_Manager();
     virtual SOCKET Get_Socket() const;
-    virtual void Delete_Object();
 };
 
 #endif //SERVER_CLIENT_SOCKET_H

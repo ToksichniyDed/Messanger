@@ -10,7 +10,6 @@
 #include <unordered_map>
 #include <functional>
 
-#include "Message_Headers.h"
 #include "IMessage_Creator.h"
 
 class Message_Factory{
@@ -26,7 +25,7 @@ public:
     virtual std::unique_ptr<IMessage> Create_Message(std::string& data_type, std::string data);
 };
 
-void Message_Factory::Register_Message(/*std::move()*/std::string type_message, std::unique_ptr<IMessage_Creator> creator) {
+inline void Message_Factory::Register_Message(/*std::move()*/std::string type_message, std::unique_ptr<IMessage_Creator> creator) {
     auto it = m_message_map.find(type_message);
     if(it == m_message_map.end())
         m_message_map.insert(std::make_pair(std::move(type_message), std::move(creator)));
@@ -34,10 +33,10 @@ void Message_Factory::Register_Message(/*std::move()*/std::string type_message, 
         it->second = std::move(creator);
 }
 
-std::unique_ptr<IMessage> Message_Factory::Create_Message(std::string& data_type, std::string data) {
+inline std::unique_ptr<IMessage> Message_Factory::Create_Message(std::string& data_type, std::string data) {
     auto it = m_message_map.find(data_type);
     if(it != m_message_map.end()){
-        return it->second->Create_Message(data);
+        return std::move(it->second->Create_Message(data));
     }
     return nullptr;
 }

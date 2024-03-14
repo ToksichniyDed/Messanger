@@ -4,7 +4,6 @@
 
 #include "Pool_Connection.h"
 
-template <class Connector_Type>
 Pool_Connection::Pool_Connection(int count_of_connections,
                                  std::unique_ptr<my_multimap> pool,
                                  std::unique_ptr<IDatabase_Connector_Factory> factory){
@@ -16,7 +15,7 @@ Pool_Connection::Pool_Connection(int count_of_connections,
     if(factory)
         m_connector_factory = std::move(factory);
     else
-        m_connector_factory = std::make_unique<Connector_Type>();
+        m_connector_factory = std::make_unique<POSGRES_Database_Connector_Factory>();
 
     Add_Connection(count_of_connections);
 }
@@ -24,6 +23,7 @@ Pool_Connection::Pool_Connection(int count_of_connections,
 void Pool_Connection::Add_Connection(int count_of_connections) {
     for(int i = 0;i<count_of_connections; i++){
         std::shared_ptr<IDatabase_Connector> connector = m_connector_factory->Create_Connector();
+        connector->Connect("Plotniy_Messanger","postgres","password","127.0.0.1","5432");
         m_pool_connections->Push(Custom_Connector_Object(std::move(connector)));
     }
 }
@@ -32,6 +32,7 @@ void Pool_Connection::Add_Connection(int count_of_connections) {
 // и либо Pop() удалит не пустой указатель, либо в else вернет обратно temp_connector не на место nullptr указателя, а на место заполненого указаетля
 void Pool_Connection::Sub_Connection(int count_of_connections) {
     for(int i = 0; i < count_of_connections && i>m_pool_connections->Size(); i++){
+        m_pool_connections->Top().Get_Ptr()->Disconnect();
         m_pool_connections->Pop();
         count_of_connections--;
     }

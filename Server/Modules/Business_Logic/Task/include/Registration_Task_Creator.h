@@ -11,8 +11,8 @@
 
 class Registration_Task_Creator: public ITask_Creator {
 public:
-    std::unique_ptr<Task> Create_Task(std::shared_ptr<Client_Socket> socket, std::shared_ptr<IMessage> message, std::shared_ptr<IDatabase_Connector> connector)override{
-        return std::move(std::make_unique<Registration_Task>(socket,message,connector));
+    std::unique_ptr<Task> Create_Task(std::shared_ptr<Client_Socket> socket, std::unique_ptr<IMessage> message, std::shared_ptr<IDatabase_Connector> connector)override{
+        return std::move(std::make_unique<Registration_Task>(socket,std::move(message),connector, nullptr));
     }
 };
 

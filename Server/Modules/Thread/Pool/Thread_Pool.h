@@ -13,12 +13,14 @@
 
 class Thread_Pool {
 protected:
-    Container_Vector<IThread*>* m_thread_pool;
-    Task_Container* m_client_tasks;
-    Thread_Creator* m_creator;
+    std::unique_ptr<Container_Vector<std::unique_ptr<IThread>>> m_thread_pool;
+    std::shared_ptr<Task_Container> m_client_tasks;
+    std::unique_ptr<Thread_Creator> m_creator;
 
 public:
-    Thread_Pool(int count_of_threads, Task_Container* client_tasks, Thread_Creator* creator, Container_Vector<IThread*>* thread_pool);
+    explicit Thread_Pool(int count_of_threads = 5, std::shared_ptr<Task_Container> client_tasks = nullptr,
+                std::unique_ptr<Thread_Creator> creator = nullptr,
+                std::unique_ptr<Container_Vector<std::unique_ptr<IThread>>> thread_pool = nullptr);
     virtual ~Thread_Pool();
     void Add_Thread(int count_of_threads);
     void Sub_Thread(int count_of_threads);
@@ -26,8 +28,8 @@ public:
 
 class Real_Thread_Creator : public Thread_Creator {
 public:
-    IThread* Create_Thread(Task_Container* task_container) override{
-        return new Thread(task_container);;
+    std::unique_ptr<IThread> Create_Thread(std::shared_ptr<Task_Container> task_container) override{
+        return std::make_unique<Thread>(task_container);;
     }
 };
 

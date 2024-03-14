@@ -2,7 +2,6 @@
 // Created by super on 15.11.2023.
 //
 
-#include "Client_Socket/Client_Socket_Manager.h"
 #include "Client_Manager.h"
 
 //Добавление нового клиента из метода Accept() в классе Server_Socket()
@@ -40,7 +39,6 @@ void Client_Manager::Iteration() {
             if (!client_socket->Get_Client_Socket_Manager()->Check_Socket()) {
                 Remove_Client(i);
                 client_socket->Get_Client_Socket_Manager()->Close_Socket();
-                client_socket->Delete_Object();
                 continue;
             }
 
@@ -60,6 +58,8 @@ void Client_Manager::Iteration() {
 
                 if (!task) {
                     std::cout << "Unknown task type!" << std::endl;
+                    Server_Error_Protocol error_message;
+                    data.first->Send_Message(error_message.Set_Parametrs().Build_Message());
                     continue;
                 }
 
@@ -71,7 +71,7 @@ void Client_Manager::Iteration() {
 }
 
 Client_Manager::Client_Manager(std::unique_ptr<Container_Vector<std::shared_ptr<Client_Socket>>> connected_clients,
-                               std::unique_ptr<Task_Container> clients_tasks,
+                               std::shared_ptr<Task_Container> clients_tasks,
                                std::unique_ptr<Task_Factory> task_factory,
                                std::unique_ptr<Message_Factory> messageFactory){
 
@@ -83,7 +83,7 @@ Client_Manager::Client_Manager(std::unique_ptr<Container_Vector<std::shared_ptr<
     if(clients_tasks)
         m_clients_tasks = std::move(clients_tasks);
     else
-        m_clients_tasks = std::make_unique<Task_Container>();
+        m_clients_tasks = std::make_shared<Task_Container>();
 
     if(task_factory)
         m_task_factory = std::move(task_factory);

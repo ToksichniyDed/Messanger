@@ -27,7 +27,7 @@ public:
 class Thread_Creator{
 public:
     Thread_Creator() = default;
-    virtual std::unique_ptr<IThread> Create_Thread (Task_Container* task_container) = 0;
+    virtual std::unique_ptr<IThread> Create_Thread(std::shared_ptr<Task_Container> task_container) = 0;
     virtual ~Thread_Creator() = default;
 };
 
@@ -36,7 +36,7 @@ public:
 class Thread: public IThread {
 protected:
     bool m_should_exit = false;
-    std::thread m_thread;
+    std::unique_ptr<std::thread> m_thread;
     std::shared_ptr<Task_Container> m_client_tasks;
 
 public:

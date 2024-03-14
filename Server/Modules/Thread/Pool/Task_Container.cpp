@@ -13,7 +13,7 @@ void Task_Container::Pop_Task() {
 }
 
 std::unique_ptr<Task> Task_Container::Front_Task() {
-    auto ans = std::make_unique<Task>(m_task_queue.Front());
+    auto ans = std::move(m_task_queue.Front());
     this->Pop_Task();
     return ans;
 }

@@ -9,6 +9,8 @@ Thread::Thread(std::shared_ptr<Task_Container> client_tasks) {
         m_client_tasks = std::move(client_tasks);
     else
         m_client_tasks = std::make_shared<Task_Container>();
+
+    m_thread = std::make_unique<std::thread>([this]{this->Wait_Task();});
 }
 
 //Выполнение клиентской задачи
@@ -38,5 +40,5 @@ void Thread::Close_Thread() {
 }
 
 Thread::~Thread() {
-    m_thread.join();
+    m_thread->join();
 }

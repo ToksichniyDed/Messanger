@@ -22,8 +22,10 @@ protected:
     bool m_should_exit = false;
     SOCKET m_server_socket = 0;
     std::unique_ptr<Client_Manager> m_client_manager;
+
     virtual void Bind_Socket();
     virtual void Listening_Socket();
+    void Iteration(SOCKET temp_client_socket, sockaddr_in client_address, int client_address_length);
 
 public:
     explicit Server_Socket(std::unique_ptr<Client_Manager> m_client_manager = nullptr);
@@ -32,7 +34,6 @@ public:
     void Set_Security_Options() override;
     virtual void Accept();
     virtual void Listening_Clients_Socket();
-    void Iteration(SOCKET temp_client_socket, sockaddr_in client_address, int client_address_length);
 };
 
 
