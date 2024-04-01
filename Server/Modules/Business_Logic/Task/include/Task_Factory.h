@@ -10,6 +10,8 @@
 #include <unordered_map>
 #include <functional>
 
+#include <boost/di.hpp>
+
 #include "Task.h"
 #include "ITask_Creator.h"
 #include "../Task_Type/include/Task_Headers.h"

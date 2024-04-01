@@ -6,8 +6,12 @@
 Task_Factory::Task_Factory(std::unique_ptr<Pool_Connection> poolConnection) {
     if(poolConnection)
         m_pool_connection = std::move(poolConnection);
-    else
-        m_pool_connection = std::make_unique<Pool_Connection>();
+    else {
+        auto injector = boost::di::make_injector(
+                boost::di::bind<int>.to(5),
+                boost::di::bind<IDatabase_Connector_Factory>.to<POSGRES_Database_Connector_Factory>());
+        m_pool_connection = injector.create<std::unique_ptr<Pool_Connection>>();
+    }
 }
 
 //заполнение мапы c помошью метода Create_Task()

@@ -1,0 +1,3 @@
+add_library(Message_Queue Message_From_Server_Queue.cpp)
+
+target_include_directories(Message_Queue PRIVATE Message_From_Server_Queue.h Message_Type)

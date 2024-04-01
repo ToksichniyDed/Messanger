@@ -11,6 +11,7 @@
 #include "IMessage.h"
 #include "../../../../Business_Logic/Database/Tables/User.h"
 #include "../../../../Business_Logic/Database/Tables/Password.h"
+#include "../../../../Tools/Json_Tools.h"
 
 class Authorization_Message: public IMessage{
 protected:

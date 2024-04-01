@@ -38,7 +38,7 @@ protected:
 
 
 public:
-    explicit Pool_Connection(int count_of_connections = 5,
+    explicit Pool_Connection(int count_of_connections,
                              std::unique_ptr<my_multimap> pool = nullptr,
                              std::unique_ptr<IDatabase_Connector_Factory> factory = nullptr);
 

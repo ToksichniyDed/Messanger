@@ -5,11 +5,13 @@
 #ifndef SERVER_REGISTRATION_MESSAGE_H
 #define SERVER_REGISTRATION_MESSAGE_H
 
+#include <memory>
 #include <utility>
 
 #include "IMessage.h"
 #include "../../../../Business_Logic/Database/Tables/User.h"
 #include "../../../../Business_Logic/Database/Tables/Password.h"
+#include "../../../../Tools/Json_Tools.h"
 
 class Registration_Message: public IMessage {
 protected:
