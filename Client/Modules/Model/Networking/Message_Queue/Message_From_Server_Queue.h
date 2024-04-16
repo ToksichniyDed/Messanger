@@ -7,6 +7,7 @@
 
 #include <memory>
 
+#include <boost/di.hpp>
 #include <boost/lockfree/spsc_queue.hpp>
 
 #include "../Socket/Message_Type/IMessage.h"
@@ -19,9 +20,11 @@ public:
 
 private:
      queue_ptr m_queue;
+     static std::shared_ptr<Message_From_Server_Queue> m_instance;
+     explicit Message_From_Server_Queue(queue_ptr queue):m_queue(std::move(queue)){}
 
 public:
-    explicit Message_From_Server_Queue(queue_ptr queue){}
+    static std::shared_ptr<Message_From_Server_Queue> Instance();
     void Push_Message(Message_Ptr message);
     bool Empty();
 };

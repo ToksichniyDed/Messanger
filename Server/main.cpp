@@ -13,8 +13,13 @@
 void Start_Server();
 
 int main() {
+#ifdef _WIN32
     system("chcp 65001");
-    Start_Server();
+#endif
+    try{
+    Start_Server();}catch (std::exception &Error){
+        std::cout<<"Error: "<<Error.what()<<std::endl;
+    }
     return 0;
 }
 

@@ -7,10 +7,13 @@
 void Server_Socket::Open_Socket() {
     try {
         // Инициализация Winsock
+
+#ifdef _WIN32
         WSADATA wsaData;
         if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
             throw std::runtime_error("Failed to initialize Winsock.");
         }
+#endif
 
         auto temp = socket(AF_INET, SOCK_STREAM, 0);
         if (temp == INVALID_SOCKET)
@@ -31,7 +34,9 @@ void Server_Socket::Close_Socket() {
     m_should_exit = true;
     closesocket(m_server_socket);
     m_server_socket = INVALID_SOCKET;
+#ifdef _WIN32
     WSACleanup();
+#endif
 }
 
 void Server_Socket::Set_Security_Options() {
@@ -42,7 +47,14 @@ void Server_Socket::Bind_Socket() {
     sockaddr_in server_address{};
     server_address.sin_family = AF_INET;
     server_address.sin_port = htons(HTONS);
+#ifdef _WIN32
     server_address.sin_addr.s_addr = inet_addr(IP_ADRESS);
+#elif __linux__
+    if (inet_pton(AF_INET, IP_ADRESS, &server_address.sin_addr) <= 0) {
+        Close_Socket();
+        throw std::runtime_error("Invalid address!");
+    }
+#endif
 
     try {
         if (bind(m_server_socket, (struct sockaddr *) &server_address, sizeof(server_address)) == SOCKET_ERROR) {
@@ -58,7 +70,7 @@ void Server_Socket::Bind_Socket() {
 //При новом подключении создается объект класса Client_Socket, который потом добавляется в контейнер-вектор подключенных клиентов.
 //Этот метод работает в отдельном потоке, так как является блокирующим.
 void Server_Socket::Accept() {
-    SOCKET temp_client_socket;
+    MySocketType temp_client_socket;
     sockaddr_in client_address{};
     int client_address_length = sizeof(client_address);
     while (!m_should_exit) {
@@ -81,9 +93,9 @@ void Server_Socket::Listening_Clients_Socket() {
     m_client_manager->Listen_Clients();
 }
 
-void Server_Socket::Iteration(SOCKET temp_client_socket, sockaddr_in client_address, int client_address_length) {
+void Server_Socket::Iteration(MySocketType temp_client_socket, sockaddr_in client_address, MySocketLenght client_address_length) {
     temp_client_socket = accept(m_server_socket, (struct sockaddr *) &client_address, &client_address_length);
-    auto client_socket = std::make_shared<Client_Socket>(nullptr, temp_client_socket);
+    auto client_socket = std::make_shared<Client_Socket>(nullptr, std::make_shared<MySocketType>(temp_client_socket));
 
     std::cout<<"New client accept with socket: "<<temp_client_socket<<" !" <<std::endl;
 

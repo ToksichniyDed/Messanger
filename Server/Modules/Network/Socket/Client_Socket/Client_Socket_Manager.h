@@ -6,9 +6,20 @@
 #define SERVER_CLIENT_SOCKET_MANAGER_H
 
 #include <vector>
-#include <winsock2.h>
 #include <iostream>
 #include <exception>
+#include <memory>
+
+#ifdef _WIN32
+#include <winsock2.h>
+typedef SOCKET MySocketType;
+#else
+#include <sys/socket.h>
+typedef int MySocketType;
+#define closesocket close
+#define INVALID_SOCKET -1
+#define SOCKET_ERROR -1
+#endif
 
 #include "../ISocket.h"
 #include "../../../Tools/Json_Tools.h"
@@ -17,10 +28,10 @@
 
 class Client_Socket_Manager : public ISocket {
 private:
-    SOCKET* m_socket;
+    std::shared_ptr<MySocketType> m_socket;
 
 public:
-    explicit Client_Socket_Manager(SOCKET* socket);
+    explicit Client_Socket_Manager(std::shared_ptr<MySocketType> socket);
     void Close_Socket() override;
     void Set_Security_Options() override;
     virtual bool Check_Socket();

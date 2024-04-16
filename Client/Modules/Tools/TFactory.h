@@ -22,9 +22,9 @@ protected:
     factory_map m_map;
 
 public:
+    explicit TFactory(factory_map map):m_map(std::move(map)){}
     template<class Derived> void Register(Key key);
     std::shared_ptr<Base> Create(Key key);
-
 };
 
 template<class Key, class Base>

@@ -7,8 +7,8 @@
 
 #include <string>
 
-#include "../../../../Tools/Json_Tools.h"
-#include "IMessage.h"
+#include "../../../../../Tools/Json_Tools.h"
+#include "../IMessage.h"
 
 class Registration_Message_Answer: IMessage {
 protected:

@@ -10,9 +10,8 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 add_subdirectory(Modules)
 
-add_executable(Client main.cpp
-)
+add_executable(Client main.cpp)
 
-target_link_libraries(Client PRIVATE Modules ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES})
-target_include_directories(Client PRIVATE ${OPENSSL_INCLUDE_DIRS})
+target_link_libraries(Client PUBLIC Modules ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES})
+target_include_directories(Client PUBLIC ${OPENSSL_INCLUDE_DIRS})
 

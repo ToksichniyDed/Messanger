@@ -5,7 +5,14 @@
 #ifndef SERVER_TASK_CONTAINER_H
 #define SERVER_TASK_CONTAINER_H
 
+#ifdef _WIN32
 #include <winsock2.h>
+typedef SOCKET MySocketType;
+#else
+#include <sys/socket.h>
+typedef int MySocketType;
+#endif
+
 #include <memory>
 
 #include "../../Tools/Containers/TContainer_Queue.h"

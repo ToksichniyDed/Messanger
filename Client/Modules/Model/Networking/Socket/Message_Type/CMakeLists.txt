@@ -1,3 +1,4 @@
-add_library(Message_Type INTERFACE Authorization_Message_Answer.h
-        Registration_Message_Answer.h
-)
+add_library(Message_Type INTERFACE)
+
+target_include_directories(Message_Type INTERFACE From_Server To_Server)
+target_link_libraries(Message_Type INTERFACE Tools)

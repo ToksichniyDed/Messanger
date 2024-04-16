@@ -11,6 +11,7 @@ public:
     IMessage() = default;
     virtual ~IMessage() = default;
     virtual void Prepare_Data() = 0;
+    [[nodiscard]] virtual std::string Get_Prepared_Data() const = 0;
 };
 
 

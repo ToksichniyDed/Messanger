@@ -6,8 +6,8 @@ add_library(Modules INTERFACE)
 
 add_subdirectory(Model)
 add_subdirectory(Tools)
-#add_subdirectory(View)
-#add_subdirectory(View_Model)
+add_subdirectory(View)
+add_subdirectory(View_Model)
 
-target_link_libraries(Modules INTERFACE Model Tools)
+target_link_libraries(Modules INTERFACE Model Tools View View_Model ws2_32)
 #target_include_directories(Modules PRIVATE)

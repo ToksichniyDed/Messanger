@@ -13,15 +13,15 @@
 
 class Client_Socket{
 public:
-    SOCKET m_socket = 0;
+    std::shared_ptr<MySocketType> m_socket;
     std::shared_ptr<Client_Socket_Manager> m_socket_manager;
 
 public:
-    explicit Client_Socket(std::shared_ptr<Client_Socket_Manager> manager = nullptr, SOCKET socket = 0);
-    virtual std::pair<Client_Socket *, std::vector<char>> Listen_Socket();
+    explicit Client_Socket(std::shared_ptr<Client_Socket_Manager> manager = nullptr, std::shared_ptr<MySocketType> socket = nullptr);
+    virtual std::pair<std::shared_ptr<Client_Socket>, std::vector<char>> Listen_Socket();
     virtual void Send_Message( std::string message);
     virtual std::shared_ptr<Client_Socket_Manager> Get_Client_Socket_Manager();
-    virtual SOCKET Get_Socket() const;
+    virtual std::shared_ptr<MySocketType> Get_Socket() const;
 };
 
 #endif //SERVER_CLIENT_SOCKET_H

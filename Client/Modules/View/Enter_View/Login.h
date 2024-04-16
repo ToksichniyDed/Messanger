@@ -8,12 +8,12 @@
 #include <iostream>
 
 class Login {
-protected:
-    std::string Get_Telephone_Number();
-    std::string Get_Password();
+public:
+    [[nodiscard]] std::string Set_Telephone_Number() const;
+    [[nodiscard]] std::string Set_Password() const;
 };
 
-std::string Login::Get_Telephone_Number() {
+std::string Login::Set_Telephone_Number() const {
     std::cout << "Введите номер телефона: ";
     std::string telephone_number;
     try {
@@ -26,12 +26,12 @@ std::string Login::Get_Telephone_Number() {
         }
     } catch (std::exception &Error) {
         std::cout << Error.what() << std::endl;
-        return " ";
+        return "";
     }
     return telephone_number;
 }
 
-std::string Login::Get_Password() {
+std::string Login::Set_Password() const{
     std::wcout.imbue(std::locale(""));
     std::cout << "Введите пароль: ";
     std::string password;
@@ -46,10 +46,11 @@ std::string Login::Get_Password() {
         }
     } catch (std::exception &Error) {
         std::cout << Error.what() << std::endl;
-        return " ";
+        return "";
     }
     return password;
 }
+
 
 
 #endif //CLIENT_LOGIN_H

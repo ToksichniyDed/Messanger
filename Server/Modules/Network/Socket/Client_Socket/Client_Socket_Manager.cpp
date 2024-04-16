@@ -4,7 +4,9 @@
 
 #include "Client_Socket_Manager.h"
 
-Client_Socket_Manager::Client_Socket_Manager(SOCKET* socket) : m_socket(socket) {}
+#include <utility>
+
+Client_Socket_Manager::Client_Socket_Manager(std::shared_ptr<MySocketType> socket) : m_socket(std::move(socket)) {}
 
 void Client_Socket_Manager::Close_Socket() {
     closesocket(*m_socket);

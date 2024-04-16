@@ -5,4 +5,8 @@ add_library(Socket Client_Manager.cpp
 
 add_subdirectory(Message)
 
-target_link_libraries(Socket ws2_32 Tools Thread Business_Logic Message)
+if(WIN32)
+    target_link_libraries(Socket ws2_32 Tools Thread Business_Logic Message)
+else()
+    target_link_libraries(Socket Tools Thread Business_Logic Message)
+endif()

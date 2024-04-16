@@ -1,3 +1,4 @@
-add_library(Message_Queue Message_From_Server_Queue.cpp)
+add_library(Message_Queue Message_From_Server_Queue.cpp
+Message_To_Server_Queue.cpp)
 
-target_include_directories(Message_Queue PRIVATE Message_From_Server_Queue.h Message_Type)
+target_include_directories(Message_Queue PRIVATE Message_Type)
