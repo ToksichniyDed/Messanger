@@ -1,0 +1,1 @@
+add_library(Chats_View Chats_View.cpp)

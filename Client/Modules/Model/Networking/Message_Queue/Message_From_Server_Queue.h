@@ -16,7 +16,7 @@ class Message_From_Server_Queue {
 public:
     using Message_Ptr = std::shared_ptr<IMessage>;
     using message_queue = boost::lockfree::spsc_queue<Message_Ptr>;
-    using queue_ptr = std::unique_ptr<message_queue>;
+    using queue_ptr = std::shared_ptr<message_queue>;
 
 private:
      queue_ptr m_queue;

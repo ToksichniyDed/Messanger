@@ -16,7 +16,9 @@ void Message_From_Server_Queue::Push_Message(Message_From_Server_Queue::Message_
 
 std::shared_ptr<Message_From_Server_Queue> Message_From_Server_Queue::Instance() {
     if(!m_instance){
-        auto queue = std::make_unique<message_queue>();
+        auto sh_queue = std::make_shared<message_queue>(100);
+        auto instance = new Message_From_Server_Queue(sh_queue);
+        m_instance = std::shared_ptr<Message_From_Server_Queue>(instance);
     }
     return m_instance;
 }

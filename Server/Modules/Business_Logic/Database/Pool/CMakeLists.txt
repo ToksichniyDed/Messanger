@@ -6,6 +6,7 @@ set(DB_USER "postgres" CACHE STRING "Database user name")
 set(DB_PASSWORD "password" CACHE STRING "Database password")
 set(DB_PORT "5432" CACHE STRING "Database port")
 if (UNIX)
+    #Разработка проекта идет на Windows, это фрагмент написан чисто для докера, если хост UNIX, то тоже localhost
     set(DB_HOST "host.docker.internal" CACHE STRING "Database host")
     message(STATUS "Database host address: ${DB_HOST}")
 elseif (WIN32)

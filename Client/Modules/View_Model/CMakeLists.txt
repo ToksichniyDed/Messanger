@@ -1,0 +1,3 @@
+add_library(View_Model INTERFACE)
+
+target_include_directories(View_Model INTERFACE Enter_View_Model)
