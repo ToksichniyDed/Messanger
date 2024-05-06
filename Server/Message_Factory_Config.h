@@ -10,7 +10,8 @@
 #include "Modules/Network/Socket/Message/include/Registration_Message_Creator.h"
 
 std::unique_ptr<Message_Factory> Message_Factory_Config(){
-    auto message_factory = std::make_unique<Message_Factory>() ;
+
+    auto message_factory = std::make_unique<Message_Factory>(std::make_unique<std::unordered_map<std::string, std::unique_ptr<IMessage_Creator>>>()) ;
 
     message_factory->Register_Message("authorization_message", std::make_unique<Authorization_Message_Creator>());
     message_factory->Register_Message("registration_message",std::make_unique<Registration_Message_Creator>());

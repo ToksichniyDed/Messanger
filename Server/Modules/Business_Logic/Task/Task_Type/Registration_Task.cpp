@@ -36,27 +36,22 @@ Registration_Task::Registration_Task(std::shared_ptr<Client_Socket> socket,
                                      std::shared_ptr<Repository> repository){
     if(socket)
         m_socket = std::move(socket);
-    else
-        m_socket = nullptr;
 
     if(message){
-        Registration_Message* temp = dynamic_cast<Registration_Message*>(message.release());
+        auto* temp = dynamic_cast<Registration_Message*>(message.release());
         if(temp)
             m_message = std::make_unique<Registration_Message>(*temp);
         else
             throw std::runtime_error("Pure message");
     }
-    else
-        m_message = nullptr;
 
     if(connector)
         m_connector = std::move(connector);
-    else
-        m_connector = nullptr;
 
     if(repository)
         m_repository = std::move(repository);
-    else
-        m_repository = std::make_shared<Repository>();
+
+    if(!(m_socket && m_message && m_connector && m_repository))
+        throw std::runtime_error("Failed create Registration_Task!");
 }
 

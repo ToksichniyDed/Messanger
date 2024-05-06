@@ -13,9 +13,9 @@ private:
     std::condition_variable m_cv;
 
 public:
-    Conditional_Variable &Wait(std::unique_lock<std::mutex> lock, std::function<bool()> condition);
-    Conditional_Variable &Notify_One();
-    Conditional_Variable &Notify_All();
+    void Wait(std::unique_lock<std::mutex>& lock, std::function<bool()> condition);
+    void Notify_One();
+    void Notify_All();
 };
 
 

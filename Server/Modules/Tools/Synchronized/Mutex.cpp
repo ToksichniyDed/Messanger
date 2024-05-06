@@ -4,17 +4,16 @@
 
 #include "Mutex.h"
 
-Mutex &Mutex::Lock() {
+void Mutex::Lock() {
     m_mutex.lock();
-    return *this;
 }
 
-Mutex &Mutex::Unlock() {
+void Mutex::Unlock() {
     m_mutex.unlock();
-    return *this;
 }
 
-std::unique_lock<std::mutex> Mutex::Get_Unique_Lock() {
-    return std::unique_lock<std::mutex>(m_mutex);
+std::mutex& Mutex::Get_Mutex() {
+    return m_mutex;
 }
+
 

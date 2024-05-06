@@ -11,7 +11,7 @@ void Client_Manager::Add_New_Client(std::shared_ptr<Client_Socket> clientSocket)
 
 //Удаление клиента
 void Client_Manager::Remove_Client(int temp) {
-    std::cout << "Client with socket: " << m_connected_clients->At(temp)->Get_Socket() << " disconneted!" << std::endl;
+    std::cout << "Client with socket: " << *m_connected_clients->At(temp)->Get_Socket() << " disconneted!" << std::endl;
     m_connected_clients->Erase(temp);
 }
 
@@ -52,6 +52,8 @@ void Client_Manager::Iteration() {
 
                 if(!message) {
                     std::cout << "Unknown message type!" << std::endl;
+                    Server_Error_Protocol error_message;
+                    data.first->Send_Message(error_message.Set_Parametrs().Build_Message());
                     continue;
                 }
                 auto task = m_task_factory->Create_Task(data_type, std::make_shared<Client_Socket>(*data.first), std::move(message));
@@ -77,23 +79,18 @@ Client_Manager::Client_Manager(std::unique_ptr<Container_Vector<std::shared_ptr<
 
     if(connected_clients)
         m_connected_clients = std::move(connected_clients);
-    else
-        m_connected_clients = std::make_unique<Container_Vector<std::shared_ptr<Client_Socket>>>();
 
     if(clients_tasks)
         m_clients_tasks = std::move(clients_tasks);
-    else
-        m_clients_tasks = std::make_shared<Task_Container>();
 
     if(task_factory)
         m_task_factory = std::move(task_factory);
-    else
-        m_task_factory = std::make_unique<Task_Factory>();
 
     if(messageFactory)
         m_message_factory = std::move(messageFactory);
-    else
-        m_message_factory = std::make_unique<Message_Factory>();
+
+    if(!(m_connected_clients && m_clients_tasks && m_task_factory && m_message_factory))
+        throw std::runtime_error("Failed create Client_Manager!");
 }
 
 

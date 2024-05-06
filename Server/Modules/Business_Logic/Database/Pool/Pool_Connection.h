@@ -16,11 +16,13 @@ protected:
     std::shared_ptr<IDatabase_Connector> m_ptr;
 
 public:
-    explicit Custom_Connector_Object(std::shared_ptr<IDatabase_Connector> ptr = nullptr):m_ptr(std::move(ptr)){};
+    explicit Custom_Connector_Object()= default;
+    explicit Custom_Connector_Object(std::shared_ptr<IDatabase_Connector> ptr):m_ptr(std::move(ptr)){};
     bool operator<(const Custom_Connector_Object& other_object) const {
         return m_ptr.use_count()>other_object.m_ptr.use_count();
     }
     int Get_Count(){
+        int i = m_ptr.use_count();
         return m_ptr.use_count();
     }
     std::shared_ptr<IDatabase_Connector> Get_Ptr(){
@@ -39,8 +41,8 @@ protected:
 
 public:
     explicit Pool_Connection(int count_of_connections,
-                             std::unique_ptr<my_multimap> pool = nullptr,
-                             std::unique_ptr<IDatabase_Connector_Factory> factory = nullptr);
+                             std::unique_ptr<my_multimap> pool,
+                             std::unique_ptr<IDatabase_Connector_Factory> factory);
 
     void Add_Connection(int count_of_connections);
 

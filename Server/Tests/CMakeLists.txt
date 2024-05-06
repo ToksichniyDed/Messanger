@@ -7,4 +7,4 @@ add_subdirectory(tests/BusinessLogicTest)
 
 add_executable(Tests tests/all_test.cpp)
 
-target_link_libraries(Tests ThreadTest NetworkTest BusinessLogicTest gtest gtest_main)
+target_link_libraries(Tests PUBLIC ThreadTest NetworkTest BusinessLogicTest gtest gtest_main gmock gmock_main)

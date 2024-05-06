@@ -26,9 +26,10 @@ protected:
     std::unique_ptr<Message_Factory> m_message_factory;
 
 public:
-    explicit Client_Manager(std::unique_ptr<Container_Vector<std::shared_ptr<Client_Socket>>> connected_clients = nullptr,
-                   std::shared_ptr<Task_Container> clients_tasks = nullptr,
-                   std::unique_ptr<Task_Factory> task_factory = nullptr , std::unique_ptr<Message_Factory> messageFactory = nullptr);
+    explicit Client_Manager(std::unique_ptr<Container_Vector<std::shared_ptr<Client_Socket>>> connected_clients,
+                   std::shared_ptr<Task_Container> clients_tasks,
+                   std::unique_ptr<Task_Factory> task_factory,
+                   std::unique_ptr<Message_Factory> messageFactory);
     void Add_New_Client(std::shared_ptr<Client_Socket> clientSocket);
     void Remove_Client(int temp);
     void Listen_Clients();

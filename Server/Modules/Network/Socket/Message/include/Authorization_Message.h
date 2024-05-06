@@ -20,8 +20,8 @@ protected:
     std::shared_ptr<Password> m_password;
 
 public:
-    explicit Authorization_Message(std::string& data, std::shared_ptr<User> user = nullptr, std::shared_ptr<Password> password = nullptr):
-    m_data(std::move(data)), m_user(std::move(user)), m_password(std::move(password)){};
+    explicit Authorization_Message(std::string& data):m_data(std::move(data)){}
+    explicit Authorization_Message(std::string& data, std::shared_ptr<User> user, std::shared_ptr<Password> password);
     void Prepare_Data() override;
     std::string& Get_Data();
     std::shared_ptr<User> Get_User();

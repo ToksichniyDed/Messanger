@@ -13,12 +13,12 @@
 
 class Password_Handler {
 protected:
-    std::shared_ptr<IDatabase_Connector> m_connector;
-    std::unique_ptr<PasswordMapper> m_mapper;
+    std::shared_ptr<IDatabase_Connector> m_connector = nullptr;
+    std::unique_ptr<PasswordMapper> m_mapper = nullptr;
 
 public:
-    explicit Password_Handler(std::shared_ptr<IDatabase_Connector> connector = nullptr, std::unique_ptr<PasswordMapper> mapper = nullptr):
-    m_connector(std::move(connector)), m_mapper(std::move(mapper)){}
+    explicit Password_Handler() = default;
+    explicit Password_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<PasswordMapper> mapper);
     void Set_Connector(std::shared_ptr<IDatabase_Connector> connector);
     void Disconnect_Connector();
     bool Create(Password& password);

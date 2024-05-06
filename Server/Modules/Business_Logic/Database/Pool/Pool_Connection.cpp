@@ -9,13 +9,12 @@ Pool_Connection::Pool_Connection(int count_of_connections,
                                  std::unique_ptr<IDatabase_Connector_Factory> factory){
     if(pool)
         m_pool_connections = std::move(pool);
-    else
-        m_pool_connections = std::make_unique<my_multimap>();
 
     if(factory)
         m_connector_factory = std::move(factory);
-    else
-        m_connector_factory = std::make_unique<POSGRES_Database_Connector_Factory>();
+
+    if(!(m_pool_connections && m_connector_factory))
+        throw std::runtime_error("Failed create Pool_Connection!");
 
     Add_Connection(count_of_connections);
 }
@@ -42,7 +41,7 @@ std::shared_ptr<IDatabase_Connector> Pool_Connection::Take_Connector_From_Pool()
     while(true)
     for(int i = 0; i < m_pool_connections->Size(); i++){
         auto temp = std::move(m_pool_connections->Top());
-        if(temp.Get_Count() == 1){
+        if(temp.Get_Count() == 2){
             m_pool_connections->Pop();
             m_pool_connections->Push(temp);
             return temp.Get_Ptr();

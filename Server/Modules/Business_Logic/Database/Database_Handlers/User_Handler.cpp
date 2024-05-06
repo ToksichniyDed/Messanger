@@ -129,8 +129,15 @@ User User_Handler::Read_User_By_UserName(User& user) {
     }
 }
 
-User_Handler::User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper):
-m_connector(std::move(connector)), m_mapper(std::move(mapper)){
+User_Handler::User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper){
+    if(connector)
+        m_connector = connector;
+
+    if(mapper)
+        m_mapper = std::move(mapper);
+
+    if(!(m_connector && m_mapper))
+        throw std::runtime_error("Failed create User_Handler!");
 }
 
 void User_Handler::Set_Connector(std::shared_ptr<IDatabase_Connector> connector) {

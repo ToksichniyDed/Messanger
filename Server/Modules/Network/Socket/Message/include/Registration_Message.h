@@ -16,12 +16,12 @@
 class Registration_Message: public IMessage {
 protected:
     std::string m_data;
-    std::shared_ptr<User> m_user;
-    std::shared_ptr<Password> m_password;
+    std::shared_ptr<User> m_user = nullptr;
+    std::shared_ptr<Password> m_password = nullptr;
 
 public:
-    explicit Registration_Message(std::string& data, std::shared_ptr<User> user = nullptr, std::shared_ptr<Password> password = nullptr):
-    m_data(std::move(data)), m_user(std::move(user)), m_password(std::move(password)){};
+    explicit Registration_Message(std::string& data):m_data(std::move(data)){}
+    explicit Registration_Message(std::string& data, std::shared_ptr<User> user, std::shared_ptr<Password> password);
     void Prepare_Data() override;
     std::shared_ptr<Password> Get_Password();
     std::shared_ptr<User> Get_User();

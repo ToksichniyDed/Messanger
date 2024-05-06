@@ -9,20 +9,18 @@
 Thread_Pool::Thread_Pool(int count_of_threads, std::shared_ptr<Task_Container> client_tasks,
                          std::unique_ptr<Thread_Creator> creator,
                          std::unique_ptr<Container_Vector<std::unique_ptr<IThread>>> thread_pool){
+
     if(client_tasks)
-        m_client_tasks = std::move(client_tasks);
-    else
-        m_client_tasks = std::make_shared<Task_Container>();
+        m_client_tasks = client_tasks;
 
     if(creator)
         m_creator = std::move(creator);
-    else
-        m_creator = std::make_unique<Real_Thread_Creator>();
 
     if(thread_pool)
         m_thread_pool = std::move(thread_pool);
-    else
-        m_thread_pool = std::make_unique<Container_Vector<std::unique_ptr<IThread>>>();
+
+    if(!((m_client_tasks && m_creator && m_thread_pool) || count_of_threads<=0))
+        throw std::runtime_error("Failed create Thread_Pool!");
 
     Add_Thread(count_of_threads);
 }

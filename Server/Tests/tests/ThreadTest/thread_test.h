@@ -11,13 +11,14 @@
 #include "../../../Modules/Thread/Thread.h"
 #include "../../../Modules/Thread/Pool/Thread_Pool.h"
 #include "../../../Modules/Thread/Pool/Task_Container.h"
+#include "../NetworkTest/SocketTest/clients_manager_test.h"
 
 class Thread_Mock : public IThread {
 public:
     ~Thread_Mock() override = default;
 
     MOCK_METHOD (void, Close_Thread, (), (override));
-    MOCK_METHOD(void, Take_Task, (Task * ), (override));
+    MOCK_METHOD(void, Take_Task, (std::unique_ptr<Task> ), (override));
     MOCK_METHOD(void, Wait_Task, (), (override));
 };
 
@@ -25,20 +26,20 @@ class Thread_Creator_Mock : public Thread_Creator {
 public:
     Thread_Creator_Mock() = default;
 
-    MOCK_METHOD(IThread*, Create_Thread, (Task_Container * ), (override));
+    MOCK_METHOD(std::unique_ptr<IThread>, Create_Thread, (std::shared_ptr<Task_Container>), (override));
 };
 
 class Unreal_Thread_Creator : public Thread_Creator {
 protected:
-    IThread *thread;
+    std::unique_ptr<IThread> thread;
 
 public:
-    IThread *Create_Thread(Task_Container *temp) override {
-        return thread;
+    std::unique_ptr<IThread> Create_Thread(std::shared_ptr<Task_Container> temp) override {
+        return std::move(thread);
     }
 
-    void Set_Thread(IThread *temp) {
-        thread = temp;
+    void Set_Thread(std::unique_ptr<IThread> temp) {
+        thread = std::move(temp);
     }
 };
 

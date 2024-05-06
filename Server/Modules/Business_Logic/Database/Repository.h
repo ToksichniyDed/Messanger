@@ -16,7 +16,7 @@ protected:
     std::unique_ptr<Password_Handler> m_password_handler;
 
 public:
-    explicit Repository(std::unique_ptr<User_Handler> u_handler = std::make_unique<User_Handler>(), std::unique_ptr<Password_Handler> p_handler = std::make_unique<Password_Handler>());
+    explicit Repository(std::unique_ptr<User_Handler> u_handler, std::unique_ptr<Password_Handler> p_handler);
     bool User_Registration (std::shared_ptr<IDatabase_Connector> connector, std::shared_ptr<User> user,  std::shared_ptr<Password> password);
     bool User_Authorization(std::shared_ptr<IDatabase_Connector> connector, std::shared_ptr<User> user,  std::shared_ptr<Password> password);
 

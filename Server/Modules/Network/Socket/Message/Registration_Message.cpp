@@ -25,4 +25,18 @@ std::shared_ptr<Password> Registration_Message::Get_Password() {
     return m_password;
 }
 
+Registration_Message::Registration_Message(std::string &data, std::shared_ptr<User> user,
+                                           std::shared_ptr<Password> password) {
+    m_data = std::move(data);
+
+    if(user)
+        m_user = std::move(user);
+
+    if(password)
+        m_password = std::move(password);
+
+    if(!(m_user && m_password))
+        throw std::runtime_error("Failed create Registration_Message!");
+}
+
 

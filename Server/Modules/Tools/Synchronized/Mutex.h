@@ -12,9 +12,9 @@ private:
     std::mutex m_mutex;
 
 public:
-    Mutex &Lock();
-    Mutex &Unlock();
-    std::unique_lock<std::mutex> Get_Unique_Lock();
+    void Lock();
+    void Unlock();
+    std::mutex& Get_Mutex();
 };
 
 

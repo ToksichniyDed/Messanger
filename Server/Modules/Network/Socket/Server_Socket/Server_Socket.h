@@ -10,6 +10,7 @@
 
 #include <thread>
 #include <memory>
+#include <boost/di.hpp>
 
 #include "../ISocket.h"
 #include "../Client_Socket/Client_Socket.h"
@@ -28,7 +29,7 @@ protected:
     void Iteration(MySocketType temp_client_socket, sockaddr_in client_address, MySocketLenght client_address_length);
 
 public:
-    explicit Server_Socket(std::unique_ptr<Client_Manager> m_client_manager = nullptr);
+    explicit Server_Socket(std::unique_ptr<Client_Manager> m_client_manager);
     void Open_Socket() override;
     void Close_Socket() override;
     void Set_Security_Options() override;

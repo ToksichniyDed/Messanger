@@ -17,7 +17,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${OPENSSL_INCLUDE_DIR})
 
 add_subdirectory(Modules)
-#add_subdirectory(Tests)
+add_subdirectory(Tests)
 
 add_executable(Server main.cpp
 )

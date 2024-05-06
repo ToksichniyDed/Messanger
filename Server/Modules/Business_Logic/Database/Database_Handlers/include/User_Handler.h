@@ -10,11 +10,12 @@
 
 class User_Handler {
 protected:
-    std::shared_ptr<IDatabase_Connector> m_connector;
-    std::unique_ptr<UserMapper> m_mapper;
+    std::shared_ptr<IDatabase_Connector> m_connector = nullptr;
+    std::unique_ptr<UserMapper> m_mapper = nullptr;
 
 public:
-    explicit User_Handler(std::shared_ptr<IDatabase_Connector> connector = nullptr, std::unique_ptr<UserMapper> mapper = nullptr);
+    explicit User_Handler() = default;
+    explicit User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper);
     void Set_Connector(std::shared_ptr<IDatabase_Connector> connector);
     void Disconnect_Connector();
     bool Create_User(User& new_user);

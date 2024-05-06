@@ -31,7 +31,7 @@ public:
         std::string json_number, json_password;
         json_number = Pack_Json("telephone_number",m_telephone_number);
         json_password = Pack_Json("password",m_password);
-        m_prepared_data = Pack_Json("registration_data",json_number+json_password);
+        m_prepared_data = Pack_Json("registration_message",json_number+json_password);
     }
 };
 

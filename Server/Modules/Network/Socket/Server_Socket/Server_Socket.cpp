@@ -95,7 +95,13 @@ void Server_Socket::Listening_Clients_Socket() {
 
 void Server_Socket::Iteration(MySocketType temp_client_socket, sockaddr_in client_address, MySocketLenght client_address_length) {
     temp_client_socket = accept(m_server_socket, (struct sockaddr *) &client_address, &client_address_length);
-    auto client_socket = std::make_shared<Client_Socket>(nullptr, std::make_shared<MySocketType>(temp_client_socket));
+    auto inj = boost::di::make_injector(
+            boost::di::bind<MySocketType>.to([&]{return std::make_shared<MySocketType>(temp_client_socket);}),
+            boost::di::bind<Client_Socket_Manager>.to([&]{
+                return std::make_shared<Client_Socket_Manager>(std::make_shared<MySocketType>(temp_client_socket));})
+            );
+
+    auto client_socket = inj.create<std::shared_ptr<Client_Socket>>();
 
     std::cout<<"New client accept with socket: "<<temp_client_socket<<" !" <<std::endl;
 
@@ -105,8 +111,9 @@ void Server_Socket::Iteration(MySocketType temp_client_socket, sockaddr_in clien
 Server_Socket::Server_Socket(std::unique_ptr<Client_Manager> client_manager) {
     if(client_manager)
         m_client_manager = std::move(client_manager);
-    else
-        m_client_manager = std::make_unique<Client_Manager>();
+
+    if(!m_client_manager)
+        throw std::runtime_error("Failed create Server_Socket!");
 }
 
 

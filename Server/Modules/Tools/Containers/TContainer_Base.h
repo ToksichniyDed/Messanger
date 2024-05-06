@@ -7,6 +7,8 @@
 
 #include <functional>
 #include <string>
+#include <iostream>
+#include <thread>
 
 #include "../Synchronized/Mutex.h"
 #include "../Synchronized/Conditional_Variable.h"
@@ -26,7 +28,7 @@ public:
     virtual bool Empty();
     virtual void Notify_One();
     virtual void Notify_All();
-    virtual void Conditional(std::function<bool()> &function);
+    virtual void Conditional(std::function<bool()> function);
     void Clear();
 };
 
@@ -36,8 +38,10 @@ void TContainer_Base<Container_Type, Data_Type>::Notify_All() {
 }
 
 template<typename Container_Type, typename Data_Type>
-void TContainer_Base<Container_Type, Data_Type>::Conditional(std::function<bool()> &function) {
-    m_cv.Wait(m_mutex.Get_Unique_Lock(), function);
+void TContainer_Base<Container_Type, Data_Type>::Conditional(std::function<bool()> function) {
+    std::unique_lock<std::mutex> lock (m_mutex.Get_Mutex());
+    std::cout << "Thread " << std::this_thread::get_id() << " wait client task!" << std::endl;
+    m_cv.Wait(lock, std::move(function));
 }
 
 template<typename Container_Type, typename Data_Type>
@@ -47,21 +51,19 @@ void TContainer_Base<Container_Type, Data_Type>::Notify_One() {
 
 template<typename Container_Type, typename Data_Type>
 int TContainer_Base<Container_Type, Data_Type>::Size() {
-    auto mutex = m_mutex.Get_Unique_Lock();
-    int size = m_container.size();
-    return size;
+    std::unique_lock<std::mutex> lock (m_mutex.Get_Mutex());
+    return m_container.size();
 }
 
 template<typename Container_Type, typename Data_Type>
 bool TContainer_Base<Container_Type, Data_Type>::Empty() {
-    auto mutex = m_mutex.Get_Unique_Lock();
-    bool status = m_container.empty();
-    return status;
+    std::unique_lock<std::mutex> lock (m_mutex.Get_Mutex());
+    return m_container.empty();
 }
 
 template<typename Container_Type, typename Data_Type>
 void TContainer_Base<Container_Type, Data_Type>::Clear() {
-    auto mutex = m_mutex.Get_Unique_Lock();
+    std::unique_lock<std::mutex> lock (m_mutex.Get_Mutex());
     m_container.clear();
 }
 

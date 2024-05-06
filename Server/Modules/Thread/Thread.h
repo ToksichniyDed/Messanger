@@ -40,7 +40,7 @@ protected:
     std::shared_ptr<Task_Container> m_client_tasks;
 
 public:
-    explicit Thread(std::shared_ptr<Task_Container> client_tasks = nullptr);
+    explicit Thread(std::shared_ptr<Task_Container> client_tasks);
     ~Thread() override;
     void Close_Thread() override;
     void Take_Task(std::unique_ptr<Task> task) override;

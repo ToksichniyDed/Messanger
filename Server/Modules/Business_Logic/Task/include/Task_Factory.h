@@ -26,12 +26,12 @@ public:
 
 protected:
     std::unique_ptr<Pool_Connection> m_pool_connection;
-    Task_Map m_task_map;
+    std::unique_ptr<Task_Map> m_task_map;
 
 public:
-    explicit Task_Factory(std::unique_ptr<Pool_Connection> = nullptr);
+    explicit Task_Factory(std::unique_ptr<Pool_Connection> poolConnection, std::unique_ptr<Task_Map> map);
     virtual ~Task_Factory() = default;
-    void Register_Task(const std::string& type, std::unique_ptr<ITask_Creator> creator);
+    virtual void Register_Task(const std::string& type, std::unique_ptr<ITask_Creator> creator);
     virtual std::unique_ptr<Task> Create_Task(const std::string &type, std::shared_ptr<Client_Socket> socket, std::unique_ptr<IMessage> message);
 };
 

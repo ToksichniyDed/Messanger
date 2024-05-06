@@ -15,7 +15,6 @@
 
 
 //Интерфейс для классов задач
-
 class Task {
 protected:
     std::shared_ptr<Client_Socket> m_socket;

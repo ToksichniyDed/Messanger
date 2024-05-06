@@ -28,3 +28,17 @@ std::string &Authorization_Message::Get_Data() {
     return m_data;
 }
 
+Authorization_Message::Authorization_Message(std::string &data, std::shared_ptr<User> user,
+                                             std::shared_ptr<Password> password) {
+    m_data = std::move(data);
+
+    if(user)
+        m_user = std::move(user);
+
+    if(password)
+        m_password = std::move(password);
+
+    if(!(m_user && m_password))
+        throw std::runtime_error("Failed create Authorization_Message!");
+}
+

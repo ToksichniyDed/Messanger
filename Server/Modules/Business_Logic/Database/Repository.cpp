@@ -48,7 +48,13 @@ bool Repository::User_Authorization(std::shared_ptr<IDatabase_Connector> connect
     return false;
 }
 
-Repository::Repository(std::unique_ptr<User_Handler> u_handler, std::unique_ptr<Password_Handler> p_handler):
-m_user_handler(std::move(u_handler)), m_password_handler(std::move(p_handler)) {
+Repository::Repository(std::unique_ptr<User_Handler> u_handler, std::unique_ptr<Password_Handler> p_handler){
+    if(u_handler)
+        m_user_handler = std::move(u_handler);
 
+    if(p_handler)
+        m_password_handler=std::move(p_handler);
+
+    if(!(m_user_handler && m_password_handler))
+        throw std::runtime_error("Failed create Repository!");
 }

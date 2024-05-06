@@ -134,3 +134,15 @@ void Password_Handler::Set_Connector(std::shared_ptr<IDatabase_Connector> connec
 void Password_Handler::Disconnect_Connector() {
     m_connector = nullptr;
 }
+
+Password_Handler::Password_Handler(std::shared_ptr<IDatabase_Connector> connector,
+                                   std::unique_ptr<PasswordMapper> mapper) {
+    if(connector)
+        m_connector = connector;
+
+    if(mapper)
+        m_mapper = std::move(mapper);
+
+    if(!(m_connector && m_mapper))
+        throw std::runtime_error("Failed create Password_Handler!");
+}

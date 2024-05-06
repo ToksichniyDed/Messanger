@@ -13,14 +13,14 @@
 
 class Thread_Pool {
 protected:
-    std::unique_ptr<Container_Vector<std::unique_ptr<IThread>>> m_thread_pool;
-    std::shared_ptr<Task_Container> m_client_tasks;
-    std::unique_ptr<Thread_Creator> m_creator;
+    std::unique_ptr<Container_Vector<std::unique_ptr<IThread>>> m_thread_pool = nullptr;
+    std::shared_ptr<Task_Container> m_client_tasks = nullptr;
+    std::unique_ptr<Thread_Creator> m_creator = nullptr;
 
 public:
-    explicit Thread_Pool(int count_of_threads = 5, std::shared_ptr<Task_Container> client_tasks = nullptr,
-                std::unique_ptr<Thread_Creator> creator = nullptr,
-                std::unique_ptr<Container_Vector<std::unique_ptr<IThread>>> thread_pool = nullptr);
+    explicit Thread_Pool(int count_of_threads, std::shared_ptr<Task_Container> client_tasks,
+                std::unique_ptr<Thread_Creator> creator,
+                std::unique_ptr<Container_Vector<std::unique_ptr<IThread>>> thread_pool);
     virtual ~Thread_Pool();
     void Add_Thread(int count_of_threads);
     void Sub_Thread(int count_of_threads);

@@ -4,6 +4,8 @@
 
 #include "Task_Container.h"
 
+#include <utility>
+
 void Task_Container::Emplace_Task(std::unique_ptr<Task> task) {
     m_task_queue.Emplace(std::move(task));
 }
@@ -14,7 +16,6 @@ void Task_Container::Pop_Task() {
 
 std::unique_ptr<Task> Task_Container::Front_Task() {
     auto ans = std::move(m_task_queue.Front());
-    this->Pop_Task();
     return ans;
 }
 
@@ -23,7 +24,7 @@ void Task_Container::Notify_All() {
 }
 
 void Task_Container::Condition(std::function<bool()> condition) {
-    m_task_queue.Conditional(condition);
+    m_task_queue.Conditional(std::move(condition));
 }
 
 void Task_Container::Notify_One() {
