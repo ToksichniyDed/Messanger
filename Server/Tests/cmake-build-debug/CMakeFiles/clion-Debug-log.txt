@@ -1,0 +1,14 @@
+"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\Progg\Plotniy_Project\Server\Tests -B D:\Progg\Plotniy_Project\Server\Tests\cmake-build-debug
+-- Could NOT find Python3 (missing: Python3_EXECUTABLE Interpreter) 
+-- Configuring done (3.5s)
+CMake Error at CMakeLists.txt:11 (add_executable):
+  Cannot find source file:
+
+    gtest
+
+
+CMake Error at CMakeLists.txt:11 (add_executable):
+  No SOURCES given to target: Tests
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

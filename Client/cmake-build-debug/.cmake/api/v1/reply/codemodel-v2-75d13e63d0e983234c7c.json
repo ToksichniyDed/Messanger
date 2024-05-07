@@ -1,0 +1,335 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "Modules",
+					"childIndexes" : 
+					[
+						2,
+						7,
+						10,
+						12
+					],
+					"jsonFile" : "directory-Modules-Debug-e28d338f33e3f94bd6d9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "Modules"
+				},
+				{
+					"build" : "Modules/Model",
+					"childIndexes" : 
+					[
+						3
+					],
+					"jsonFile" : "directory-Modules.Model-Debug-e3f818c86356d5968ca4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "Modules/Model"
+				},
+				{
+					"build" : "Modules/Model/Networking",
+					"childIndexes" : 
+					[
+						4,
+						5
+					],
+					"jsonFile" : "directory-Modules.Model.Networking-Debug-9eb238cb2c8aad75998d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "Modules/Model/Networking"
+				},
+				{
+					"build" : "Modules/Model/Networking/Message_Queue",
+					"jsonFile" : "directory-Modules.Model.Networking.Message_Queue-Debug-bd4026acc59f0c8e448e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 1,
+					"source" : "Modules/Model/Networking/Message_Queue",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "Modules/Model/Networking/Socket",
+					"childIndexes" : 
+					[
+						6
+					],
+					"jsonFile" : "directory-Modules.Model.Networking.Socket-Debug-958a3013fc75b39b646f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 1,
+					"source" : "Modules/Model/Networking/Socket",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "Modules/Model/Networking/Socket/Message_Type",
+					"jsonFile" : "directory-Modules.Model.Networking.Socket.Message_Type-Debug-811a5957b2486a5aa134.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 1,
+					"source" : "Modules/Model/Networking/Socket/Message_Type"
+				},
+				{
+					"build" : "Modules/Tools",
+					"childIndexes" : 
+					[
+						8,
+						9
+					],
+					"jsonFile" : "directory-Modules.Tools-Debug-96d2ec6e8ecfc39824ce.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "Modules/Tools",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "Modules/Tools/Synchronized",
+					"jsonFile" : "directory-Modules.Tools.Synchronized-Debug-b2ba09bca0bb85b8b145.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 1,
+					"source" : "Modules/Tools/Synchronized",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "Modules/Tools/Containers",
+					"jsonFile" : "directory-Modules.Tools.Containers-Debug-50a468a2b6175370baa1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 1,
+					"source" : "Modules/Tools/Containers",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "Modules/View",
+					"childIndexes" : 
+					[
+						11
+					],
+					"jsonFile" : "directory-Modules.View-Debug-467d79bec9b78216f7dc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "Modules/View",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "Modules/View/Chats_View",
+					"jsonFile" : "directory-Modules.View.Chats_View-Debug-4c1d450bd088516e3204.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 10,
+					"projectIndex" : 1,
+					"source" : "Modules/View/Chats_View",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Modules/View_Model",
+					"jsonFile" : "directory-Modules.View_Model-Debug-fbe0f874bef8e6db36de.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "Modules/View_Model"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Client",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					],
+					"name" : "Modules",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 11,
+					"id" : "Chats_View::@93c6891500b717dd9137",
+					"jsonFile" : "target-Chats_View-Debug-328c24470f667ae52c77.json",
+					"name" : "Chats_View",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Client-Debug-68d5a13aceb4d960e71a.json",
+					"name" : "Client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "Containers::@343855709efae0b66792",
+					"jsonFile" : "target-Containers-Debug-98cb3625dbf7a88dbd07.json",
+					"name" : "Containers",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "Message_Queue::@11d3249563f6a2f4daab",
+					"jsonFile" : "target-Message_Queue-Debug-d7d7d61e7f3d6f0c7ce2.json",
+					"name" : "Message_Queue",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "Socket::@3311415268a2993af047",
+					"jsonFile" : "target-Socket-Debug-397475f1f63f5027b041.json",
+					"name" : "Socket",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "Synchronized::@4a51886948735a9107b6",
+					"jsonFile" : "target-Synchronized-Debug-eb2b8d462e08b64ab175.json",
+					"name" : "Synchronized",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "Tools::@7f8c02b61f57bc4b744c",
+					"jsonFile" : "target-Tools-Debug-1c9d28f2b34aebf28817.json",
+					"name" : "Tools",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "View::@9d4a5a68c0e756413514",
+					"jsonFile" : "target-View-Debug-3e5801d8fd93eeb831c2.json",
+					"name" : "View",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Progg/Plotniy_Project/Client/cmake-build-debug",
+		"source" : "D:/Progg/Plotniy_Project/Client"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

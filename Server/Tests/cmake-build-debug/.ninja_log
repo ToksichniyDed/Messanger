@@ -1,0 +1,7 @@
+# ninja log v5
+104	228	7292795361853948	tests/BusinessLogicTest/TaskTest/TaskTypeTest/CMakeFiles/TaskTypeTest.dir/registration_task_test.cpp.obj	588a8fd86e91759b
+1	1331	7292795372892988	CMakeFiles/Tests.dir/tests/all_test.cpp.obj	d54087757fe3a3ff
+44	1385	7292795373430177	googletest-1.14.0/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	30fe4a59ea6b1806
+19	1646	7292795376046022	googletest-1.14.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	31a05620684cf362
+11	2616	7292795385676265	googletest-1.14.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	13a4208826b2d1c
+26	6427	7292795423697021	googletest-1.14.0/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	ba0bc6d33339c66f

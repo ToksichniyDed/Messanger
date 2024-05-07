@@ -1,0 +1,359 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						4,
+						7,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "googletest-1.14.0",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-googletest-1.14.0-Debug-d1afb6955891aca6dd9f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "googletest-1.14.0"
+				},
+				{
+					"build" : "googletest-1.14.0/googlemock",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-googletest-1.14.0.googlemock-Debug-408b60ad0fb996ebe31f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "googletest-1.14.0/googlemock",
+					"targetIndexes" : 
+					[
+						7,
+						8
+					]
+				},
+				{
+					"build" : "googletest-1.14.0/googletest",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-googletest-1.14.0.googletest-Debug-4a44ae81606789263719.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 3,
+					"source" : "googletest-1.14.0/googletest",
+					"targetIndexes" : 
+					[
+						9,
+						10
+					]
+				},
+				{
+					"build" : "tests/NetworkTest",
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"jsonFile" : "directory-tests.NetworkTest-Debug-413b283c00a72d42c435.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tests/NetworkTest"
+				},
+				{
+					"build" : "tests/NetworkTest/SocketTest",
+					"jsonFile" : "directory-tests.NetworkTest.SocketTest-Debug-9daed4c1908994fb5a6f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 0,
+					"source" : "tests/NetworkTest/SocketTest",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "tests/NetworkTest/ProtocolsTest",
+					"jsonFile" : "directory-tests.NetworkTest.ProtocolsTest-Debug-1a12df0ef33341d991de.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 0,
+					"source" : "tests/NetworkTest/ProtocolsTest",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "tests/ThreadTest",
+					"jsonFile" : "directory-tests.ThreadTest-Debug-d7687d5f74be565dcf9b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tests/ThreadTest",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "tests/BusinessLogicTest",
+					"childIndexes" : 
+					[
+						9
+					],
+					"jsonFile" : "directory-tests.BusinessLogicTest-Debug-3ca85d54288e46fcc880.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tests/BusinessLogicTest"
+				},
+				{
+					"build" : "tests/BusinessLogicTest/TaskTest",
+					"childIndexes" : 
+					[
+						10
+					],
+					"jsonFile" : "directory-tests.BusinessLogicTest.TaskTest-Debug-8d7d07fe8e45d3b43422.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 8,
+					"projectIndex" : 0,
+					"source" : "tests/BusinessLogicTest/TaskTest"
+				},
+				{
+					"build" : "tests/BusinessLogicTest/TaskTest/TaskTypeTest",
+					"jsonFile" : "directory-tests.BusinessLogicTest.TaskTest.TaskTypeTest-Debug-3eb5b42c77f7c4762a74.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 9,
+					"projectIndex" : 0,
+					"source" : "tests/BusinessLogicTest/TaskTest/TaskTypeTest",
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					],
+					"name" : "Tests",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "googletest-distribution",
+					"parentIndex" : 0
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gmock",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						7,
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "gtest",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 6,
+					"id" : "ProtocolsTest::@d4f58c48144aa247928b",
+					"jsonFile" : "target-ProtocolsTest-Debug-308c9e5f4690fe810d12.json",
+					"name" : "ProtocolsTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "ProtocolsTest_EX::@d4f58c48144aa247928b",
+					"jsonFile" : "target-ProtocolsTest_EX-Debug-bed7b917b9d2f4797fb2.json",
+					"name" : "ProtocolsTest_EX",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "SocketTest::@1975382f4ff36a8b0687",
+					"jsonFile" : "target-SocketTest-Debug-a5203f7b12f282619a1f.json",
+					"name" : "SocketTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "TaskTypeTest::@5823ebf0ab44a365185b",
+					"jsonFile" : "target-TaskTypeTest-Debug-1c0d8fe2a74bfe2081df.json",
+					"name" : "TaskTypeTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "TaskTypeTest_EX::@5823ebf0ab44a365185b",
+					"jsonFile" : "target-TaskTypeTest_EX-Debug-6301a30f6636a16dddd5.json",
+					"name" : "TaskTypeTest_EX",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Tests-Debug-539053e02e05078ac58c.json",
+					"name" : "Tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "ThreadTest::@c39932fc557bace88573",
+					"jsonFile" : "target-ThreadTest-Debug-f14ff8de35373e37a37f.json",
+					"name" : "ThreadTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gmock::@c876a9c106cf9c93486c",
+					"jsonFile" : "target-gmock-Debug-7bde9390b64173be411f.json",
+					"name" : "gmock",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gmock_main::@c876a9c106cf9c93486c",
+					"jsonFile" : "target-gmock_main-Debug-e1741923a495209f7f3e.json",
+					"name" : "gmock_main",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@c0aefb602fda49ffea1d",
+					"jsonFile" : "target-gtest-Debug-63a9f677426a62f9ddaa.json",
+					"name" : "gtest",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest_main::@c0aefb602fda49ffea1d",
+					"jsonFile" : "target-gtest_main-Debug-b67160f8535db81af137.json",
+					"name" : "gtest_main",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Progg/Plotniy_Project/Server/Tests/cmake-build-debug",
+		"source" : "D:/Progg/Plotniy_Project/Server/Tests"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

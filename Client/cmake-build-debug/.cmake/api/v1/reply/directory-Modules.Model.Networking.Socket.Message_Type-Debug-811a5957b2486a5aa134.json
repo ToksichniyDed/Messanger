@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "Modules/Model/Networking/Socket/Message_Type",
+		"source" : "Modules/Model/Networking/Socket/Message_Type"
+	}
+}
