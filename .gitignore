@@ -1,1 +1,12 @@
-/Server/Tests/cmake-build-debug/
+/Server/Tests/cmake-build-debug
+/Server/Tests/googletest-1.14.0
+.$Plotniy_Messanger.drawio.bkp
+Plotniy_Messanger.drawio
+./Tests/googletest-1.14.0
+.idea
+.git
+/Server/.idea
+Database
+
+/Client/.idea
+/Client/cmake-build-debug

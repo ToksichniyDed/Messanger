@@ -3,5 +3,3 @@ TContainer_Multimap.h
 TContainer_Base.h
 TPriority_Queue.h
 TContainer_Queue.h)
-
-target_link_libraries(Containers Synchronized)

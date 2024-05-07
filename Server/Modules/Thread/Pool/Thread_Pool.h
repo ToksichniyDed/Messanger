@@ -5,8 +5,9 @@
 #ifndef SERVER_THREAD_POOL_H
 #define SERVER_THREAD_POOL_H
 
-#include "Task_Container.h"
+
 #include "../../Tools/Containers/Container_Vector.h"
+#include "../../Tools/Containers/TContainer_Queue.h"
 #include "../Thread.h"
 
 //Пул потоков держит открытыми заданное число потоков.

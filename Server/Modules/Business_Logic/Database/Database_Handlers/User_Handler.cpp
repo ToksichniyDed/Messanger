@@ -10,8 +10,8 @@ bool User_Handler::Create_User(User& new_user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("INSERT INTO User VAlUES ('$1','$2');",
-                                                            (new_user.Get_UserName(), new_user.Get_Telephone_Number()));
+        transaction.exec_params("INSERT INTO User (telephonenumber) VALUES ('$1');",
+                                                            new_user.Get_Telephone_Number());
 
         transaction.commit();
 

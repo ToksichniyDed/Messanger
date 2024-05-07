@@ -28,10 +28,11 @@ public:
         return m_prepared_data;
     }
     void Prepare_Data() override{
-        std::string json_number, json_password;
+        std::string json_number, json_password, json_data;
         json_number = Pack_Json("telephone_number",m_telephone_number);
         json_password = Pack_Json("password",m_password);
-        m_prepared_data = Pack_Json("registration_message",json_number+json_password);
+        json_data = Pack_Json("data", json_number+json_password);
+        m_prepared_data = Pack_Json("registration_message",json_data);
     }
 };
 

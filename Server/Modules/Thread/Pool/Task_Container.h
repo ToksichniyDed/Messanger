@@ -1,39 +1,27 @@
 //
-// Created by super on 15.11.2023.
+// Created by Toksichniy_Ded on 07.05.2024.
 //
 
 #ifndef SERVER_TASK_CONTAINER_H
 #define SERVER_TASK_CONTAINER_H
 
-#ifdef _WIN32
-#include <winsock2.h>
-typedef SOCKET MySocketType;
-#else
-#include <sys/socket.h>
-typedef int MySocketType;
-#endif
-
 #include <memory>
 
-#include "../../Tools/Containers/TContainer_Queue.h"
 #include "../../Business_Logic/Task/include/Task.h"
+#include "../../Tools/Containers/TContainer_Queue.h"
 
-//Реализация очереди задач с помощью шаблона-очереди
-
-class Task_Container {
-private:
-    TContainer_Queue<std::unique_ptr<Task>> m_task_queue;
-
+class Task_Container: public TContainer_Queue<std::unique_ptr<Task>>{
 public:
-    virtual void Emplace_Task(std::unique_ptr<Task> task);
-    virtual void Pop_Task();
-    virtual std::unique_ptr<Task> Front_Task();
-    virtual void Notify_All();
-    virtual void Notify_One();
-    virtual bool Empty();
-    virtual int Size();
-    virtual void Condition(std::function<bool()> condition);
+    virtual std::unique_ptr<Task> Wait_Until_Not_Empty();
 };
+
+inline std::unique_ptr<Task> Task_Container::Wait_Until_Not_Empty() {
+    std::unique_lock<std::mutex> lock(m_mutex);
+    m_cv.wait(lock,[&]{return !m_container.empty();});
+    auto task = std::move(m_container.front());
+    m_container.pop();
+    return task;
+}
 
 
 #endif //SERVER_TASK_CONTAINER_H

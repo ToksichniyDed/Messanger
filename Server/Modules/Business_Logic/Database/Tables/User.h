@@ -10,9 +10,9 @@
 
 class User {
 protected:
-    int m_user_id;
-    std::string m_username;
-    std::string m_telephone_number;
+    int m_user_id = 0;
+    std::string m_username = "";
+    std::string m_telephone_number = "";
 
 public:
     void Set_UserID(int userid);

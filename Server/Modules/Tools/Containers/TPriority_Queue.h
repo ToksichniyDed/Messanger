@@ -19,7 +19,7 @@ public:
 
 template<typename Data_Type>
 Data_Type TPriority_Queue<Data_Type>::Top() {
-    std::unique_lock<std::mutex> lock (this->m_mutex.Get_Mutex());
+    std::unique_lock<std::mutex> lock (this->m_mutex);
     if(this->m_container.empty())
         return Data_Type();
     auto temp = std::move(this->m_container.top());
@@ -28,7 +28,7 @@ Data_Type TPriority_Queue<Data_Type>::Top() {
 
 template<typename Data_Type>
 void TPriority_Queue<Data_Type>::Pop() {
-    std::unique_lock<std::mutex> lock (this->m_mutex.Get_Mutex());
+    std::unique_lock<std::mutex> lock (this->m_mutex);
     if(this->m_container.empty())
         return;
     this->m_container.pop();
@@ -36,7 +36,7 @@ void TPriority_Queue<Data_Type>::Pop() {
 
 template<typename Data_Type>
 void TPriority_Queue<Data_Type>::Push(Data_Type data) {
-    std::unique_lock<std::mutex> lock (this->m_mutex.Get_Mutex());
+    std::unique_lock<std::mutex> lock (this->m_mutex);
     this->m_container.push(std::move(data));
 }
 

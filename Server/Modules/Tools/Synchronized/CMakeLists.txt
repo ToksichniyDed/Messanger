@@ -1,1 +1,0 @@
-add_library(Synchronized Conditional_Variable.cpp Mutex.cpp)

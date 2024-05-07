@@ -4,6 +4,7 @@
 
 #include "Thread.h"
 
+
 Thread::Thread(std::shared_ptr<Task_Container> client_tasks) {
     if(client_tasks)
         m_client_tasks = client_tasks;
@@ -22,15 +23,15 @@ void Thread::Take_Task(std::unique_ptr<Task> task) {
 //Поток стоит на паузе, пока контейнер клиентских задач пустой.
 void Thread::Wait_Task() {
     while(!m_should_exit) {
-        auto conditional = [&] { return !m_client_tasks->Empty();};
-        m_client_tasks->Condition(std::move(conditional));
+        std::cout << "Thread " << std::this_thread::get_id() << " wait client task!" << std::endl;
+        auto task = std::move(m_client_tasks->Wait_Until_Not_Empty());
 
         if (m_should_exit) {
             break;  // Если флаг установлен, выходим из цикла
         }
 
         std::cout << "Thread " << std::this_thread::get_id() << " start handle client task!" << std::endl;
-        this->Take_Task(m_client_tasks->Front_Task());
+        this->Take_Task(std::move(task));
         std::cout << "Thread " << std::this_thread::get_id() << " is free!" << std::endl;
     }
 }

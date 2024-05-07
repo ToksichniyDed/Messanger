@@ -13,7 +13,7 @@
 #include "../../Model/Networking/Socket/Message_Type/To_Server/Registration_Message_Data.h"
 #include "../../View/Enter_View/Register.h"
 
-class Registration_View_Model: protected I_View_Model{
+class Registration_View_Model: public I_View_Model{
 public:
     using Register_View_Ptr = std::unique_ptr<Register>;
     using Register_Message_Ptr = std::shared_ptr<Registration_Message_Data>;

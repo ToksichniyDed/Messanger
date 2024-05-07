@@ -21,5 +21,4 @@ public:
     virtual ~I_View_Model() = default;
 };
 
-
 #endif //CLIENT_I_VIEW_MODEL_H

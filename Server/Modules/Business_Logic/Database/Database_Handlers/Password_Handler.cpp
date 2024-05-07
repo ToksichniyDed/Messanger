@@ -8,7 +8,7 @@ bool Password_Handler::Create(Password &password) {
     try{
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("INSERT INTO Password VALUES ('$1','$2','$3');",
+        transaction.exec_params("INSERT INTO Password (userid, hash, salt) VALUES ('$1','$2','$3');",
                                 (password.Get_UserID(),password.Get_Hash(),password.Get_Salt()));
 
         transaction.commit();
@@ -58,7 +58,7 @@ bool Password_Handler::Update_Salt(Password &password) {
     try{
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("UPDATE Password SET salt = '$2' WHERE userid = '$1",
+        transaction.exec_params("UPDATE Password SET salt = '$2' WHERE userid = '$1';",
                                 (std::to_string(password.Get_UserID()),password.Get_Salt()));
 
         return true;

@@ -3,7 +3,6 @@ add_library(Tools
         OpenSSL_Tools.cpp
 )
 
-add_subdirectory(Synchronized)
-add_subdirectory(Containers)
-
-target_link_libraries(Tools Synchronized Containers ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES})
+target_link_libraries(Tools ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES})
+#target_include_directories(Tools PUBLIC ${Boost_INCLUDE_DIRS}})
+include_directories(Containers)

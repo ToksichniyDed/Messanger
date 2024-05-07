@@ -9,11 +9,11 @@
 
 class Password {
 protected:
-    int m_password_id;
-    int m_user_id;
-    std::string m_hash;
-    std::string m_salt;
-    std::string m_password;
+    int m_password_id = 0;
+    int m_user_id = 0;
+    std::string m_hash = "";
+    std::string m_salt = "";
+    std::string m_password = "";
 
 public:
     void Set_PasswordID(int password_id);

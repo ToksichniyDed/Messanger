@@ -23,25 +23,24 @@ public:
 
 template<typename Data_Type>
 void TContainer_Queue<Data_Type>::Emplace(Data_Type data) {
-    std::unique_lock<std::mutex> lock (this->m_mutex.Get_Mutex());
+    std::unique_lock<std::mutex> lock (this->m_mutex);
     this->m_container.emplace(std::move(data));
 }
 
 template<typename Data_Type>
 Data_Type TContainer_Queue<Data_Type>::Front() {
-    std::unique_lock<std::mutex> lock (this->m_mutex.Get_Mutex());
+    std::unique_lock<std::mutex> lock (this->m_mutex);
     Data_Type temp;
     if (!this->m_container.empty()) {
         temp = std::move(this->m_container.front());
         this->m_container.pop();
     }
-
-    return std::move(temp);
+    return temp;
 }
 
 template<typename Data_Type>
 void TContainer_Queue<Data_Type>::Pop() {
-    std::unique_lock<std::mutex> lock (this->m_mutex.Get_Mutex());
+    std::unique_lock<std::mutex> lock (this->m_mutex);
     if (!this->m_container.empty()) {
         this->m_container.pop();
     }

@@ -65,7 +65,7 @@ void Client_Manager::Iteration() {
                     continue;
                 }
 
-                m_clients_tasks->Emplace_Task(std::move(task));
+                m_clients_tasks->Emplace(std::move(task));
                 m_clients_tasks->Notify_All();
             }
         }

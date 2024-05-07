@@ -8,12 +8,13 @@
 #include <memory>
 
 #include "Client_Socket/Client_Socket.h"
-#include "../../Thread/Pool/Task_Container.h"
 #include "../../Tools/Containers/Container_Vector.h"
+#include "../../Tools/Containers/TContainer_Queue.h"
 #include "../../Business_Logic/Task/include/Task_Factory.h"
 #include "../../Tools/Json_Tools.h"
 #include "Message/include/Message_Factory.h"
 #include "../Protocols/Protocols_Type/Server_Error_Protocol.h"
+#include "../../Thread/Pool/Task_Container.h"
 
 //Класс для управления подключенными клиентами. Тут содержиться вектор подключенных клиентов, контейнер задач, и фабрика задач.
 

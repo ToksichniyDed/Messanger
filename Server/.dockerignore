@@ -2,3 +2,5 @@ Database
 cmake-build-debug
 .idea
 .git
+Database
+./Tests/cmake-build-debug

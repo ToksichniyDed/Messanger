@@ -8,9 +8,10 @@
 #include <iostream>
 #include <any>
 #include <map>
+#include <string>
+#include <sstream>
 
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/json_parser.hpp>
+#include <boost/json.hpp>
 
 std::string Pack_Json(const std::string& type, const std::string& data);
 std::string Unpack_Json(/*Тип вынимаемого сообщения*/ const std::string& type_of_variable,/*Входящая строка*/ const std::string& data);
