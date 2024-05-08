@@ -8,8 +8,8 @@ bool Password_Handler::Create(Password &password) {
     try{
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("INSERT INTO Password (userid, hash, salt) VALUES ('$1','$2','$3');",
-                                (password.Get_UserID(),password.Get_Hash(),password.Get_Salt()));
+        transaction.exec_params("INSERT INTO \"Password\" (userid, hash, salt) VALUES ($1,$2,$3);",
+                                password.Get_UserID(),password.Get_Hash(),password.Get_Salt());
 
         transaction.commit();
 
@@ -34,7 +34,7 @@ Password Password_Handler::Read_By_UserID(Password& password) {
     try{
         pqxx::work transaction(*m_connector->Connector());
 
-        pqxx::result query_result = transaction.exec_params("SELECT * FROM Password WHERE userid = '$1",
+        pqxx::result query_result = transaction.exec_params("SELECT * FROM \"Password\" WHERE userid = $1;",
                                                             std::to_string(password.Get_UserID()));
 
         transaction.commit();
@@ -58,8 +58,8 @@ bool Password_Handler::Update_Salt(Password &password) {
     try{
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("UPDATE Password SET salt = '$2' WHERE userid = '$1';",
-                                (std::to_string(password.Get_UserID()),password.Get_Salt()));
+        transaction.exec_params("UPDATE \"Password\" SET salt = $2 WHERE userid = $1;",
+                                std::to_string(password.Get_UserID()),password.Get_Salt());
 
         return true;
     }
@@ -82,7 +82,7 @@ bool Password_Handler::Delete(Password &password) {
     try{
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("DELETE FROM Password WHERE userid = '$1';",
+        transaction.exec_params("DELETE FROM \"Password\" WHERE userid = $1;",
                                 std::to_string(password.Get_UserID()));
 
         transaction.commit();
@@ -107,8 +107,8 @@ bool Password_Handler::Update_Hash(Password &password) {
     try{
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("UPDATE Password SET hash = '$2' WHERE userid = '$1",
-                                (std::to_string(password.Get_UserID()),password.Get_Hash()));
+        transaction.exec_params("UPDATE \"Password\" SET hash = $2 WHERE userid = $1;",
+                                std::to_string(password.Get_UserID()),password.Get_Hash());
 
         return true;
     }

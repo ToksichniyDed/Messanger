@@ -6,8 +6,18 @@
 
 void Registration_Message::Prepare_Data() {
     m_user = std::make_shared<User>();
-    auto username = Unpack_Json("username", m_data);
-    auto telephone_number = Unpack_Json("telephone_number", m_data);
+    auto map = JSONToMap(m_data);
+    auto finder = [&](const std::string& key) {
+        auto it = map.find(key);
+        if (it != map.end()) {
+            return it->second;
+        } else {
+            return std::string("Key not found");
+        }
+    };
+
+    auto username = finder("username");
+    auto telephone_number = finder("telephone_number");
     if (!(username == "Key not found" || username == "Error during JSON deserialization"))
         m_user->Set_UserName(username);
     if (!(telephone_number == "Key not found" || telephone_number == "Error during JSON deserialization"))
@@ -15,7 +25,7 @@ void Registration_Message::Prepare_Data() {
 
     m_password = std::make_shared<Password>();
 
-    auto password = Unpack_Json("password", m_data);
+    auto password = finder("password");
     if (!(password == "Key not found" || password == "Error during JSON deserialization"))
         m_password->Set_Password(password);
 }

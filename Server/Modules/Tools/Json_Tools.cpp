@@ -34,3 +34,27 @@ std::string Unpack_Json(const std::string& type_of_variable, const std::string& 
     }
 }
 
+std::map<std::string, std::string> JSONToMap(const std::string& json_str) {
+    std::map<std::string, std::string> result_map;
+
+    try {
+        auto json = boost::json::parse(json_str);
+        for (const auto& item : json.as_object()) {
+            result_map[item.key()] = item.value().as_string().c_str();
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error during JSON deserialization: " << e.what() << std::endl;
+    }
+
+    return result_map;
+}
+
+std::string MapToJSON(const std::map<std::string, std::string>& data) {
+    boost::json::object json_obj;
+    for (const auto& pair : data) {
+        json_obj[pair.first] = pair.second;
+    }
+    std::stringstream ss;
+    ss << json_obj;
+    return ss.str();
+}

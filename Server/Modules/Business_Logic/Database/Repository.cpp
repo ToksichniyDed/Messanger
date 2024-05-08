@@ -14,14 +14,20 @@ bool Repository::User_Registration(std::shared_ptr<IDatabase_Connector> connecto
     password->Set_Hash(Create_Hash_With_Salt(password->Get_Password(),password->Get_Salt()));
 
     User db_user = m_user_handler->Read_User_By_UserName(*user);
+    m_user_handler->Disconnect_Connector();
+
+    m_password_handler->Set_Connector(connector);
     password->Set_UserID(db_user.Get_UserID());
 
     if(!m_password_handler->Create(*password)){
+        m_password_handler->Disconnect_Connector();
+        m_user_handler->Set_Connector(connector);
         m_user_handler->Delete_User(db_user);
+        m_user_handler->Disconnect_Connector();
         return false;
     }
 
-    m_user_handler->Disconnect_Connector();
+    m_password_handler->Disconnect_Connector();
 
     return true;
 }

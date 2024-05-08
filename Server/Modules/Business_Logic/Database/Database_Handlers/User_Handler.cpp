@@ -10,8 +10,8 @@ bool User_Handler::Create_User(User& new_user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("INSERT INTO User (telephonenumber) VALUES ('$1');",
-                                                            new_user.Get_Telephone_Number());
+        transaction.exec_params("INSERT INTO \"User\" (username, telephonenumber) VALUES ($1,$2);", new_user.Get_UserName().c_str(),
+                                                            new_user.Get_Telephone_Number().c_str());
 
         transaction.commit();
 
@@ -35,8 +35,8 @@ User User_Handler::Read_User_By_Telephone_Number(User& user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
-        pqxx::result query_result = transaction.exec_params("SELECT * FROM User WHERE telephonenumber = '$1';",
-                                                            (user.Get_Telephone_Number()));
+        pqxx::result query_result = transaction.exec_params("SELECT * FROM \"User\" WHERE telephonenumber = $1;",
+                                                            user.Get_Telephone_Number());
 
         transaction.commit();
 
@@ -60,8 +60,8 @@ bool User_Handler::Update_UserName(User &user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("UPDATE User Set UserName = '$1' WHERE UserID = '$2';",
-                                (user.Get_UserName(), std::to_string(user.Get_UserID())));
+        transaction.exec_params("UPDATE \"User\" Set UserName = $1 WHERE UserID = $2;",
+                                user.Get_UserName(), std::to_string(user.Get_UserID()));
 
         transaction.commit();
         return true;
@@ -84,7 +84,7 @@ bool User_Handler::Delete_User(User &user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("DELETE FROM User WHERE UserID = '$1';", std::to_string(user.Get_UserID()));
+        transaction.exec_params("DELETE FROM \"User\" WHERE UserID = $1;", std::to_string(user.Get_UserID()));
 
         transaction.commit();
 
@@ -108,7 +108,7 @@ User User_Handler::Read_User_By_UserName(User& user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
-        pqxx::result query_result = transaction.exec_params("SELECT * FROM User WHERE username = '$1';",
+        pqxx::result query_result = transaction.exec_params("SELECT * FROM \"User\" WHERE username = $1;",
                                                             (user.Get_UserName()));
 
         transaction.commit();
