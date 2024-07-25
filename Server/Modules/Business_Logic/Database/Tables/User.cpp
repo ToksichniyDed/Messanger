@@ -29,3 +29,11 @@ void User::Set_Telephone_Number(std::string telephone_number) {
 std::string User::Get_Telephone_Number() const {
     return m_telephone_number;
 }
+
+void User::Set_Password_Id(int passwordid) {
+    m_password_id = passwordid;
+}
+
+int User::Get_Password_Id() const {
+    return m_password_id;
+}

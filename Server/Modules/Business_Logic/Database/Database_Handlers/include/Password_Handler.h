@@ -17,15 +17,15 @@ protected:
     std::unique_ptr<PasswordMapper> m_mapper = nullptr;
 
 public:
-    explicit Password_Handler() = default;
+    explicit Password_Handler();
     explicit Password_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<PasswordMapper> mapper);
     void Set_Connector(std::shared_ptr<IDatabase_Connector> connector);
     void Disconnect_Connector();
-    bool Create(Password& password);
-    Password Read_By_UserID(Password& password);
-    bool Update_Salt(Password& password);
-    bool Update_Hash(Password& password);
-    bool Delete(Password& password);
+    int Create(Password& password, pqxx::work& transaction);
+    Password Read_By_PasswordID(int passwordid);
+    bool Update_Salt(Password& password, User& user);
+    bool Update_Hash(Password& password, User& user);
+    bool Delete(Password& password, User& user);
 };
 
 

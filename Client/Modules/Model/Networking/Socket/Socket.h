@@ -12,7 +12,6 @@
 #include <boost/di.hpp>
 
 #include "Socket_Manager.h"
-#include "../Message_Queue/Message_To_Server_Queue.h"
 #include "../Message_Queue/Message_From_Server_Queue.h"
 #include "../../../Tools/TFactory.h"
 #include "../../../Tools/Json_Tools.h"

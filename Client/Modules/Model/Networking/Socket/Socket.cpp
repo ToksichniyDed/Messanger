@@ -9,7 +9,6 @@ Socket::instance_socket Socket::m_instance = nullptr;
 Socket::Socket(std::shared_ptr<Message_From_Server_Queue> message_queue,
                std::unique_ptr<Socket_Manager> socket_manager,
                std::unique_ptr<TFactory<std::string, IMessage>> factory){
-//               std::shared_ptr<Message_To_Server_Queue> message_to_queue) {
     m_io_context = std::make_shared<boost::asio::io_context>();
     m_socket = std::make_shared<boost::asio::ip::tcp::socket>(*m_io_context);
     m_socket_buffer = std::make_shared<boost::asio::streambuf>();
@@ -27,15 +26,6 @@ Socket::Socket(std::shared_ptr<Message_From_Server_Queue> message_queue,
         );
         m_message_from_server_queue = injector.create<std::shared_ptr<Message_From_Server_Queue>>();
     }
-
-//    if (message_to_queue)
-//        m_message_to_server_queue = std::move(message_to_queue);
-//    else {
-//        auto injector = boost::di::make_injector(
-//                boost::di::bind<Message_To_Server_Queue>.to([] { return Message_To_Server_Queue::Instance(); })
-//        );
-//        m_message_to_server_queue = injector.create<std::shared_ptr<Message_To_Server_Queue>>();
-//    }
 
     if (factory)
         m_message_factory = std::move(factory);
@@ -64,8 +54,16 @@ void Socket::Listen_Socket() {
                                     std::cout << "Read " << bytes_transferred << " bytes\n";
                                     Listen_Socket();
                                 } else {
-                                    //std::cerr << "Read error: " << error.message() << "\n";
-                                    Listen_Socket();
+                                    if (error == boost::asio::error::eof) {
+                                       // Соединение закрыто чисто
+                                       std::cerr << "Connection closed by peer.\n";
+                                   } else if (error == boost::asio::error::operation_aborted) {
+                                       // Операция была прервана (например, при завершении работы сокета)
+                                       std::cerr << "Operation aborted.\n";
+                                   } else {
+                                       // Другие ошибки
+                                       std::cerr << "Read error: " << error.message() << "\n";
+                                   }
                                 }
                             });
 }

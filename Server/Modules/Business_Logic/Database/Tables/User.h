@@ -11,8 +11,9 @@
 class User {
 protected:
     int m_user_id = 0;
-    std::string m_username = "";
-    std::string m_telephone_number = "";
+    int m_password_id = 0;
+    std::string m_username;
+    std::string m_telephone_number;
 
 public:
     void Set_UserID(int userid);
@@ -23,6 +24,9 @@ public:
 
     void Set_Telephone_Number(std::string telephone_number);
     std::string Get_Telephone_Number() const;
+
+    void Set_Password_Id(int passwordid);
+    int Get_Password_Id() const;
 };
 
 

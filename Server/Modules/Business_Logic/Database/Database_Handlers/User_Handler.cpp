@@ -6,27 +6,27 @@
 
 #include "include/User_Handler.h"
 
-bool User_Handler::Create_User(User& new_user) {
+#include "../../../Tools/OpenSSL_Tools.h"
+#include "../Tables/Password.h"
+
+bool User_Handler::Create_User(User& new_user, int passwordid, pqxx::work& transaction) {
     try {
-        pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("INSERT INTO \"User\" (username, telephonenumber) VALUES ($1,$2);", new_user.Get_UserName().c_str(),
-                                                            new_user.Get_Telephone_Number().c_str());
-
-        transaction.commit();
+        transaction.exec_params("INSERT INTO \"User\" (username, telephonenumber, passwordid) VALUES ($1,$2,$3);", new_user.Get_UserName().c_str(),
+                                                            new_user.Get_Telephone_Number().c_str(), std::to_string(passwordid));
 
         return true;
     } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback: " << e.what() << std::endl;
+        std::cerr << "Transaction rollback User_Handler::Create_User(): " << e.what() << std::endl;
         return false;
     } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error: " << e.what() << std::endl;
+        std::cerr << "SQL-error User_Handler::Create_User(): " << e.what() << std::endl;
         return false;
     } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed: " << e.what() << std::endl;
+        std::cerr << "Connection failed User_Handler::Create_User(): " << e.what() << std::endl;
         return false;
     } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Error User_Handler::Create_User(): " << e.what() << std::endl;
         return false;
     }
 }
@@ -42,16 +42,16 @@ User User_Handler::Read_User_By_Telephone_Number(User& user) {
 
         return std::move(m_mapper->Mapping(query_result));
     } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback: " << e.what() << std::endl;
+        std::cerr << "Transaction rollback User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
         return std::move(*new User());
     } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error: " << e.what() << std::endl;
+        std::cerr << "SQL-error User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
         return std::move(*new User());
     } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed: " << e.what() << std::endl;
+        std::cerr << "Connection failed User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
         return std::move(*new User());
     } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Error User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
         return std::move(*new User());
     }
 }
@@ -66,16 +66,16 @@ bool User_Handler::Update_UserName(User &user) {
         transaction.commit();
         return true;
     } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback: " << e.what() << std::endl;
+        std::cerr << "Transaction rollback User_Handler::Update_UserName(): " << e.what() << std::endl;
         return false;
     } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error: " << e.what() << std::endl;
+        std::cerr << "SQL-error User_Handler::Update_UserName(): " << e.what() << std::endl;
         return false;
     } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed: " << e.what() << std::endl;
+        std::cerr << "Connection failed User_Handler::Update_UserName(): " << e.what() << std::endl;
         return false;
     } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Error User_Handler::Update_UserName(): " << e.what() << std::endl;
         return false;
     }
 }
@@ -90,16 +90,16 @@ bool User_Handler::Delete_User(User &user) {
 
         return true;
     } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback: " << e.what() << std::endl;
+        std::cerr << "Transaction rollback User_Handler::Delete_User(): " << e.what() << std::endl;
         return false;
     } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error: " << e.what() << std::endl;
+        std::cerr << "SQL-error User_Handler::Delete_User(): " << e.what() << std::endl;
         return false;
     } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed: " << e.what() << std::endl;
+        std::cerr << "Connection failed User_Handler::Delete_User(): " << e.what() << std::endl;
         return false;
     } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Error User_Handler::Delete_User(): " << e.what() << std::endl;
         return false;
     }
 }
@@ -115,16 +115,16 @@ User User_Handler::Read_User_By_UserName(User& user) {
 
         return std::move(m_mapper->Mapping(query_result));
     } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback: " << e.what() << std::endl;
+        std::cerr << "Transaction rollback User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
         return std::move(*new User());
     } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error: " << e.what() << std::endl;
+        std::cerr << "SQL-error User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
         return std::move(*new User());
     } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed: " << e.what() << std::endl;
+        std::cerr << "Connection failed User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
         return std::move(*new User());
     } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Error User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
         return std::move(*new User());
     }
 }

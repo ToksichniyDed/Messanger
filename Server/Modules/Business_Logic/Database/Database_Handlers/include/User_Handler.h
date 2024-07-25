@@ -6,6 +6,7 @@
 #define SERVER_USER_HANDLER_H
 
 #include "../../DataMappers/UserMapper.h"
+#include "../../DataMappers/PasswordMapper.h"
 #include "../../Pool/Database_Connector.h"
 
 class User_Handler {
@@ -18,7 +19,7 @@ public:
     explicit User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper);
     void Set_Connector(std::shared_ptr<IDatabase_Connector> connector);
     void Disconnect_Connector();
-    bool Create_User(User& new_user);
+    bool Create_User(User& new_user, int passwordid, pqxx::work& transaction);
     User Read_User_By_Telephone_Number(User& user);
     User Read_User_By_UserName(User& user);
     bool Update_UserName(User& user);

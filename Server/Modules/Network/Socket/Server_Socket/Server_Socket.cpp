@@ -57,7 +57,7 @@ void Server_Socket::Bind_Socket() {
 #endif
 
     try {
-        if (bind(m_server_socket, (struct sockaddr *) &server_address, sizeof(server_address)) == SOCKET_ERROR) {
+        if (bind(m_server_socket, reinterpret_cast<struct sockaddr*>(&server_address), sizeof(server_address)) == SOCKET_ERROR) {
             Close_Socket();
             throw std::runtime_error("Error binding socket to address!");
         }

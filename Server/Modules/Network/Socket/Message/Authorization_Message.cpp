@@ -13,7 +13,7 @@ void Authorization_Message::Prepare_Data() {
     m_user = std::make_shared<User>();
     m_user->Set_UserName(Unpack_Json("username",m_data));
     m_user->Set_Telephone_Number(Unpack_Json("telephone_number",m_data));
-    m_user->Set_UserID(m_password->Get_UserID());
+    m_user->Set_Password_Id(m_password->Get_PasswordID());
 }
 
 std::shared_ptr<User> Authorization_Message::Get_User() {

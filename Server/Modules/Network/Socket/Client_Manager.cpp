@@ -12,7 +12,7 @@ void Client_Manager::Add_New_Client(std::shared_ptr<Client_Socket> clientSocket)
 //Удаление клиента
 void Client_Manager::Remove_Client(int temp) {
     std::cout << "Client with socket: " << *m_connected_clients->At(temp)->Get_Socket() << " disconneted!" << std::endl;
-    m_connected_clients->Erase(temp);
+    m_connected_clients->Optimaze_Pop_Back(temp);
 }
 
 //Метод запускается в отдельном потоке.У него 2 задачи.

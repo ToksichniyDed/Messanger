@@ -30,14 +30,6 @@ std::string Password::Get_Salt() const {
     return m_salt;
 }
 
-void Password::Set_UserID(int user_id) {
-    m_user_id = user_id;
-}
-
-int Password::Get_UserID() const {
-    return m_user_id;
-}
-
 void Password::Set_Password(std::string pass) {
     m_password = pass;
 }

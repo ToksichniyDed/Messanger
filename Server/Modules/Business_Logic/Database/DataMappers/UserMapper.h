@@ -17,6 +17,7 @@ public:
             user.Set_UserID(query_result[0][0].as<int>());
             user.Set_UserName(query_result[0][1].as<std::string>());
             user.Set_Telephone_Number(query_result[0][2].as<std::string>());
+            user.Set_Password_Id((query_result[0][3].as<int>()));
         }
 
         return std::move(user);

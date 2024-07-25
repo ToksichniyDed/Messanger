@@ -9,14 +9,9 @@ int main() {
     system("chcp 65001");
     try {
         auto client = Socket::Instance();
-        //auto client = std::make_unique<Socket>();
         client->Socket_Start();
 
-        auto UI_injector = boost::di::make_injector(
-                boost::di::bind<Message_To_Server_Queue>.to([] {
-                    return Message_To_Server_Queue::Instance();
-                })
-        );
+        auto UI_injector = boost::di::make_injector();
         auto main_view = UI_injector.create<std::unique_ptr<Main_View>>();
         main_view->Start_UI();
     }

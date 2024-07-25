@@ -10,17 +10,13 @@
 class Password {
 protected:
     int m_password_id = 0;
-    int m_user_id = 0;
-    std::string m_hash = "";
-    std::string m_salt = "";
-    std::string m_password = "";
+    std::string m_hash;
+    std::string m_salt;
+    std::string m_password;
 
 public:
     void Set_PasswordID(int password_id);
     int Get_PasswordID() const;
-
-    void Set_UserID(int user_id);
-    int Get_UserID() const;
 
     void Set_Hash(std::string hash);
     std::string Get_Hash() const;

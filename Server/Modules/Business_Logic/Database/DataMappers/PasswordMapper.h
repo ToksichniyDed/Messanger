@@ -16,7 +16,6 @@ public:
 
         if(!query_result.empty()){
             password.Set_PasswordID(query_result[0][0].as<int>());
-            password.Set_UserID(query_result[0][1].as<int>());
             password.Set_Hash(query_result[0][2].as<std::string>());
             password.Set_Salt(query_result[0][3].as<std::string>());
         }

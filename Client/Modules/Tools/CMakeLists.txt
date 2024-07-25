@@ -1,7 +1,7 @@
 add_library(Tools
         Json_Tools.cpp
         OpenSSL_Tools.cpp
-        TFactory.cpp
+        TFactory.h
 )
 
 add_subdirectory(Synchronized)

@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <exception>
+#include <memory>
 
 #ifdef _WIN32
 #include <winsock2.h>
@@ -20,7 +21,7 @@ typedef int MySocketType;
 typedef socklen_t MySocketLenght;
 #endif
 
-#include <memory>
+
 
 //Честно говоря, не обязательный класс интерфейс сокетов, но возможно пригодиться
 
