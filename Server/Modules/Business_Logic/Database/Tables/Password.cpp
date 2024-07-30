@@ -37,3 +37,11 @@ void Password::Set_Password(std::string pass) {
 std::string Password::Get_Password() const {
     return m_password;
 }
+
+bool Password::operator==(const Password &other) const {
+    return m_password_id==other.m_password_id && m_hash == other.m_hash && m_salt==other.m_salt;
+}
+
+bool Password::operator!=(const Password &other) const {
+    return m_password_id!=other.m_password_id && m_hash != other.m_hash && m_salt!=other.m_salt;
+}

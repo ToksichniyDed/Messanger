@@ -12,7 +12,7 @@ int Password_Handler::Create(Password &password, pqxx::work& transaction) {
         password.Set_Salt(Generate_Salt());
         password.Set_Hash(Create_Hash_With_Salt(password.Get_Password(), password.Get_Salt()));
 
-        pqxx::result result = transaction.exec_params("INSERT INTO \"Password\" (hash, salt) VALUES ($1,$2) RETURNING passwordid;",
+        pqxx::result result = transaction.exec_params(R"(INSERT INTO "Account"."Password" (hash, salt) VALUES ($1,$2) RETURNING passwordid;)",
                                 password.Get_Hash(),password.Get_Salt());
 
         if (result.empty()) {

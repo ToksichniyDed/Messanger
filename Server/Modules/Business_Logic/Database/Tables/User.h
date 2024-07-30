@@ -17,16 +17,20 @@ protected:
 
 public:
     void Set_UserID(int userid);
-    int Get_UserID() const;
+    [[nodiscard]] int Get_UserID() const;
 
     void Set_UserName(std::string username);
-    std::string Get_UserName() const;
+    [[nodiscard]] std::string Get_UserName() const;
 
     void Set_Telephone_Number(std::string telephone_number);
-    std::string Get_Telephone_Number() const;
+    [[nodiscard]] std::string Get_Telephone_Number() const;
 
     void Set_Password_Id(int passwordid);
-    int Get_Password_Id() const;
+    [[nodiscard]] int Get_Password_Id() const;
+
+    //Перегрузка для сравнения с пустыми объектам User. Например, при возврате пустого объект при поиске в БД
+    bool operator==(const User& other) const;
+    bool operator!=(const User& other) const;
 };
 
 

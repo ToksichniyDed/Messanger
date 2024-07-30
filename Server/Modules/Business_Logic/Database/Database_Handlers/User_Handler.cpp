@@ -1,18 +1,28 @@
 //
 // Created by Toksichniy_Ded on 20.02.2024.
 //
-
-#include <utility>
-
 #include "include/User_Handler.h"
 
 #include "../../../Tools/OpenSSL_Tools.h"
 #include "../Tables/Password.h"
 
-bool User_Handler::Create_User(User& new_user, int passwordid, pqxx::work& transaction) {
+bool User_Handler::Create_User(const User& new_user, int passwordid, pqxx::work& transaction) {
     try {
+        std::string username = Generate_Random_Username();
 
-        transaction.exec_params("INSERT INTO \"User\" (username, telephonenumber, passwordid) VALUES ($1,$2,$3);", new_user.Get_UserName().c_str(),
+        //Проверка на уникальный username в БД
+        {
+            User temp_user;
+            auto temp_username = username;
+            temp_user.Set_UserName(temp_username);
+            while (*(new User) != Read_User_By_UserName(temp_user)) {
+                temp_username = Generate_Random_Username();
+                username = temp_username;
+                temp_user.Set_UserName(temp_username);
+            }
+        }
+
+        transaction.exec_params(R"(INSERT INTO "Account"."User" (username, telephonenumber, passwordid) VALUES ($1,$2,$3);)", username.c_str(),
                                                             new_user.Get_Telephone_Number().c_str(), std::to_string(passwordid));
 
         return true;
@@ -31,7 +41,7 @@ bool User_Handler::Create_User(User& new_user, int passwordid, pqxx::work& trans
     }
 }
 
-User User_Handler::Read_User_By_Telephone_Number(User& user) {
+User User_Handler::Read_User_By_Telephone_Number(const User& user, pqxx::work& transaction) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
@@ -56,7 +66,7 @@ User User_Handler::Read_User_By_Telephone_Number(User& user) {
     }
 }
 
-bool User_Handler::Update_UserName(User &user) {
+bool User_Handler::Update_UserName(const User &user, pqxx::work& transaction) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
@@ -80,7 +90,7 @@ bool User_Handler::Update_UserName(User &user) {
     }
 }
 
-bool User_Handler::Delete_User(User &user) {
+bool User_Handler::Delete_User(const User &user, pqxx::work& transaction) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
@@ -104,11 +114,11 @@ bool User_Handler::Delete_User(User &user) {
     }
 }
 
-User User_Handler::Read_User_By_UserName(User& user) {
+User User_Handler::Read_User_By_UserName(const User& user) {
     try {
         pqxx::work transaction(*m_connector->Connector());
 
-        pqxx::result query_result = transaction.exec_params("SELECT * FROM \"User\" WHERE username = $1;",
+        pqxx::result query_result = transaction.exec_params(R"(SELECT * FROM "Account"."User" WHERE username = $1;)",
                                                             (user.Get_UserName()));
 
         transaction.commit();
@@ -127,6 +137,18 @@ User User_Handler::Read_User_By_UserName(User& user) {
         std::cerr << "Error User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
         return std::move(*new User());
     }
+}
+
+std::string User_Handler::Generate_Random_Username(int length) {
+    const std::string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<> dist(0, chars.size() - 1);
+
+    std::string username;
+    std::generate_n(std::back_inserter(username), length, [&]() { return chars[dist(generator)]; });
+
+    return username;
 }
 
 User_Handler::User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper){

@@ -19,11 +19,11 @@ endif()
 add_compile_definitions(DB_USER="${DB_USER}" DB_PASSWORD="${DB_PASSWORD}" DB_HOST="${DB_HOST}" DB_PORT="${DB_PORT}")
 
 if(WIN32)
-    target_link_libraries(Pool PUBLIC Tools ${PQXX_LINK_LIBRARIES} ${PostgreSQL_LIBRARY} ws2_32)
+    target_link_libraries(Pool PUBLIC Tools ${PQXX_LINK_LIBRARIES} ${PostgreSQL_LIBRARY} libpqxx::pqxx ws2_32)
 else()
-    target_link_libraries(Pool PUBLIC Tools ${PQXX_LINK_LIBRARIES} ${PostgreSQL_LIBRARY})
+    target_link_libraries(Pool PUBLIC Tools ${PQXX_LINK_LIBRARIES} ${PostgreSQL_LIBRARY} libpqxx::pqxx)
 endif()
-#target_include_directories(Pool PUBLIC ${PQXX_INCLUDE_DIRS})
+target_include_directories(Pool PUBLIC ${PQXX_INCLUDE_DIRS})
 
 
 

@@ -37,3 +37,13 @@ void User::Set_Password_Id(int passwordid) {
 int User::Get_Password_Id() const {
     return m_password_id;
 }
+
+bool User::operator==(const User &other) const{
+    return m_user_id == other.m_user_id && m_username == other.m_username &&
+           m_telephone_number == other.m_telephone_number && m_password_id == other.m_password_id;
+}
+
+bool User::operator!=(const User &other) const {
+    return m_user_id != other.m_user_id && m_username != other.m_username &&
+       m_telephone_number != other.m_telephone_number && m_password_id != other.m_password_id;
+}

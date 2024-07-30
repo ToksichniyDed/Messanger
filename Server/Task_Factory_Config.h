@@ -9,7 +9,7 @@
 #include "Modules/Business_Logic/Task/include/Authorization_Task_Creator.h"
 #include "Modules/Business_Logic/Task/include/Registration_Task_Creator.h"
 
-std::unique_ptr<Task_Factory> Task_Factory_Config(std::unique_ptr<Pool_Connection> poolConnection){
+inline std::unique_ptr<Task_Factory> Task_Factory_Config(std::unique_ptr<Pool_Connection> poolConnection){
 
     auto task_factory = std::make_unique<Task_Factory>(std::move(poolConnection), std::make_unique<Task_Factory::Task_Map>()) ;
 

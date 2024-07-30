@@ -16,16 +16,19 @@ protected:
 
 public:
     void Set_PasswordID(int password_id);
-    int Get_PasswordID() const;
+    [[nodiscard]] int Get_PasswordID() const;
 
     void Set_Hash(std::string hash);
-    std::string Get_Hash() const;
+    [[nodiscard]] std::string Get_Hash() const;
 
     void Set_Salt(std::string salt);
-    std::string Get_Salt() const;
+    [[nodiscard]] std::string Get_Salt() const;
 
     void Set_Password(std::string pass);
-    std::string Get_Password()const;
+    [[nodiscard]] std::string Get_Password()const;
+
+    bool operator==(const Password& other) const;
+    bool operator!=(const Password& other) const;
 };
 
 

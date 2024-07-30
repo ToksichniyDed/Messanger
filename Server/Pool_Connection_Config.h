@@ -9,7 +9,7 @@
 #ifndef SERVER_POOL_CONNECTION_CONFIG_H
 #define SERVER_POOL_CONNECTION_CONFIG_H
 
-std::unique_ptr<Pool_Connection> Pool_Connection_Config(){
+inline std::unique_ptr<Pool_Connection> Pool_Connection_Config(){
     auto injector = boost::di::make_injector(
             boost::di::bind<int>.to(5),
             boost::di::bind<IDatabase_Connector_Factory>.to<POSGRES_Database_Connector_Factory>());
