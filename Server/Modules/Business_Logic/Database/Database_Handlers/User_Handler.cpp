@@ -3,10 +3,7 @@
 //
 #include "include/User_Handler.h"
 
-#include "../../../Tools/OpenSSL_Tools.h"
-#include "../Tables/Password.h"
-
-bool User_Handler::Create_User(const User& new_user, int passwordid, pqxx::work& transaction) {
+bool User_Handler::Create_User(const User &new_user, int passwordid, pqxx::work &transaction) {
     try {
         std::string username = Generate_Random_Username();
 
@@ -15,129 +12,142 @@ bool User_Handler::Create_User(const User& new_user, int passwordid, pqxx::work&
             User temp_user;
             auto temp_username = username;
             temp_user.Set_UserName(temp_username);
-            while (*(new User) != Read_User_By_UserName(temp_user)) {
+            while (*(new User) != Read_User_By_UserName(temp_user, &transaction)) {
                 temp_username = Generate_Random_Username();
                 username = temp_username;
                 temp_user.Set_UserName(temp_username);
             }
         }
 
-        transaction.exec_params(R"(INSERT INTO "Account"."User" (username, telephonenumber, passwordid) VALUES ($1,$2,$3);)", username.c_str(),
-                                                            new_user.Get_Telephone_Number().c_str(), std::to_string(passwordid));
+        transaction.exec_params(
+            R"(INSERT INTO "Account"."User" (username, telephonenumber, passwordid) VALUES ($1,$2,$3);)",
+            username.c_str(),
+            new_user.Get_Telephone_Number().c_str(), std::to_string(passwordid));
 
         return true;
-    } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback User_Handler::Create_User(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error User_Handler::Create_User(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed User_Handler::Create_User(): " << e.what() << std::endl;
-        return false;
-    } catch (const std::exception &e) {
-        std::cerr << "Error User_Handler::Create_User(): " << e.what() << std::endl;
+    } catch (const std::exception &Error) {
+        std::cerr << "Error User_Handler::Create_User(): " << Error.what() << std::endl;
         return false;
     }
 }
 
-User User_Handler::Read_User_By_Telephone_Number(const User& user, pqxx::work& transaction) {
+User User_Handler::Read_User_By_Telephone_Number(const User &user, pqxx::work *transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
+    }
+
     try {
-        pqxx::work transaction(*m_connector->Connector());
+        pqxx::result query_result = transaction->exec_params(
+            R"(SELECT * FROM "Account"."User" WHERE telephonenumber = $1;)",
+            user.Get_Telephone_Number()
+        );
 
-        pqxx::result query_result = transaction.exec_params("SELECT * FROM \"User\" WHERE telephonenumber = $1;",
-                                                            user.Get_Telephone_Number());
-
-        transaction.commit();
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
 
         return std::move(m_mapper->Mapping(query_result));
-    } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
-        return std::move(*new User());
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
-        return std::move(*new User());
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
-        return std::move(*new User());
-    } catch (const std::exception &e) {
-        std::cerr << "Error User_Handler::Read_User_By_Telephone_Number(): " << e.what() << std::endl;
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error User_Handler::Read_User_By_Telephone_Number(): " << Error.what() << std::endl;
         return std::move(*new User());
     }
 }
 
-bool User_Handler::Update_UserName(const User &user, pqxx::work& transaction) {
+
+bool User_Handler::Update_UserName(const User& user, pqxx::work* transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
+    }
+
     try {
-        pqxx::work transaction(*m_connector->Connector());
+        transaction->exec_params(
+            R"(UPDATE "Account"."User" SET username = $1 WHERE userid = $2;)",
+            user.Get_UserName(), user.Get_UserID()
+        );
 
-        transaction.exec_params("UPDATE \"User\" Set UserName = $1 WHERE UserID = $2;",
-                                user.Get_UserName(), std::to_string(user.Get_UserID()));
-
-        transaction.commit();
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
         return true;
-    } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback User_Handler::Update_UserName(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error User_Handler::Update_UserName(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed User_Handler::Update_UserName(): " << e.what() << std::endl;
-        return false;
-    } catch (const std::exception &e) {
-        std::cerr << "Error User_Handler::Update_UserName(): " << e.what() << std::endl;
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error User_Handler::Update_UserName(): " << Error.what() << std::endl;
         return false;
     }
 }
 
-bool User_Handler::Delete_User(const User &user, pqxx::work& transaction) {
+
+bool User_Handler::Delete_User(const User& user, pqxx::work* transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
+    }
+
     try {
-        pqxx::work transaction(*m_connector->Connector());
+        transaction->exec_params(
+            R"(DELETE FROM "Account"."User" WHERE userid = $1;)",
+            user.Get_UserID()
+        );
 
-        transaction.exec_params("DELETE FROM \"User\" WHERE UserID = $1;", std::to_string(user.Get_UserID()));
-
-        transaction.commit();
-
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
         return true;
-    } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback User_Handler::Delete_User(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error User_Handler::Delete_User(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed User_Handler::Delete_User(): " << e.what() << std::endl;
-        return false;
-    } catch (const std::exception &e) {
-        std::cerr << "Error User_Handler::Delete_User(): " << e.what() << std::endl;
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error User_Handler::Delete_User(): " << Error.what() << std::endl;
         return false;
     }
 }
 
-User User_Handler::Read_User_By_UserName(const User& user) {
+
+User User_Handler::Read_User_By_UserName(const User& user, pqxx::work* transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
+    }
+
     try {
-        pqxx::work transaction(*m_connector->Connector());
+        pqxx::result query_result = transaction->exec_params(
+            R"(SELECT * FROM "Account"."User" WHERE username = $1;)",
+            user.Get_UserName()
+        );
 
-        pqxx::result query_result = transaction.exec_params(R"(SELECT * FROM "Account"."User" WHERE username = $1;)",
-                                                            (user.Get_UserName()));
-
-        transaction.commit();
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
 
         return std::move(m_mapper->Mapping(query_result));
-    } catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
-        return std::move(*new User());
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
-        return std::move(*new User());
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
-        return std::move(*new User());
-    } catch (const std::exception &e) {
-        std::cerr << "Error User_Handler::Read_User_By_UserName(): " << e.what() << std::endl;
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error User_Handler::Read_User_By_UserName(): " << Error.what() << std::endl;
         return std::move(*new User());
     }
 }
+
 
 std::string User_Handler::Generate_Random_Username(int length) {
     const std::string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -151,14 +161,14 @@ std::string User_Handler::Generate_Random_Username(int length) {
     return username;
 }
 
-User_Handler::User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper){
-    if(connector)
+User_Handler::User_Handler(std::shared_ptr<IDatabase_Connector> connector, std::unique_ptr<UserMapper> mapper) {
+    if (connector)
         m_connector = connector;
 
-    if(mapper)
+    if (mapper)
         m_mapper = std::move(mapper);
 
-    if(!(m_connector && m_mapper))
+    if (!(m_connector && m_mapper))
         throw std::runtime_error("Failed create User_Handler!");
 }
 

@@ -6,7 +6,6 @@
 #define SERVER_USER_HANDLER_H
 
 #include <random>
-#include <utility>
 
 #include "../../DataMappers/UserMapper.h"
 #include "../../DataMappers/PasswordMapper.h"
@@ -25,10 +24,10 @@ public:
     void Set_Connector(std::shared_ptr<IDatabase_Connector> connector);
     void Disconnect_Connector();
     bool Create_User(const User& new_user, int passwordid, pqxx::work& transaction);
-    User Read_User_By_Telephone_Number(const User& user, pqxx::work& transaction);
-    User Read_User_By_UserName(const User& user, pqxx::work& transaction);
-    bool Update_UserName(const User& user, pqxx::work& transaction);
-    bool Delete_User(const User& user, pqxx::work& transaction);
+    User Read_User_By_Telephone_Number(const User& user, pqxx::work *transaction = nullptr);
+    User Read_User_By_UserName(const User& user, pqxx::work *transaction = nullptr);
+    bool Update_UserName(const User& user, pqxx::work *transaction = nullptr);
+    bool Delete_User(const User& user, pqxx::work *transaction = nullptr);
 };
 
 

@@ -21,93 +21,123 @@ int Password_Handler::Create(Password &password, pqxx::work& transaction) {
 
         return result[0][0].as<int>();
     }
-    catch (const pqxx::transaction_rollback &e) {
-    std::cerr << "Transaction rollback Password_Handler::Create(): " << e.what() << std::endl;
-        return -1;
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error Password_Handler::Create(): " << e.what() << std::endl;
-        return -1;
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed Password_Handler::Create(): " << e.what() << std::endl;
-        return -1;
-    } catch (const std::exception &e) {
-        std::cerr << "Error Password_Handler::Create(): " << e.what() << std::endl;
+    catch (const std::exception &Error) {
+        std::cerr << "Error Password_Handler::Create(): " << Error.what() << std::endl;
         return -1;
     }
 }
 
-bool Password_Handler::Update_Salt(Password &password, User& user) {
-    try{
-        pqxx::work transaction(*m_connector->Connector());
+bool Password_Handler::Update_Salt(Password &password, User &user, pqxx::work *transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
+    }
 
-        transaction.exec_params("UPDATE \"Password\" SET salt = $2 WHERE userid = $1;",
-                                std::to_string(user.Get_UserID()),password.Get_Salt());
+    try {
+        transaction->exec_params(R"(UPDATE "Account"."Password" SET salt = $2 WHERE userid = $1;)",
+                                 user.Get_UserID(), password.Get_Salt());
+
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
 
         return true;
-    }
-    catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback Password_Handler::Update_Salt(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error Password_Handler::Update_Salt(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed Password_Handler::Update_Salt(): " << e.what() << std::endl;
-        return false;
-    } catch (const std::exception &e) {
-        std::cerr << "Error Password_Handler::Update_Salt(): " << e.what() << std::endl;
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error Password_Handler::Update_Salt(): " << Error.what() << std::endl;
         return false;
     }
 }
 
-bool Password_Handler::Delete(Password &password, User& user) {
-    try{
-        pqxx::work transaction(*m_connector->Connector());
 
-        transaction.exec_params("DELETE FROM \"Password\" WHERE userid = $1;",
-                                std::to_string(user.Get_UserID()));
-
-        transaction.commit();
-        return true;
+bool Password_Handler::Update_Hash(Password &password, User &user, pqxx::work *transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
     }
-    catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback Password_Handler::Delete(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error Password_Handler::Delete(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed Password_Handler::Delete(): " << e.what() << std::endl;
-        return false;
-    } catch (const std::exception &e) {
-        std::cerr << "Error Password_Handler::Delete(): " << e.what() << std::endl;
-        return false;
-    }
-}
 
-bool Password_Handler::Update_Hash(Password &password, User& user) {
-    try{
-        pqxx::work transaction(*m_connector->Connector());
+    try {
+        transaction->exec_params(R"(UPDATE "Account"."Password" SET hash = $2 WHERE userid = $1;)",
+                                 user.Get_UserID(), password.Get_Hash());
 
-        transaction.exec_params("UPDATE \"Password\" SET hash = $2 WHERE userid = $1;",
-                                std::to_string(user.Get_UserID()),password.Get_Hash());
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
 
         return true;
-    }
-    catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback Password_Handler::Update_Hash(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error Password_Handler::Update_Hash(): " << e.what() << std::endl;
-        return false;
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed Password_Handler::Update_Hash(): " << e.what() << std::endl;
-        return false;
-    } catch (const std::exception &e) {
-        std::cerr << "Error Password_Handler::Update_Hash(): " << e.what() << std::endl;
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error Password_Handler::Update_Hash(): " << Error.what() << std::endl;
         return false;
     }
 }
+
+
+bool Password_Handler::Delete(Password &password, User &user, pqxx::work *transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
+    }
+
+    try {
+        transaction->exec_params(R"(DELETE FROM "Account"."Password" WHERE userid = $1;)", user.Get_UserID());
+
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
+
+        return true;
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error Password_Handler::Delete(): " << Error.what() << std::endl;
+        return false;
+    }
+}
+
+
+
+Password Password_Handler::Read_By_PasswordID(int passwordid, pqxx::work *transaction) {
+    bool own_transaction = false;
+    if (!transaction) {
+        own_transaction = true;
+        transaction = new pqxx::work(*m_connector->Connector());
+    }
+
+    try {
+        pqxx::result query_result = transaction->exec_params(R"(SELECT * FROM "Account"."Password" WHERE passwordid = $1;)",
+                                                             passwordid);
+
+        if (own_transaction) {
+            transaction->commit();
+            delete transaction;
+        }
+
+        return std::move(m_mapper->Mapping(query_result));
+    } catch (const std::exception &Error) {
+        transaction->abort();
+        if (own_transaction) {
+            delete transaction;
+        }
+        std::cerr << "Error Password_Handler::Read_By_PasswordID(): " << Error.what() << std::endl;
+        return std::move(*new Password());
+    }
+}
+
 
 void Password_Handler::Set_Connector(std::shared_ptr<IDatabase_Connector> connector) {
     m_connector = std::move(connector);
@@ -115,34 +145,6 @@ void Password_Handler::Set_Connector(std::shared_ptr<IDatabase_Connector> connec
 
 void Password_Handler::Disconnect_Connector() {
     m_connector = nullptr;
-}
-
-Password_Handler::Password_Handler() {
-}
-
-Password Password_Handler::Read_By_PasswordID(int passwordid) {
-    try{
-        pqxx::work transaction(*m_connector->Connector());
-
-        pqxx::result query_result = transaction.exec_params("SELECT * FROM \"Password\" WHERE userid = $1;",
-                                std::to_string(passwordid));
-
-        transaction.commit();
-        return std::move(m_mapper->Mapping(query_result));
-    }
-    catch (const pqxx::transaction_rollback &e) {
-        std::cerr << "Transaction rollback Password_Handler::Read_By_PasswordID(): " << e.what() << std::endl;
-        return std::move(*new Password());
-    } catch (const pqxx::sql_error &e) {
-        std::cerr << "SQL-error Password_Handler::Read_By_PasswordID(): " << e.what() << std::endl;
-        return std::move(*new Password());
-    } catch (const pqxx::broken_connection &e) {
-        std::cerr << "Connection failed Password_Handler::Read_By_PasswordID(): " << e.what() << std::endl;
-        return std::move(*new Password());
-    } catch (const std::exception &e) {
-        std::cerr << "Error Password_Handler::Read_By_PasswordID(): " << e.what() << std::endl;
-        return std::move(*new Password());
-    }
 }
 
 Password_Handler::Password_Handler(std::shared_ptr<IDatabase_Connector> connector,

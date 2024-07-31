@@ -9,18 +9,28 @@ bool Repository::User_Registration(std::shared_ptr<IDatabase_Connector> connecto
 
     pqxx::work transaction(*connector->Connector());
 
-    auto passwordid = m_password_handler->Create(*password, transaction);
+    try {
+        auto passwordid = m_password_handler->Create(*password, transaction);
 
-    if(passwordid<0)
+        if (passwordid < 0) {
+            transaction.abort();
+            return false;
+        }
+
+        if (!m_user_handler->Create_User(*user, passwordid, transaction)) {
+            transaction.abort();
+            return false;
+        }
+
+        m_user_handler->Disconnect_Connector();
+
+        transaction.commit();
+        return true;
+    } catch (const std::exception &error) {
+        transaction.abort();
+        std::cerr << "Error Repository::User_Registration(): " << error.what() << std::endl;
         return false;
-
-    if(!m_user_handler->Create_User(*user,passwordid, transaction))
-        return false;
-
-    m_user_handler->Disconnect_Connector();
-
-    transaction.commit();
-    return true;
+    }
 }
 
 bool Repository::User_Authorization(std::shared_ptr<IDatabase_Connector> connector, std::shared_ptr<User> user,  std::shared_ptr<Password> password) {
